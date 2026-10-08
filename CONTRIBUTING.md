@@ -40,14 +40,39 @@ Dictation goes straight into someone's email or chat, often without a second loo
 merged when it:
 
 - does one job, named in the first sentence of its description;
-- keeps names, numbers and dates exactly as given, and adds nothing that was not said;
-- writes in the language of the text;
+- keeps every name, number, date and fact as given, in the language of the text;
 - writes plain text unless the destination renders markdown;
-- never asks the model to explain itself, greet the reader, or add a sign-off, emoji or call to
-  action the speaker did not say;
-- handles its edge cases in the instructions (a very short input, nothing to act on).
+- handles its edge cases in the instructions (a very short input, nothing to act on);
+- passes the writing rules below.
 
-Most skills here end with the same fidelity sentence. Keep it.
+## Writing a skill
+
+A skill is read by a model, once per dictation, with the transcript beside it. These rules come
+from Matt Pocock's [writing-for-agents](https://github.com/mattpocock/skills) skill; the skills
+here follow them.
+
+1. **Open with the job and the reader.** One sentence: what to produce and who it is for. "Write a
+   team chat message a colleague can act on at a glance."
+2. **Number the steps** when the output has a shape (greeting, body, sign-off). A flat paragraph
+   of rules suits a style skill such as Professional.
+3. **End on a check.** A `Check:` line the model can test its draft against, as exhaustive as the
+   job allows: "every task in the text is one item, and every item is one task" beats "make a
+   good list".
+4. **Say what to do.** "Keep the hashtags the speaker said, and only those" lands better than
+   "never add hashtags": naming a banned thing makes it more likely. Keep a prohibition only when
+   it has no positive form, and pair it with the target.
+5. **Use a strong word once** in place of a sentence that circles it: tight, faithful, scannable.
+6. **Leave out what ScribeKey already does.** Before your skill runs, ScribeKey tells the model to
+   return only the finished text, to write down a dictated question rather than answer it, to
+   drop hesitation sounds and corrected false starts, and to write numbers as numerals. Repeating
+   those spends tokens on every run and can argue with the app's own rules.
+7. **Show, briefly, when the shape is unusual.** One short example (To-do list has one) fixes a
+   format better than a paragraph describing it.
+8. **Put long reference in `references/`** and name the file in the instructions, as Unslop does
+   with `references/slop.md`. ScribeKey only sends the files the instructions name.
+
+Every skill here ends with the same fidelity sentence: "Every name, number, date and fact comes
+from the text exactly as given, in the language of the text." Keep it.
 
 ## Licence
 

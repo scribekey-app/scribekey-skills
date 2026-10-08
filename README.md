@@ -68,6 +68,12 @@ and ScribeKey sends the ones named. `scripts/` is not allowed: ScribeKey never r
 `index.json` is generated from the skills by `node scripts/skills.mjs build`. Don't edit it by
 hand.
 
+## Credits
+
+Unslop's pattern list is adapted from the unslop skill in Cursor's
+[pstack plugin](https://github.com/cursor/plugins) (MIT, Lauren Tan). The way these skills are
+written follows Matt Pocock's [writing-for-agents](https://github.com/mattpocock/skills) skill.
+
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md).
