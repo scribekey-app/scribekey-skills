@@ -74,6 +74,14 @@ here follow them.
 Every skill here ends with the same fidelity sentence: "Every name, number, date and fact comes
 from the text exactly as given, in the language of the text." Keep it.
 
+## Testing a skill
+
+`evals/cases.json` holds three sample dictations per skill: a typical one and two edge cases.
+`python3 evals/build.py <scribekey checkout> . out/` writes, for each case, the exact system and
+user messages ScribeKey sends, so you can paste them into any model and compare the result with
+the skill's `Check:` line. Add cases for a new skill, and run them on a small model: ScribeKey's
+default cloud model is a small one, and wording that works there works everywhere.
+
 ## Licence
 
 By contributing you agree your contribution is released under the MIT licence in `LICENSE`.
