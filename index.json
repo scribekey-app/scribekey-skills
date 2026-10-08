@@ -5,7 +5,7 @@
       "name": "agent-prompt",
       "title": "Prompt for an agent",
       "description": "Goal, context, constraints, done when. Turns a spoken request into instructions for a coding or chat agent; use in an AI assistant app.",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "url": "skills/agent-prompt/SKILL.md",
       "apps": [
         "com.openai.chatgpt",
@@ -32,7 +32,7 @@
       "name": "email",
       "title": "Email",
       "description": "Greeting, clear paragraphs, sign-off. Turns dictation into an email body ready to paste; use when writing an email.",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "url": "skills/email/SKILL.md",
       "apps": [
         "com.google.android.gm",
@@ -69,7 +69,7 @@
       "name": "notes",
       "title": "Notes",
       "description": "Heading and bullet points. Turns a spoken brain dump into tidy notes; use in a notes app.",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "url": "skills/notes/SKILL.md",
       "apps": [
         "com.google.android.keep",
@@ -83,7 +83,7 @@
       "name": "professional",
       "title": "Professional",
       "description": "Polished and businesslike. Rewrites dictation in a professional tone without making it stiff; use for clients, managers or anything formal.",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "url": "skills/professional/SKILL.md"
     },
     {
@@ -104,14 +104,14 @@
       "name": "summary",
       "title": "Summary",
       "description": "The key points, shorter. Use when a long dictation needs to become a quick read.",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "url": "skills/summary/SKILL.md"
     },
     {
       "name": "todo-list",
       "title": "To-do list",
       "description": "Tasks you can tick off. Turns spoken errands and commitments into a checklist; use in a to-do app.",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "url": "skills/todo-list/SKILL.md",
       "apps": [
         "com.todoist",
@@ -131,7 +131,7 @@
       "name": "work-chat",
       "title": "Work chat",
       "description": "Short, clear and friendly for a team channel. Turns dictation into a work chat message; use in Slack, Teams or Google Chat.",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "url": "skills/work-chat/SKILL.md",
       "apps": [
         "com.Slack",

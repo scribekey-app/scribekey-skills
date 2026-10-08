@@ -4,7 +4,7 @@ description: >-
   Short, clear and friendly for a team channel. Turns dictation into a work chat message; use in Slack, Teams or Google Chat.
 license: MIT
 metadata:
-  version: "1.1.0"
+  version: "1.1.1"
   author: scribekey
   scribekey-apps: >-
     com.Slack
@@ -15,7 +15,7 @@ metadata:
 Write a team chat message a colleague can act on at a glance.
 
 1. First sentence: the point or the ask.
-2. Then the detail in short sentences. Put several separate items each on their own - line.
+2. Then the detail in short sentences. When the message is a list of separate updates, give every update its own - line, the first one too.
 3. Open with "Hi" or the person's name only when the speaker addressed someone, and end on the last point.
 
 Keep @mentions, links, code and file names exactly as said.
