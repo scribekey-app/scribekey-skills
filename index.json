@@ -1,0 +1,143 @@
+{
+  "name": "ScribeKey skills",
+  "skills": [
+    {
+      "name": "agent-prompt",
+      "title": "Prompt for an agent",
+      "description": "Goal, context, constraints, done when. Turns a spoken request into instructions for a coding or chat agent; use in an AI assistant app.",
+      "version": "1.0.0",
+      "url": "skills/agent-prompt/SKILL.md",
+      "apps": [
+        "com.openai.chatgpt",
+        "com.anthropic.claude",
+        "com.google.android.apps.bard",
+        "ai.perplexity.app.android"
+      ]
+    },
+    {
+      "name": "clean-up",
+      "title": "Clean up",
+      "description": "Punctuation, fillers and false starts. Fixes dictated text without changing what was said; use when the words are right and only the transcription is rough.",
+      "version": "1.0.0",
+      "url": "skills/clean-up/SKILL.md"
+    },
+    {
+      "name": "concise",
+      "title": "Concise",
+      "description": "Same message, fewer words. Cuts repetition and padding from dictation; use when you rambled.",
+      "version": "1.0.0",
+      "url": "skills/concise/SKILL.md"
+    },
+    {
+      "name": "email",
+      "title": "Email",
+      "description": "Greeting, clear paragraphs, sign-off. Turns dictation into an email body ready to paste; use when writing an email.",
+      "version": "1.0.0",
+      "url": "skills/email/SKILL.md",
+      "apps": [
+        "com.google.android.gm",
+        "com.microsoft.office.outlook",
+        "com.samsung.android.email.provider",
+        "ch.protonmail.android",
+        "com.fastmail.app",
+        "com.readdle.spark"
+      ]
+    },
+    {
+      "name": "friendly-message",
+      "title": "Friendly message",
+      "description": "Warm and conversational. Turns dictation into a text message in your own voice; use in messaging apps.",
+      "version": "1.0.0",
+      "url": "skills/friendly-message/SKILL.md",
+      "apps": [
+        "com.whatsapp",
+        "com.google.android.apps.messaging",
+        "com.samsung.android.messaging",
+        "org.thoughtcrime.securesms",
+        "org.telegram.messenger",
+        "com.facebook.orca"
+      ]
+    },
+    {
+      "name": "meeting-notes",
+      "title": "Meeting notes",
+      "description": "Summary, decisions and actions. Turns a spoken meeting recap into notes; use after a meeting or call.",
+      "version": "1.0.0",
+      "url": "skills/meeting-notes/SKILL.md"
+    },
+    {
+      "name": "notes",
+      "title": "Notes",
+      "description": "Heading and bullet points. Turns a spoken brain dump into tidy notes; use in a notes app.",
+      "version": "1.0.0",
+      "url": "skills/notes/SKILL.md",
+      "apps": [
+        "com.google.android.keep",
+        "com.samsung.android.app.notes",
+        "md.obsidian",
+        "notion.id",
+        "com.microsoft.office.onenote"
+      ]
+    },
+    {
+      "name": "professional",
+      "title": "Professional",
+      "description": "Polished and businesslike. Rewrites dictation in a professional tone without making it stiff; use for clients, managers or anything formal.",
+      "version": "1.0.0",
+      "url": "skills/professional/SKILL.md"
+    },
+    {
+      "name": "social-post",
+      "title": "Social post",
+      "description": "One clear post in your voice. Turns dictation into a social media post; use in X, LinkedIn, Bluesky, Threads or Mastodon.",
+      "version": "1.0.0",
+      "url": "skills/social-post/SKILL.md",
+      "apps": [
+        "com.twitter.android",
+        "com.linkedin.android",
+        "xyz.blueskyweb.app",
+        "com.instagram.barcelona",
+        "org.joinmastodon.android"
+      ]
+    },
+    {
+      "name": "summary",
+      "title": "Summary",
+      "description": "The key points, shorter. Use when a long dictation needs to become a quick read.",
+      "version": "1.0.0",
+      "url": "skills/summary/SKILL.md"
+    },
+    {
+      "name": "todo-list",
+      "title": "To-do list",
+      "description": "Tasks you can tick off. Turns spoken errands and commitments into a checklist; use in a to-do app.",
+      "version": "1.0.0",
+      "url": "skills/todo-list/SKILL.md",
+      "apps": [
+        "com.todoist",
+        "com.google.android.apps.tasks",
+        "com.microsoft.todos",
+        "com.ticktick.task"
+      ]
+    },
+    {
+      "name": "unslop",
+      "title": "Unslop",
+      "description": "Plain, human wording without AI or corporate filler. Removes clichés, buzzwords, hedging and stock phrases; use when text sounds generated or padded.",
+      "version": "1.0.0",
+      "url": "https://github.com/stanvx/scribekey-skills/tree/main/skills/unslop"
+    },
+    {
+      "name": "work-chat",
+      "title": "Work chat",
+      "description": "Short, clear and friendly for a team channel. Turns dictation into a work chat message; use in Slack, Teams or Google Chat.",
+      "version": "1.0.0",
+      "url": "skills/work-chat/SKILL.md",
+      "apps": [
+        "com.Slack",
+        "com.microsoft.teams",
+        "com.google.android.apps.dynamite"
+      ]
+    }
+  ]
+}
