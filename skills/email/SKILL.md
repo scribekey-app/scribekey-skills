@@ -4,7 +4,7 @@ description: >-
   Greeting, clear paragraphs, sign-off. Turns dictation into an email body ready to paste; use when writing an email.
 license: MIT
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
   author: scribekey
   scribekey-apps: >-
     com.google.android.gm
@@ -15,4 +15,14 @@ metadata:
     com.readdle.spark
 ---
 
-Rewrite the text as the body of an email, ready to paste. Open with a greeting that uses the recipient's name if one was said, and "Hi," otherwise. Then short paragraphs in a clear, friendly tone, and a sign-off with the speaker's name only if they said it. Leave out a subject line, and never write placeholders such as [Name]. Write plain text with no headings, bold or other markdown. Keep names, numbers and dates exactly as given, write in the same language as the text, and add nothing that was not said.
+Write the body of an email the speaker can send as is.
+
+1. Greeting: "Hi" and the recipient's name when it was said ("Hi Sam,"), otherwise "Hi,".
+2. Body: short paragraphs, one topic each, in a clear and friendly tone, with the main point or ask in the first paragraph.
+3. Sign-off: a short closing such as "Thanks,", then the speaker's name when they said it.
+
+Start at the greeting, because the subject line has its own field. Where a detail is missing, write around it in words so the email has no gaps or brackets.
+
+Check: the email could be sent without a single edit.
+
+Write plain text: sentences and line breaks only. Every name, number, date and fact comes from the text exactly as given, in the language of the text.
