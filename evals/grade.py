@@ -1,6 +1,6 @@
 """Scores run.py results with one mechanical check per case in cases.json, keyed by case id.
 
-Usage: python3 evals/grade.py <results.json>
+Usage: python3 evals/grade.py <results.json>, or import passed() to score one output
 Each check tests the case's "what" and its skill's Check line as far as a string test can: a
 pass is a strong signal, a fail is worth reading. Read the outputs too before changing a skill.
 """
@@ -53,15 +53,27 @@ C = {
  "unslop-2": lambda o: no(o, "hope this message", "reach out", "worth noting", "due to the fact", "commence", "hesitate", "circle back"),
  "unslop-3": lambda o: has(o, "typo", "after lunch"),
 }
-res = json.load(open(sys.argv[1]))
-by = collections.defaultdict(list)
-for r in res:
-    o = (r.get("output") or "").strip()
-    by[r["id"]].append(C[r["id"]](o) if "error" not in r else False)
-tot = sum(sum(v) for v in by.values()); n = sum(len(v) for v in by.values())
-skills = collections.defaultdict(lambda: [0, 0])
-for k, v in by.items():
-    s = k.rsplit("-", 1)[0]; skills[s][0] += sum(v); skills[s][1] += len(v)
-print(f"TOTAL {tot}/{n}")
-print("  ".join(f"{s} {a}/{b}" for s, (a, b) in sorted(skills.items())))
-print("fails:", " ".join(f"{k}:{len(v)-sum(v)}" for k, v in sorted(by.items()) if sum(v) < len(v)))
+CHECKS = C
+
+
+def passed(case_id, output):
+    """True when one output passes its case's check. Other repos import this to score a run."""
+    return C[case_id]((output or "").strip())
+
+
+def main(path):
+    res = json.load(open(path))
+    by = collections.defaultdict(list)
+    for r in res:
+        by[r["id"]].append(passed(r["id"], r.get("output")) if "error" not in r else False)
+    tot = sum(sum(v) for v in by.values()); n = sum(len(v) for v in by.values())
+    skills = collections.defaultdict(lambda: [0, 0])
+    for k, v in by.items():
+        s = k.rsplit("-", 1)[0]; skills[s][0] += sum(v); skills[s][1] += len(v)
+    print(f"TOTAL {tot}/{n}")
+    print("  ".join(f"{s} {a}/{b}" for s, (a, b) in sorted(skills.items())))
+    print("fails:", " ".join(f"{k}:{len(v)-sum(v)}" for k, v in sorted(by.items()) if sum(v) < len(v)))
+
+
+if __name__ == "__main__":
+    main(sys.argv[1])
