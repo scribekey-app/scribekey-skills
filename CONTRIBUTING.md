@@ -8,7 +8,8 @@ New skills and improvements are welcome. One skill per pull request.
    same as the `name` field. Copy an existing skill as a starting point.
 2. Set `license: MIT` and `metadata.version: "1.0.0"`.
 3. Add `metadata.scribekey-apps` only for apps the skill is clearly written for. Use the package
-   name from the app's Play Store link (`id=` in the URL).
+   name from the app's Play Store link (`id=` in the URL). When the skill suits every app of a
+   kind, add `metadata.scribekey-categories: email` or `messaging` as well.
 4. Run `node scripts/skills.mjs build` (Node 18 or later, nothing to install), then commit
    `index.json` with your skill.
 5. Open a pull request with one real dictated example and what the skill returned.
@@ -28,7 +29,8 @@ choose Update.
 - `name` breaks the Agent Skills rules or does not match its folder;
 - the description is over 1,024 characters or the instructions over 20,000;
 - `metadata.version` is not `MAJOR.MINOR.PATCH`, or a changed skill kept its old version;
-- an entry in `scribekey-apps` is not an Android package name;
+- an entry in `scribekey-apps` is not an Android package name, or one in `scribekey-categories` is
+  not `email` or `messaging`;
 - the folder has `scripts/` or anything other than text under `references/` and `assets/`;
 - `index.json` is out of date.
 
