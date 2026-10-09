@@ -79,10 +79,21 @@ from the text exactly as given, in the language of the text." Keep it.
 ## Testing a skill
 
 `evals/cases.json` holds three sample dictations per skill: a typical one and two edge cases.
-`python3 evals/build.py <scribekey checkout> . out/` writes, for each case, the exact system and
-user messages ScribeKey sends, so you can paste them into any model and compare the result with
-the skill's `Check:` line. Add cases for a new skill, and run them on a small model: ScribeKey's
-default cloud model is a small one, and wording that works there works everywhere.
+
+```sh
+python3 evals/build.py <scribekey checkout> . out/prompts   # the exact messages ScribeKey sends
+OPENAI_API_KEY=... python3 evals/run.py out/prompts out/results.json 3
+python3 evals/grade.py out/results.json
+```
+
+`run.py` defaults to ScribeKey's default cloud model, gpt-5-nano with minimal reasoning. Set
+`MODEL` (and `BASE_URL` for another OpenAI-compatible host) to try others. `grade.py` scores each
+case with a string check; read the outputs as well. Add cases and checks for a new skill.
+
+Small models follow the first rules they read over a skill's later ones, so a skill that changes
+the length or shape of the text has to say so plainly: name what to cut ("filler words, even
+though plain clean-up keeps them"), and show the shape in one short example. Wording that works
+on a small model works everywhere.
 
 ## Licence
 
