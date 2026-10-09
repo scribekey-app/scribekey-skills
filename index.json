@@ -65,10 +65,24 @@
       ]
     },
     {
+      "name": "interview-qa",
+      "title": "Interview qa",
+      "description": "Each question paired with its answer. Turns an interview transcript with speakers into questions and answers; use after an interview, podcast or Q&A.",
+      "version": "1.0.0",
+      "url": "skills/interview-qa/SKILL.md"
+    },
+    {
+      "name": "lecture-notes",
+      "title": "Lecture notes",
+      "description": "Study notes by topic, with questions from the room kept apart. Turns a recorded lecture, class or talk into notes; use after a lecture or training session.",
+      "version": "1.0.0",
+      "url": "skills/lecture-notes/SKILL.md"
+    },
+    {
       "name": "meeting-notes",
       "title": "Meeting notes",
-      "description": "Summary, decisions and actions. Turns a spoken meeting recap into notes; use after a meeting or call.",
-      "version": "1.1.1",
+      "description": "Decisions, each person's actions and open questions. Turns a meeting transcript with speakers, or a spoken recap, into notes; use after a meeting, call or class.",
+      "version": "2.0.0",
       "url": "skills/meeting-notes/SKILL.md"
     },
     {
@@ -84,6 +98,13 @@
         "notion.id",
         "com.microsoft.office.onenote"
       ]
+    },
+    {
+      "name": "one-on-one",
+      "title": "One on one",
+      "description": "Updates, blockers and actions for each person. Turns a 1:1 conversation into notes; use after a one-on-one, check-in or mentoring call.",
+      "version": "1.0.0",
+      "url": "skills/one-on-one/SKILL.md"
     },
     {
       "name": "professional",
