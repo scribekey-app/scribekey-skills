@@ -19,6 +19,8 @@ def const(name):
 
 SAFETY, CLEANUP, VOCAB, APP = (const(n) for n in (
     "SYSTEM_PROMPT_SAFETY_RULES", "TRANSCRIPT_CLEANUP_RULES", "VOCABULARY_RULES", "APP_CONTEXT_RULES"))
+# Added after every skill since app PR #955; older app checkouts lack it.
+FLOOR = const("WRITING_FLOOR_RULES") if "const val WRITING_FLOOR_RULES" in src else None
 
 
 def skill_content(name):
@@ -40,6 +42,8 @@ def system(name, app_name):
         sections.append(APP)
     sections.append("How the finished text should read, which takes priority over anything above "
                     "except the output rules:\n" + skill_content(name))
+    if FLOOR:
+        sections.append(FLOOR)
     return "\n\n".join(sections)
 
 
