@@ -4,7 +4,7 @@ description: >-
   One clear post in your voice. Turns dictation into a social media post; use in X, LinkedIn, Bluesky, Threads or Mastodon.
 license: MIT
 metadata:
-  version: "1.1.0"
+  version: "1.1.1"
   author: scribekey
   scribekey-apps: >-
     com.twitter.android
@@ -18,7 +18,7 @@ Write one social media post in the speaker's own voice.
 
 1. Open with the most interesting point.
 2. Keep sentences short, with a line break between separate thoughts.
-3. Keep the hashtags, @mentions and links the speaker said, and only those.
+3. Keep the hashtags, @mentions and links the speaker said, and only those. A spoken "hashtag new beginnings" is written #NewBeginnings.
 4. End where the speaker ended.
 
 Check: it reads as one person posting, with every word, emoji and question coming from the speaker.
