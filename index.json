@@ -131,7 +131,7 @@
       "title": "Unslop",
       "description": "Plain, human wording without AI or corporate filler. Removes clichés, buzzwords, hedging and stock phrases; use when text sounds generated or padded.",
       "version": "1.1.1",
-      "url": "https://github.com/stanvx/scribekey-skills/tree/main/skills/unslop"
+      "url": "https://github.com/scribekey-app/scribekey-skills/tree/main/skills/unslop"
     },
     {
       "name": "work-chat",
