@@ -32,7 +32,7 @@
       "name": "email",
       "title": "Email",
       "description": "Greeting, clear paragraphs, sign-off. Turns dictation into an email body ready to paste; use when writing an email.",
-      "version": "1.1.1",
+      "version": "1.2.0",
       "url": "skills/email/SKILL.md",
       "apps": [
         "com.google.android.gm",
@@ -41,13 +41,16 @@
         "ch.protonmail.android",
         "com.fastmail.app",
         "com.readdle.spark"
+      ],
+      "categories": [
+        "email"
       ]
     },
     {
       "name": "friendly-message",
       "title": "Friendly message",
       "description": "Warm and conversational. Turns dictation into a text message in your own voice; use in messaging apps.",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "url": "skills/friendly-message/SKILL.md",
       "apps": [
         "com.whatsapp",
@@ -56,6 +59,9 @@
         "org.thoughtcrime.securesms",
         "org.telegram.messenger",
         "com.facebook.orca"
+      ],
+      "categories": [
+        "messaging"
       ]
     },
     {

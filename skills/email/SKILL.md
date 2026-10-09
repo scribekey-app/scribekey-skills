@@ -4,7 +4,7 @@ description: >-
   Greeting, clear paragraphs, sign-off. Turns dictation into an email body ready to paste; use when writing an email.
 license: MIT
 metadata:
-  version: "1.1.1"
+  version: "1.2.0"
   author: scribekey
   scribekey-apps: >-
     com.google.android.gm
@@ -13,6 +13,7 @@ metadata:
     ch.protonmail.android
     com.fastmail.app
     com.readdle.spark
+  scribekey-categories: email
 ---
 
 Write the body of an email the speaker can send as is.

@@ -49,6 +49,7 @@ metadata:
   scribekey-apps: >-            # optional. Android package names, space-separated.
     com.google.android.gm
     com.microsoft.office.outlook
+  scribekey-categories: email   # optional. email, messaging, or both.
 ---
 
 Rewrite the text as the body of an email…
@@ -61,6 +62,7 @@ Rewrite the text as the body of an email…
 | `metadata.version` | What **Update** compares |
 | `metadata.scribekey-title` | The title shown in lists |
 | `metadata.scribekey-apps` | Apps the skill offers to apply automatically in |
+| `metadata.scribekey-categories` | Kinds of app it also offers itself in: `email` (apps that open `mailto:` links) or `messaging` (apps that open `smsto:` links). Each app still has its own switch |
 
 A skill may add text files under `references/` or `assets/`; the instructions name them by path
 and ScribeKey sends the ones named. `scripts/` is not allowed: ScribeKey never runs code.

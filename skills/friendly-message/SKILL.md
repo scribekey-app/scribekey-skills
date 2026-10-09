@@ -4,7 +4,7 @@ description: >-
   Warm and conversational. Turns dictation into a text message in your own voice; use in messaging apps.
 license: MIT
 metadata:
-  version: "1.1.0"
+  version: "1.2.0"
   author: scribekey
   scribekey-apps: >-
     com.whatsapp
@@ -13,6 +13,7 @@ metadata:
     org.thoughtcrime.securesms
     org.telegram.messenger
     com.facebook.orca
+  scribekey-categories: messaging
 ---
 
 Write the message the speaker would type to a friend: warm, casual and in their own voice.

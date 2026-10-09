@@ -26,7 +26,9 @@ const NAME = /^[a-z0-9]+(-[a-z0-9]+)*$/;
 const SEMVER = /^\d+\.\d+\.\d+$/;
 const PACKAGE = /^[A-Za-z][A-Za-z0-9_]*(\.[A-Za-z][A-Za-z0-9_]*)+$/;
 const TOP_KEYS = new Set(["name", "description", "license", "compatibility", "metadata", "allowed-tools"]);
-const SCRIBEKEY_KEYS = new Set(["scribekey-title", "scribekey-apps"]);
+const SCRIBEKEY_KEYS = new Set(["scribekey-title", "scribekey-apps", "scribekey-categories"]);
+// Kinds of app ScribeKey can find on a phone (AppCategory in enhancement/presets/SkillImport.kt).
+const CATEGORIES = new Set(["email", "messaging"]);
 const KEPT_FOLDERS = ["references/", "assets/"];
 
 /** Splits a SKILL.md into its frontmatter lines and body; throws on a missing fence. */
@@ -167,6 +169,11 @@ function validate(folder, base) {
   for (const pkg of packages(meta["scribekey-apps"])) {
     if (!PACKAGE.test(pkg)) problems.push(`"${pkg}" in metadata.scribekey-apps is not an Android package name`);
   }
+  for (const category of packages(meta["scribekey-categories"])) {
+    if (!CATEGORIES.has(category)) {
+      problems.push(`"${category}" in metadata.scribekey-categories is not one of: ${[...CATEGORIES].join(", ")}`);
+    }
+  }
 
   const extra = files(dir).map((p) => relative(dir, p)).filter((p) => p !== "SKILL.md");
   let textChars = 0;
@@ -226,6 +233,8 @@ function buildIndex(results) {
     };
     const apps = packages(meta["scribekey-apps"]);
     if (apps.length) entry.apps = apps;
+    const categories = packages(meta["scribekey-categories"]);
+    if (categories.length) entry.categories = categories;
     return entry;
   });
   return JSON.stringify({ name: "ScribeKey skills", skills }, null, 2) + "\n";
