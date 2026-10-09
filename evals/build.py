@@ -1,7 +1,7 @@
 """Builds the exact system and user messages ScribeKey sends for each skill and test dictation.
 
 Mirrors PromptBuilder.build + skillPromptForRun (app/src/main/java/app/scribekey/enhancement).
-Usage: python3 evals/build.py <path to a stanvx/scribekey checkout> . <out dir>
+Usage: python3 evals/build.py <path to a scribekey-app/scribekey checkout> . <out dir>
 """
 import json
 import re

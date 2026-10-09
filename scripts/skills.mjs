@@ -11,7 +11,7 @@ import { execFileSync } from "node:child_process";
 import { readFileSync, readdirSync, statSync, writeFileSync, existsSync } from "node:fs";
 import { join, relative } from "node:path";
 
-const REPO = "stanvx/scribekey-skills";
+const REPO = "scribekey-app/scribekey-skills";
 const BRANCH = "main";
 const ROOT = new URL("..", import.meta.url).pathname;
 const SKILLS_DIR = join(ROOT, "skills");
