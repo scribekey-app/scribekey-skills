@@ -2,7 +2,8 @@
 
 Usage: python3 evals/run.py <prompts dir from build.py> <results.json> [repeats]
 Environment: OPENAI_API_KEY; MODEL (default gpt-5-nano, ScribeKey's default); EFFORT (default
-minimal, what ScribeKey sends to gpt-5 nano and mini); BASE_URL (default https://api.openai.com/v1).
+minimal, what ScribeKey sends to gpt-5 nano and mini); BASE_URL (default https://api.openai.com/v1;
+for OpenRouter use https://openrouter.ai/api/v1 with MODEL=openai/gpt-5-nano).
 Small models vary between runs, so repeat each case (3 is a useful default) and compare rates.
 """
 import concurrent.futures
@@ -24,7 +25,7 @@ def call(job):
     case, rep = job
     body = {"model": model, "messages": [
         {"role": "system", "content": case["system"]}, {"role": "user", "content": case["user"]}]}
-    if model.startswith(("gpt-5", "o")):
+    if model.split("/")[-1].startswith(("gpt-5", "o")):  # also openai/gpt-5-nano on OpenRouter
         body["max_completion_tokens"] = 2048
         body["reasoning_effort"] = os.environ.get("EFFORT", "minimal")
     else:

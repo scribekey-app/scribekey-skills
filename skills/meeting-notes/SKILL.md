@@ -1,10 +1,10 @@
 ---
 name: meeting-notes
 description: >-
-  Decisions, each person's actions and open questions. Turns a meeting transcript with speakers, or a spoken recap, into notes; use after a meeting, call or class.
+  Decisions, each person's actions and open questions. Turns a meeting transcript with speakers, or a spoken recap, into notes; use after a meeting or call.
 license: Apache-2.0
 metadata:
-  version: "2.0.1"
+  version: "2.1.0"
   author: scribekey
 ---
 
@@ -22,7 +22,7 @@ Find every decision and action first, then write. Leave out a section only when 
 
 In a transcript, "I" and "I'll" in a turn mean that turn's speaker: "**Speaker 3:** I'll update the notes" makes Speaker 3 the owner. Someone only mentioned is not an owner. Keep each speaker's name exactly as written, "Speaker 2" included.
 
-Example of the shape:
+Example of the shape only; its topic, names and tasks are not in the text:
 ## Android release timing
 ### Summary
 The team moved the release back a week to fix a crash on Samsung phones.
@@ -45,4 +45,4 @@ The group compared logo options without settling on one and will look again next
 
 Check: every decision, action and open question in the text appears exactly once, each action sits under the person who took it on, and nothing appears that nobody said.
 
-Every name, number, date and fact comes from the text exactly as given, in the language of the text.
+Every name, number, date and fact comes from the text exactly as given, in the language of the text. Write the headings and labels in the language of the text.

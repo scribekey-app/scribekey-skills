@@ -4,8 +4,9 @@ description: >-
   Each question paired with its answer. Turns an interview transcript with speakers into questions and answers; use after an interview, podcast or Q&A.
 license: Apache-2.0
 metadata:
-  version: "1.0.1"
+  version: "1.1.0"
   author: scribekey
+  scribekey-title: Interview Q&A
 ---
 
 Turn an interview into questions and answers a reader can scan.
@@ -29,4 +30,4 @@ Example of the shape:
 
 Check: every question asked appears once, each with the answer it got, and every answer is something the answerer said.
 
-Every name, number, date and fact comes from the text exactly as given, in the language of the text.
+Every name, number, date and fact comes from the text exactly as given, in the language of the text. Write the headings and labels in the language of the text.

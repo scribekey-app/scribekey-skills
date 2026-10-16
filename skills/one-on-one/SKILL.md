@@ -4,8 +4,9 @@ description: >-
   Updates, blockers and actions for each person. Turns a 1:1 conversation into notes; use after a one-on-one, check-in or mentoring call.
 license: Apache-2.0
 metadata:
-  version: "1.0.1"
+  version: "1.1.0"
   author: scribekey
+  scribekey-title: 1:1 notes
 ---
 
 Turn a one-on-one conversation into notes both people can look back on.
@@ -42,4 +43,4 @@ Keep only the parts the text has. Criticism and a promise in reply, "**Lee:** Th
 
 Check: every update, blocker, piece of feedback and action appears once, under the right person, and nothing appears that neither person said.
 
-Every name, number, date and fact comes from the text exactly as given, in the language of the text.
+Every name, number, date and fact comes from the text exactly as given, in the language of the text. Write the headings and labels in the language of the text.

@@ -12,6 +12,12 @@ import sys
 def has(o, *xs): return all(x.lower() in o.lower() for x in xs)
 def no(o, *xs): return not any(x.lower() in o.lower() for x in xs)
 def lines(o): return [l for l in o.splitlines() if l.strip()]
+# Tells the app's writing floor forbids; the slop cases fail when any appears.
+TELLS = ("—", "hope this", "reach out", "feel free", "let me know if", "don't hesitate", "great question",
+         "certainly", "leverage", "utilise", "utilize", "seamless", "robust", "delve", "crucial", "pivotal",
+         "foster", "unlock", "empower", "showcase", "elevate", "journey", "game-changer", "excited to",
+         "serves as", "boasts", "not just", "worth noting", "in order to", "landscape", "testament")
+def clean(o): return no(o, *TELLS)
 C = {
  "clean-up-1": lambda o: has(o, "10:15") and no(o, "10:30"),
  "clean-up-2": lambda o: "\n\n" in o.strip() and has(o, "landlord"),
@@ -22,7 +28,7 @@ C = {
  "email-1": lambda o: o.startswith(("Hi Sam", "Hey Sam")) and has(o, "$850", "resend"),
  "email-2": lambda o: o.startswith("Hi,") and no(o, "nguyen", "[", "]"),
  "email-3": lambda o: o.startswith(("Dear Dr Nguyen", "Dear Doctor Nguyen", "Dear Dr. Nguyen")) and has(o, "44729"),
- "notes-1": lambda o: len([l for l in lines(o) if l.startswith("#")]) >= 2 and has(o, "beaumont"),
+ "notes-1": lambda o: "#" not in o and sum(l.rstrip().endswith(":") for l in lines(o)) >= 2 and has(o, "beaumont"),
  "notes-2": lambda o: len(lines(o)) == 1 and "#" not in o and has(o, "bluegum"),
  "notes-3": lambda o: any("hail mary" in l.lower() and "overstory" not in l.lower() for l in lines(o)) and sum(l.lstrip().startswith("-") for l in lines(o)) >= 3 and no(o, "not specified"),
  "meeting-notes-1": lambda o: has(o, "### decisions", "#### maria", "#### ken"),
@@ -39,9 +45,16 @@ C = {
  "lecture-notes-1": lambda o: o.count("\n### ") >= 2 and has(o, "**equilibrium price**", "### questions from the room", "rent control"),
  "lecture-notes-2": lambda o: has(o, "f = ma") or has(o, "f = m", "6 n") or has(o, "6 newtons"),
  "lecture-notes-3": lambda o: no(o, "questions from the room") and has(o, "1789", "14 july", "1793"),
- "todo-list-1": lambda o: o.count("- [ ]") == 4 and not any("- [ ]" in l and "job" in l.lower() for l in lines(o)),
- "todo-list-2": lambda o: "- [ ]" not in o,
- "todo-list-3": lambda o: has(o, "(jamie)", "(priya)") and o.count("- [ ]") == 3,
+ "todo-list-1": lambda o: 4 <= len(lines(o)) <= 5 and no(o, "job", "- [") and not any(l.endswith(".") for l in lines(o)),
+ "todo-list-2": lambda o: "- [" not in o and has(o, "park"),
+ "todo-list-3": lambda o: has(o, "(jamie)", "(priya)") and len(lines(o)) == 3 and no(o, "- ["),
+ "todo-list-4": lambda o: len(lines(o)) == 1 and has(o, "dentist", "tomorrow") and not o.endswith(".") and no(o, "- [", "* "),
+ "todo-list-5": lambda o: len(lines(o)) == 2 and no(o, "week", "ugh") and has(o, "thursday"),
+ "todo-list-6": lambda o: len(lines(o)) == 3 and not any(l.lstrip()[:1] in "-*•[" for l in lines(o)),
+ "professional-4": lambda o: clean(o) and has(o, "two weeks", "supplier"),
+ "email-4": lambda o: clean(o) and has(o, "thursday"),
+ "social-post-5": lambda o: clean(o) and has(o, "ten years") and "?" not in o,
+ "friendly-message-5": lambda o: clean(o) and len(o) < 140,
  "agent-prompt-1": lambda o: o.startswith("Goal:") and has(o, "constraints:", "done when:", "src/settings.tsx") and no(o, "localstorage", "n/a"),
  "agent-prompt-2": lambda o: o.startswith("Goal:") and no(o, "n/a"),
  "agent-prompt-3": lambda o: o.startswith("Goal:") and has(o, "steps:", "payments") and re.search(r"^\s*1\.", o, re.M) is not None,
@@ -50,7 +63,7 @@ C = {
  "friendly-message-3": lambda o: no(o, "wanted to i just", "for for"),
  "work-chat-1": lambda o: "@maya" in o.lower() and has(o, "checkout_service.log"),
  "work-chat-2": lambda o: sum(l.lstrip().startswith("- ") for l in lines(o)) >= 3 and not o.startswith("Hi"),
- "work-chat-3": lambda o: o.startswith(("Ben", "Hi Ben")) and "?" in o,
+ "work-chat-3": lambda o: o.startswith(("Ben", "Hi Ben", "@Ben", "@ben")) and "?" in o,
  "social-post-1": lambda o: "#" in o and no(o, "hashtag"),
  "social-post-2": lambda o: "#" not in o,
  "social-post-3": lambda o: "#" not in o,
@@ -60,9 +73,18 @@ C = {
  "concise-1": lambda o: len(o) < 150,
  "concise-2": lambda o: has(o, "3 pm", "4b") and len(o) < 50,
  "concise-3": lambda o: has(o, "6:40", "qf409", "4:40", "mike") and len(o) < 200,
- "unslop-1": lambda o: no(o, "seamless", "robust", "empower", "unlock", "foster", "—", "hope this helps", "let me know", "cutting-edge", "not just"),
- "unslop-2": lambda o: no(o, "hope this message", "reach out", "worth noting", "due to the fact", "commence", "hesitate", "circle back"),
- "unslop-3": lambda o: has(o, "typo", "after lunch"),
+ "notes-4": lambda o: "#" not in o and sum(l.rstrip().endswith(":") for l in lines(o)) >= 2,
+ "agent-prompt-4": lambda o: o.startswith("Goal:") and has(o, "--dry-run", "scripts/migrate.py"),
+ "agent-prompt-5": lambda o: o.startswith("Goal:") and has(o, "react", "tailwind") and len(o) < 600,
+ "work-chat-4": lambda o: has(o, "@sam", "readme.md"),
+ "clean-up-4": lambda o: has(o, "fucking"),
+ "clean-up-5": lambda o: has(o, "4") and no(o, "not 3", "not three", " 3 ", "three"),
+ "clean-up-6": lambda o: has(o, "actually"),
+ "friendly-message-4": lambda o: has(o, "shit", "sick"),
+ "concise-4": lambda o: has(o, "think") or has(o, "might") or has(o, "may") or has(o, "probably"),
+ "summary-4": lambda o: has(o, "viernes") and no(o, " the ", " and "),
+ "meeting-notes-6": lambda o: no(o, "### decisions", "### actions", "### summary") and has(o, "marie"),
+ "social-post-4": lambda o: has(o, "@maya") and len(o) < 90,
 }
 CHECKS = C
 
