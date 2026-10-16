@@ -2,9 +2,9 @@
 name: concise
 description: >-
   Same message, fewer words. Cuts repetition and padding from dictation; use when you rambled.
-license: MIT
+license: Apache-2.0
 metadata:
-  version: "1.1.1"
+  version: "1.1.2"
   author: scribekey
 ---
 

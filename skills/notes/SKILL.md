@@ -2,9 +2,9 @@
 name: notes
 description: >-
   Heading and bullet points. Turns a spoken brain dump into tidy notes; use in a notes app.
-license: MIT
+license: Apache-2.0
 metadata:
-  version: "1.1.2"
+  version: "1.1.3"
   author: scribekey
   scribekey-apps: >-
     com.google.android.keep

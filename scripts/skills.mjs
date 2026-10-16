@@ -164,7 +164,7 @@ function validate(folder, base) {
   if (description.length > MAX_DESCRIPTION) problems.push(`description is longer than ${MAX_DESCRIPTION} characters`);
   if (!body) problems.push("the body has no instructions");
   if (body.length > MAX_BODY) problems.push(`the body is longer than ${MAX_BODY} characters`);
-  if (fields.license !== "MIT") problems.push('license must be "MIT"');
+  if (fields.license !== "Apache-2.0") problems.push('license must be "Apache-2.0"');
   if (!SEMVER.test(meta.version ?? "")) problems.push('metadata.version must be "MAJOR.MINOR.PATCH"');
   for (const pkg of packages(meta["scribekey-apps"])) {
     if (!PACKAGE.test(pkg)) problems.push(`"${pkg}" in metadata.scribekey-apps is not an Android package name`);

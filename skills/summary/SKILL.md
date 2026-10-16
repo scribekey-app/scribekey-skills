@@ -2,9 +2,9 @@
 name: summary
 description: >-
   The key points, shorter. Use when a long dictation needs to become a quick read.
-license: MIT
+license: Apache-2.0
 metadata:
-  version: "1.1.2"
+  version: "1.1.3"
   author: scribekey
 ---
 

@@ -2,9 +2,9 @@
 name: agent-prompt
 description: >-
   Goal, context, constraints, done when. Turns a spoken request into instructions for a coding or chat agent; use in an AI assistant app.
-license: MIT
+license: Apache-2.0
 metadata:
-  version: "1.1.2"
+  version: "1.1.3"
   author: scribekey
   scribekey-title: Prompt for an agent
   scribekey-apps: >-

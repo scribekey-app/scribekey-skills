@@ -2,9 +2,9 @@
 name: meeting-notes
 description: >-
   Decisions, each person's actions and open questions. Turns a meeting transcript with speakers, or a spoken recap, into notes; use after a meeting, call or class.
-license: MIT
+license: Apache-2.0
 metadata:
-  version: "2.0.0"
+  version: "2.0.1"
   author: scribekey
 ---
 

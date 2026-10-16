@@ -2,9 +2,9 @@
 name: lecture-notes
 description: >-
   Study notes by topic, with questions from the room kept apart. Turns a recorded lecture, class or talk into notes; use after a lecture or training session.
-license: MIT
+license: Apache-2.0
 metadata:
-  version: "1.0.0"
+  version: "1.0.1"
   author: scribekey
 ---
 
