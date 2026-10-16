@@ -206,21 +206,6 @@
   "transcript": "okay so the flight leaves at six forty in the morning from terminal two it's qantas flight QF four oh nine and we need to be there two hours early so that's like four forty and Mike is driving us and he said he'll pick us up at four"
  },
  {
-  "skill": "unslop",
-  "what": "AI-written LinkedIn-style paragraph",
-  "transcript": "In today's fast-paced world, it's not just about working harder — it's about working smarter. Our new tool serves as a seamless, robust, and cutting-edge solution that empowers teams to unlock their full potential, fostering collaboration and driving innovation. I hope this helps! Let me know if you have any questions."
- },
- {
-  "skill": "unslop",
-  "what": "corporate email padding",
-  "transcript": "I hope this message finds you well. I wanted to reach out to circle back on the proposal. It's worth noting that, due to the fact that the budget has been finalised, we are now in a position to commence the next phase. Please don't hesitate to reach out."
- },
- {
-  "skill": "unslop",
-  "what": "already plain dictation",
-  "transcript": "I fixed the bug in the login page. It was a typo in the password check. I'll deploy it after lunch."
- },
- {
   "skill": "meeting-notes",
   "what": "speaker turns, two owners and an unnamed speaker",
   "transcript": "**Ana:** Okay, product sync. The Samsung crash is the big one.\n\n**Maria:** It's the camera permission. I can have a fix in review by Wednesday.\n\n**Ana:** Then we delay the Android release by a week. Everyone fine with that?\n\n**Speaker 3:** Yep, and I'll update the release notes and tell support by Friday.\n\n**Ana:** Pricing, we still don't know if it goes in this release."
@@ -274,5 +259,124 @@
   "skill": "lecture-notes",
   "what": "no questions means no questions section",
   "transcript": "**Prof Kim:** The French Revolution began in 1789. The storming of the Bastille on 14 July is the usual starting point. By 1793 the monarchy had fallen."
+ },
+ {
+  "skill": "todo-list",
+  "what": "one task with a date, no marker, no full stop",
+  "transcript": "remind me to call the dentist tomorrow at nine",
+  "app": "Todoist",
+  "package": "com.todoist"
+ },
+ {
+  "skill": "todo-list",
+  "what": "chatter must not become a task",
+  "transcript": "need to renew the car rego by thursday and buy dad a present ugh what a week",
+  "app": "TickTick",
+  "package": "com.ticktick.task"
+ },
+ {
+  "skill": "todo-list",
+  "what": "no line starts with a bullet, asterisk or box",
+  "transcript": "first email the school then book the vet and pay the water bill",
+  "app": "Google Tasks",
+  "package": "com.google.android.apps.tasks"
+ },
+ {
+  "skill": "notes",
+  "what": "two topics in the plain shape, no markdown headings",
+  "transcript": "ideas for the garden move the lemon tree it's not getting enough sun and get a compost bin also for the kitchen reno the quote was twelve thousand get another one",
+  "app": "Samsung Notes",
+  "package": "com.samsung.android.app.notes"
+ },
+ {
+  "skill": "agent-prompt",
+  "what": "spoken flags and paths written as typed",
+  "transcript": "run the migration script with dash dash dry run first it's in scripts slash migrate dot py and don't touch the users table",
+  "app": "Claude",
+  "package": "com.anthropic.claude"
+ },
+ {
+  "skill": "agent-prompt",
+  "what": "a question to the AI is written down, not answered",
+  "transcript": "what's the best way to structure a react app that uses tailwind",
+  "app": "ChatGPT",
+  "package": "com.openai.chatgpt"
+ },
+ {
+  "skill": "work-chat",
+  "what": "spoken file name and mention written as typed",
+  "transcript": "at sam can you check readme dot md before the release",
+  "app": "Slack",
+  "package": "com.Slack"
+ },
+ {
+  "skill": "clean-up",
+  "what": "swearing kept",
+  "transcript": "this fucking build failed again I swear"
+ },
+ {
+  "skill": "clean-up",
+  "what": "'no' cue dropped, never turned into 'not'",
+  "transcript": "let's meet at three no four at the cafe"
+ },
+ {
+  "skill": "clean-up",
+  "what": "'actually' with no replacement is ordinary speech",
+  "transcript": "I actually liked the film more than the book"
+ },
+ {
+  "skill": "friendly-message",
+  "what": "swearing and slang kept",
+  "transcript": "holy shit that was a sick gig mate",
+  "app": "WhatsApp",
+  "package": "com.whatsapp"
+ },
+ {
+  "skill": "concise",
+  "what": "a hedge survives",
+  "transcript": "so basically I think the server might be down again because like nobody can log in"
+ },
+ {
+  "skill": "summary",
+  "what": "Spanish text stays in Spanish",
+  "transcript": "bueno resumen rápido el cliente aprobó el diseño y quiere el presupuesto antes del viernes además Tomás no puede venir el lunes"
+ },
+ {
+  "skill": "meeting-notes",
+  "what": "French meeting gets French headings",
+  "transcript": "on a décidé de reporter la sortie d'une semaine et Marie corrigera le bug d'ici mercredi"
+ },
+ {
+  "skill": "social-post",
+  "what": "spoken mention and no padding",
+  "transcript": "huge thanks to at maya for the talk today",
+  "app": "Bluesky",
+  "package": "xyz.blueskyweb.app"
+ },
+ {
+  "skill": "professional",
+  "what": "bad news to a client, no added pleasantries or corporate words",
+  "transcript": "tell them the project's going to be two weeks late because the supplier messed up the parts order sorry about that we'll cover the rush shipping"
+ },
+ {
+  "skill": "email",
+  "what": "short ask, no stock opener or closer added",
+  "transcript": "hey jo can you send me the slides before thursday cheers",
+  "app": "Gmail",
+  "package": "com.google.android.gm"
+ },
+ {
+  "skill": "social-post",
+  "what": "milestone post, no hype words, no rhetorical question",
+  "transcript": "ten years at the same company today still learning stuff every week thanks to everyone I've worked with",
+  "app": "LinkedIn",
+  "package": "com.linkedin.android"
+ },
+ {
+  "skill": "friendly-message",
+  "what": "thank-you text stays short and plain",
+  "transcript": "thanks heaps for dinner last night it was so good",
+  "app": "WhatsApp",
+  "package": "com.whatsapp"
  }
 ]

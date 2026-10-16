@@ -1,6 +1,8 @@
 """Builds the exact system and user messages ScribeKey sends for each skill and test dictation.
 
 Mirrors PromptBuilder.build + skillPromptForRun (app/src/main/java/app/scribekey/enhancement).
+A skill runs with no screen context (TransformExecutor passes none), so a case's "app" is not
+sent; it is kept as "destination" for judge.py, which asks whether the output suits that app.
 Usage: python3 evals/build.py <path to a scribekey-app/scribekey checkout> . <out dir>
 """
 import json
@@ -17,8 +19,7 @@ def const(name):
     return body.replace("${'$'}", "$").strip()
 
 
-SAFETY, CLEANUP, VOCAB, APP = (const(n) for n in (
-    "SYSTEM_PROMPT_SAFETY_RULES", "TRANSCRIPT_CLEANUP_RULES", "VOCABULARY_RULES", "APP_CONTEXT_RULES"))
+SAFETY, CLEANUP = (const(n) for n in ("SYSTEM_PROMPT_SAFETY_RULES", "TRANSCRIPT_CLEANUP_RULES"))
 # Added after every skill since app PR #955; older app checkouts lack it.
 FLOOR = const("WRITING_FLOOR_RULES") if "const val WRITING_FLOOR_RULES" in src else None
 
@@ -36,10 +37,8 @@ def skill_content(name):
     return "\n".join(parts)
 
 
-def system(name, app_name):
+def system(name):
     sections = [SAFETY, CLEANUP]
-    if app_name:
-        sections.append(APP)
     sections.append("How the finished text should read, which takes priority over anything above "
                     "except the output rules:\n" + skill_content(name))
     if FLOOR:
@@ -47,12 +46,8 @@ def system(name, app_name):
     return "\n\n".join(sections)
 
 
-def user(transcript, app_name, package):
-    parts = []
-    if app_name:
-        parts.append(f"<SCREEN_CONTEXT>\nApp: {app_name} ({package})\n</SCREEN_CONTEXT>")
-    parts.append(f"<TRANSCRIPT>\n{transcript.strip()}\n</TRANSCRIPT>")
-    return "\n\n".join(parts)
+def user(transcript):
+    return f"<TRANSCRIPT>\n{transcript.strip()}\n</TRANSCRIPT>"
 
 
 cases = json.loads((Path(__file__).parent / "cases.json").read_text())
@@ -62,8 +57,9 @@ for i, c in enumerate(cases):
     by_skill.setdefault(c["skill"], []).append({
         "id": f'{c["skill"]}-{len(by_skill.get(c["skill"], [])) + 1}',
         "what": c["what"],
-        "system": system(c["skill"], c.get("app")),
-        "user": user(c["transcript"], c.get("app"), c.get("package", "")),
+        "system": system(c["skill"]),
+        "user": user(c["transcript"]),
+        "destination": c.get("app") and f'{c["app"]} ({c["package"]})',
     })
 for skill, items in by_skill.items():
     (out / f"{skill}.json").write_text(json.dumps(items, indent=1, ensure_ascii=False))
