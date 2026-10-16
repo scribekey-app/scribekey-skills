@@ -13,19 +13,23 @@ The skills are ordinary `SKILL.md` files, so any client that reads Agent Skills 
 
 | Skill | What it does | Suggested apps |
 | --- | --- | --- |
-| [Prompt for an agent](skills/agent-prompt/SKILL.md) | Goal, context, constraints, done when | com.openai.chatgpt, com.anthropic.claude, com.google.android.apps.bard, ai.perplexity.app.android |
+| [Prompt for an agent](skills/agent-prompt/SKILL.md) | Goal, context, constraints, done when | com.openai.chatgpt, com.anthropic.claude, com.google.android.apps.bard, ai.mistral.chat, com.deepseek.chat, ai.x.grok |
 | [Clean up](skills/clean-up/SKILL.md) | Punctuation, fillers and false starts | – |
 | [Concise](skills/concise/SKILL.md) | Same message, fewer words | – |
 | [Email](skills/email/SKILL.md) | Greeting, clear paragraphs, sign-off | com.google.android.gm, com.microsoft.office.outlook, com.samsung.android.email.provider, ch.protonmail.android, com.fastmail.app, com.readdle.spark |
-| [Friendly message](skills/friendly-message/SKILL.md) | Warm and conversational | com.whatsapp, com.google.android.apps.messaging, com.samsung.android.messaging, org.thoughtcrime.securesms, org.telegram.messenger, com.facebook.orca |
+| [Friendly message](skills/friendly-message/SKILL.md) | Warm and conversational | com.whatsapp, com.google.android.apps.messaging, com.samsung.android.messaging, org.thoughtcrime.securesms, org.telegram.messenger, com.facebook.orca, com.whatsapp.w4b, com.viber.voip, jp.naver.line.android, com.discord |
+| [Interview Q&A](skills/interview-qa/SKILL.md) | Each question paired with its answer | – |
+| [Lecture notes](skills/lecture-notes/SKILL.md) | Study notes by topic, with questions from the room | – |
 | [Meeting notes](skills/meeting-notes/SKILL.md) | Summary, decisions and actions | – |
-| [Notes](skills/notes/SKILL.md) | Heading and bullet points | com.google.android.keep, com.samsung.android.app.notes, md.obsidian, notion.id, com.microsoft.office.onenote |
+| [Notes](skills/notes/SKILL.md) | Bullet points by topic | com.google.android.keep, com.samsung.android.app.notes, md.obsidian, notion.id, com.microsoft.office.onenote, com.automattic.simplenote |
+| [1:1 notes](skills/one-on-one/SKILL.md) | Updates, blockers and actions for each person | – |
 | [Professional](skills/professional/SKILL.md) | Polished and businesslike | – |
 | [Social post](skills/social-post/SKILL.md) | One clear post in your voice | com.twitter.android, com.linkedin.android, xyz.blueskyweb.app, com.instagram.barcelona, org.joinmastodon.android |
 | [Summary](skills/summary/SKILL.md) | The key points, shorter | – |
-| [To-do list](skills/todo-list/SKILL.md) | Tasks you can tick off | com.todoist, com.google.android.apps.tasks, com.microsoft.todos, com.ticktick.task |
-| [Unslop](skills/unslop/SKILL.md) | Plain, human wording without AI or corporate filler | – |
-| [Work chat](skills/work-chat/SKILL.md) | Short, clear and friendly for a team channel | com.Slack, com.microsoft.teams, com.google.android.apps.dynamite |
+| [To-do list](skills/todo-list/SKILL.md) | One task per line, for a to-do app | com.todoist, com.ticktick.task, com.google.android.apps.tasks, com.microsoft.todos, com.anydo |
+| [Work chat](skills/work-chat/SKILL.md) | Short, clear and friendly for a team channel | com.Slack, com.microsoft.teams, com.google.android.apps.dynamite, com.mattermost.rn, im.vector.app |
+
+Suggest an app only when the skill's output fits the box you dictate into there. A to-do app's box holds one task, so To-do list writes one plain line per task rather than a `- [ ]` checklist.
 
 **Suggested apps** are an offer, never a switch. After you add a skill, its page in ScribeKey
 lists the ones you have installed under **Apply automatically**, each with its own switch.
@@ -72,9 +76,7 @@ hand.
 
 ## Credits
 
-Unslop's pattern list is adapted from the unslop skill in Cursor's
-[pstack plugin](https://github.com/cursor/plugins) (MIT, Lauren Tan). The way these skills are
-written follows Matt Pocock's [writing-for-agents](https://github.com/mattpocock/skills) skill.
+The way these skills are written follows Matt Pocock's [writing-for-agents](https://github.com/mattpocock/skills) skill.
 
 ## Contributing
 

@@ -4,7 +4,7 @@ description: >-
   Warm and conversational. Turns dictation into a text message in your own voice; use in messaging apps.
 license: Apache-2.0
 metadata:
-  version: "1.2.1"
+  version: "1.3.0"
   author: scribekey
   scribekey-apps: >-
     com.whatsapp
@@ -13,12 +13,16 @@ metadata:
     org.thoughtcrime.securesms
     org.telegram.messenger
     com.facebook.orca
+    com.whatsapp.w4b
+    com.viber.voip
+    jp.naver.line.android
+    com.discord
   scribekey-categories: messaging
 ---
 
 Write the message the speaker would type to a friend: warm, casual and in their own voice.
 
-Smooth out what dictation leaves behind (repeats, restarts, awkward joins) and keep the speaker's phrasing, slang and humour. Keep it as long as the text or shorter.
+Smooth out what dictation leaves behind (repeats, restarts, awkward joins) and keep the speaker's phrasing, slang, swearing, emoji and humour exactly as they said them. Keep it as long as the text or shorter.
 
 Check: it sounds like the speaker texting, not like a rewrite.
 

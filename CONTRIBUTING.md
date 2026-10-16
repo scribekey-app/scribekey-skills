@@ -7,7 +7,9 @@ New skills and improvements are welcome. One skill per pull request.
 1. Create `skills/<name>/SKILL.md`. `<name>` is lowercase letters, digits and hyphens, and is the
    same as the `name` field. Copy an existing skill as a starting point.
 2. Set `license: Apache-2.0` and `metadata.version: "1.0.0"`.
-3. Add `metadata.scribekey-apps` only for apps the skill is clearly written for. Use the package
+3. Add `metadata.scribekey-apps` only for apps the skill is clearly written for: its output has
+   to fit the box you dictate into there. A to-do app's box is one task, and most notes apps show
+   markdown headings as `#` signs. Use the package
    name from the app's Play Store link (`id=` in the URL). When the skill suits every app of a
    kind, add `metadata.scribekey-categories: email` or `messaging` as well.
 4. Run `node scripts/skills.mjs build` (Node 18 or later, nothing to install), then commit
@@ -68,10 +70,14 @@ here follow them.
    return only the finished text, to write down a dictated question rather than answer it, to
    drop hesitation sounds and corrected false starts, and to write numbers as numerals. Repeating
    those spends tokens on every run and can argue with the app's own rules.
+   The same goes for `{{dictionary}}`, `{{app}}` and `{{language}}`: ScribeKey already adds the
+   dictionary, the fidelity sentence keeps the text's language, and a skill should read the same
+   in every app it is applied in. A variable with no value renders empty, so "Write in
+   {{language}}" can arrive as "Write in ".
 7. **Show, briefly, when the shape is unusual.** One short example (To-do list has one) fixes a
    format better than a paragraph describing it.
-8. **Put long reference in `references/`** and name the file in the instructions, as Unslop does
-   with `references/slop.md`. ScribeKey only sends the files the instructions name.
+8. **Put long reference in `references/`** and name the file in the instructions
+   (`references/terms.md`). ScribeKey only sends the files the instructions name.
 
 Every skill here ends with the same fidelity sentence: "Every name, number, date and fact comes
 from the text exactly as given, in the language of the text." Keep it.
@@ -85,6 +91,11 @@ python3 evals/build.py <scribekey checkout> . out/prompts   # the exact messages
 OPENAI_API_KEY=... python3 evals/run.py out/prompts out/results.json 3
 python3 evals/grade.py out/results.json
 ```
+
+For a second opinion, `TYPESAFE_API_KEY=... python3 evals/judge.py out/prompts out/results.json
+out/judged.json` asks TypeSafe's Jev yes/no questions about each output: did it answer the speaker
+instead of writing their words down, invent a fact, add commentary, do what the case asks, suit the
+app it lands in, and read clearly first time.
 
 `run.py` defaults to ScribeKey's default cloud model, gpt-5-nano with minimal reasoning. Set
 `MODEL` (and `BASE_URL` for another OpenAI-compatible host) to try others. `grade.py` scores each

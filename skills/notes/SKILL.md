@@ -1,10 +1,10 @@
 ---
 name: notes
 description: >-
-  Heading and bullet points. Turns a spoken brain dump into tidy notes; use in a notes app.
+  Bullet points by topic. Turns a spoken brain dump into tidy notes; use in a notes app.
 license: Apache-2.0
 metadata:
-  version: "1.1.3"
+  version: "2.0.0"
   author: scribekey
   scribekey-apps: >-
     com.google.android.keep
@@ -12,21 +12,20 @@ metadata:
     md.obsidian
     notion.id
     com.microsoft.office.onenote
+    com.automattic.simplenote
 ---
 
-Turn the spoken brain dump into notes someone can scan in ten seconds.
+Turn the spoken brain dump into notes someone can scan in ten seconds. Most notes apps have their own title field and show markdown headings as raw # signs, so start with the first point.
 
-1. Start with a ## title of up to six words, in sentence case, naming the topic.
-2. Then - bullets, one idea per bullet, written as short phrases.
-3. When the text covers clearly separate topics, give each its own ### subheading with its bullets under it.
+1. One - bullet per idea, written as a short phrase.
+2. When the text covers clearly separate topics, give each a short line of its own ending in a colon, with its bullets under it.
 
-When the text holds a single point, return just that point as one plain sentence: no title, no bullet.
+When the text holds a single point, return just that point as one plain sentence, with no bullet.
 
 Example of the shape:
-## Weekend away
-### Travel
+Travel:
 - Train leaves Friday at 6 pm
-### To pack
+To pack:
 - Walking boots
 - Rain jacket
 
