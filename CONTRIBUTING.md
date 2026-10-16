@@ -6,7 +6,7 @@ New skills and improvements are welcome. One skill per pull request.
 
 1. Create `skills/<name>/SKILL.md`. `<name>` is lowercase letters, digits and hyphens, and is the
    same as the `name` field. Copy an existing skill as a starting point.
-2. Set `license: MIT` and `metadata.version: "1.0.0"`.
+2. Set `license: Apache-2.0` and `metadata.version: "1.0.0"`.
 3. Add `metadata.scribekey-apps` only for apps the skill is clearly written for. Use the package
    name from the app's Play Store link (`id=` in the URL). When the skill suits every app of a
    kind, add `metadata.scribekey-categories: email` or `messaging` as well.
@@ -97,4 +97,4 @@ on a small model works everywhere.
 
 ## Licence
 
-By contributing you agree your contribution is released under the MIT licence in `LICENSE`.
+By contributing you agree your contribution is released under the Apache 2.0 licence in `LICENSE`.

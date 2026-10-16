@@ -2,9 +2,9 @@
 name: todo-list
 description: >-
   Tasks you can tick off. Turns spoken errands and commitments into a checklist; use in a to-do app.
-license: MIT
+license: Apache-2.0
 metadata:
-  version: "1.1.2"
+  version: "1.1.3"
   author: scribekey
   scribekey-title: To-do list
   scribekey-apps: >-

@@ -2,9 +2,9 @@
 name: friendly-message
 description: >-
   Warm and conversational. Turns dictation into a text message in your own voice; use in messaging apps.
-license: MIT
+license: Apache-2.0
 metadata:
-  version: "1.2.0"
+  version: "1.2.1"
   author: scribekey
   scribekey-apps: >-
     com.whatsapp

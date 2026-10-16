@@ -2,9 +2,9 @@
 name: email
 description: >-
   Greeting, clear paragraphs, sign-off. Turns dictation into an email body ready to paste; use when writing an email.
-license: MIT
+license: Apache-2.0
 metadata:
-  version: "1.2.1"
+  version: "1.2.2"
   author: scribekey
   scribekey-apps: >-
     com.google.android.gm

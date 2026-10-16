@@ -2,9 +2,9 @@
 name: unslop
 description: >-
   Plain, human wording without AI or corporate filler. Removes clichés, buzzwords, hedging and stock phrases; use when text sounds generated or padded.
-license: MIT
+license: Apache-2.0
 metadata:
-  version: "1.1.1"
+  version: "1.1.2"
   author: scribekey
   scribekey-title: Unslop
 ---

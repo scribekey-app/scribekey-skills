@@ -2,9 +2,9 @@
 name: social-post
 description: >-
   One clear post in your voice. Turns dictation into a social media post; use in X, LinkedIn, Bluesky, Threads or Mastodon.
-license: MIT
+license: Apache-2.0
 metadata:
-  version: "1.1.1"
+  version: "1.1.2"
   author: scribekey
   scribekey-apps: >-
     com.twitter.android

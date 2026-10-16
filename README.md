@@ -2,7 +2,7 @@
 
 Curated [Agent Skills](https://agentskills.io) for [ScribeKey](https://scribekey.app), the Android
 voice-to-text app. Each one turns dictation into something ready to send: an email, a to-do list,
-a prompt for an agent. MIT licensed.
+a prompt for an agent. Apache 2.0 licensed.
 
 ScribeKey lists this repository as its default skill marketplace. Open **Settings → Skills →
 Marketplaces** to install one; it shows **Update** when a new version lands here.
@@ -41,7 +41,7 @@ values, so other clients ignore them.
 name: email                     # required. Lowercase, digits, hyphens. Matches the folder.
 description: >-                 # required. What it does, then when to use it. ≤ 1,024 characters.
   Greeting, clear paragraphs, sign-off. Turns dictation into an email body ready to paste.
-license: MIT                    # required here
+license: Apache-2.0             # required here
 metadata:
   version: "1.0.0"              # required here. Bump it on every change.
   author: your-github-name      # optional

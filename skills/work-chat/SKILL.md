@@ -2,9 +2,9 @@
 name: work-chat
 description: >-
   Short, clear and friendly for a team channel. Turns dictation into a work chat message; use in Slack, Teams or Google Chat.
-license: MIT
+license: Apache-2.0
 metadata:
-  version: "1.1.2"
+  version: "1.1.3"
   author: scribekey
   scribekey-apps: >-
     com.Slack

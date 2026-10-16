@@ -2,9 +2,9 @@
 name: clean-up
 description: >-
   Punctuation, fillers and false starts. Fixes dictated text without changing what was said; use when the words are right and only the transcription is rough.
-license: MIT
+license: Apache-2.0
 metadata:
-  version: "1.1.1"
+  version: "1.1.2"
   author: scribekey
 ---
 

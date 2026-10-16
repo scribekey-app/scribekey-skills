@@ -2,9 +2,9 @@
 name: interview-qa
 description: >-
   Each question paired with its answer. Turns an interview transcript with speakers into questions and answers; use after an interview, podcast or Q&A.
-license: MIT
+license: Apache-2.0
 metadata:
-  version: "1.0.0"
+  version: "1.0.1"
   author: scribekey
 ---
 

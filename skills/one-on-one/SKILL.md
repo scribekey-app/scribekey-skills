@@ -2,9 +2,9 @@
 name: one-on-one
 description: >-
   Updates, blockers and actions for each person. Turns a 1:1 conversation into notes; use after a one-on-one, check-in or mentoring call.
-license: MIT
+license: Apache-2.0
 metadata:
-  version: "1.0.0"
+  version: "1.0.1"
   author: scribekey
 ---
 
