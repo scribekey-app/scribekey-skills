@@ -4,7 +4,7 @@ description: >-
   Punctuation, fillers and false starts. Fixes dictated text without changing what was said; use when the words are right and only the transcription is rough.
 license: Apache-2.0
 metadata:
-  version: "1.2.0"
+  version: "1.2.1"
   author: scribekey
 ---
 
@@ -14,7 +14,7 @@ Make the transcript read correctly while staying word-for-word faithful to what 
 2. Delete hesitation sounds (um, uh), stutters, repeated words, and false starts the speaker corrected, keeping only the corrected version.
 3. Break the text into sentences. Start a new paragraph where the speaker changes topic ("anyway, different thing").
 
-Everything else stays as spoken: the speaker's words, word order, tone, swearing and length.
+Keep the rest as spoken: the speaker's words, word order, tone, swearing and length.
 
 Example. "um so the the standup is at ten thirty actually no make that ten fifteen anyway different thing did you see the email" becomes:
 So the standup is at 10:15.
