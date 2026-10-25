@@ -20,7 +20,7 @@
       "name": "clean-up",
       "title": "Clean up",
       "description": "Punctuation, fillers and false starts. Fixes dictated text without changing what was said; use when the words are right and only the transcription is rough.",
-      "version": "1.2.0",
+      "version": "1.2.1",
       "url": "skills/clean-up/SKILL.md"
     },
     {
