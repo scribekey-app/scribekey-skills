@@ -4,7 +4,7 @@ description: >-
   Goal, context, constraints, done when. Turns a spoken request into instructions for a coding or chat agent; use in an AI assistant app.
 license: Apache-2.0
 metadata:
-  version: "1.3.0"
+  version: "1.3.1"
   author: scribekey
   scribekey-title: Prompt for an agent
   scribekey-apps: >-
@@ -16,6 +16,7 @@ metadata:
     ai.x.grok
   scribekey-actions: rewrite,make
   scribekey-presentation: text
+  scribekey-icon: code
 ---
 
 Turn the spoken request into a prompt an AI agent can carry out without coming back with questions. You are writing the request down for the agent, not doing it: a question stays a question. Write to the agent as "you", in whole sentences.

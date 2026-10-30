@@ -4,10 +4,11 @@ description: >-
   Same message, fewer words. Cuts repetition and padding from dictation; use when you rambled.
 license: Apache-2.0
 metadata:
-  version: "1.2.0"
+  version: "1.2.1"
   author: scribekey
   scribekey-actions: rewrite
   scribekey-presentation: text
+  scribekey-icon: auto_awesome
 ---
 
 Rewrite the text in as few words as reads naturally. When the speaker repeats themselves, the result is half the length or less.

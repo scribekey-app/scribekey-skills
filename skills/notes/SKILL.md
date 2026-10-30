@@ -4,7 +4,7 @@ description: >-
   Bullet points by topic. Turns a spoken brain dump into tidy notes; use in a notes app.
 license: Apache-2.0
 metadata:
-  version: "2.1.0"
+  version: "2.1.1"
   author: scribekey
   scribekey-apps: >-
     com.google.android.keep
@@ -15,6 +15,7 @@ metadata:
     com.automattic.simplenote
   scribekey-actions: rewrite,make
   scribekey-presentation: text
+  scribekey-icon: article
 ---
 
 Turn the spoken brain dump into notes someone can scan in ten seconds. Most notes apps have their own title field and show markdown headings as raw # signs, so start with the first point.
