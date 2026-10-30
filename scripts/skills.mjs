@@ -74,7 +74,7 @@ function parseMap(lines, start, indent) {
   let i = start;
   while (i < lines.length) {
     const line = lines[i];
-    if (line.trim() === "") { i++; continue; }
+    if (line.trim() === "" || line.trimStart().startsWith("#")) { i++; continue; }
     const lead = line.length - line.trimStart().length;
     if (lead < indent) break;
     if (lead > indent) throw new Error(`unexpected indent: "${line}"`);
