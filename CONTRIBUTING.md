@@ -12,9 +12,12 @@ New skills and improvements are welcome. One skill per pull request.
    markdown headings as `#` signs. Use the package
    name from the app's Play Store link (`id=` in the URL). When the skill suits every app of a
    kind, add `metadata.scribekey-categories: email` or `messaging` as well.
-4. Run `node scripts/skills.mjs build` (Node 18 or later, nothing to install), then commit
+4. Set `metadata.scribekey-actions` to `rewrite` (changes the text in place), `make` (adds a
+   Studio result), or `rewrite,make`. Set `metadata.scribekey-presentation` when Make should show
+   as something other than text.
+5. Run `node scripts/skills.mjs build` (Node 18 or later, nothing to install), then commit
    `index.json` with your skill.
-5. Open a pull request with one real dictated example and what the skill returned.
+6. Open a pull request with one real dictated example and what the skill returned.
 
 ## Change a skill
 
@@ -33,6 +36,8 @@ choose Update.
 - `metadata.version` is not `MAJOR.MINOR.PATCH`, or a changed skill kept its old version;
 - an entry in `scribekey-apps` is not an Android package name, or one in `scribekey-categories` is
   not `email` or `messaging`;
+- `scribekey-actions` is missing, or is not `rewrite` / `make`;
+- `scribekey-presentation` is set to a value other than text, diagram, page, slides, image or audio;
 - the folder has `scripts/` or anything other than text under `references/` and `assets/`;
 - `index.json` is out of date.
 

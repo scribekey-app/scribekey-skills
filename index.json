@@ -5,7 +5,7 @@
       "name": "agent-prompt",
       "title": "Prompt for an agent",
       "description": "Goal, context, constraints, done when. Turns a spoken request into instructions for a coding or chat agent; use in an AI assistant app.",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "url": "skills/agent-prompt/SKILL.md",
       "apps": [
         "com.openai.chatgpt",
@@ -14,27 +14,33 @@
         "ai.mistral.chat",
         "com.deepseek.chat",
         "ai.x.grok"
-      ]
+      ],
+      "actions": "rewrite,make",
+      "presentation": "text"
     },
     {
       "name": "clean-up",
       "title": "Clean up",
       "description": "Punctuation, fillers and false starts. Fixes dictated text without changing what was said; use when the words are right and only the transcription is rough.",
-      "version": "1.2.1",
-      "url": "skills/clean-up/SKILL.md"
+      "version": "1.3.0",
+      "url": "skills/clean-up/SKILL.md",
+      "actions": "rewrite",
+      "presentation": "text"
     },
     {
       "name": "concise",
       "title": "Concise",
       "description": "Same message, fewer words. Cuts repetition and padding from dictation; use when you rambled.",
-      "version": "1.1.3",
-      "url": "skills/concise/SKILL.md"
+      "version": "1.2.0",
+      "url": "skills/concise/SKILL.md",
+      "actions": "rewrite",
+      "presentation": "text"
     },
     {
       "name": "email",
       "title": "Email",
       "description": "Greeting, clear paragraphs, sign-off. Turns dictation into an email body ready to paste; use when writing an email.",
-      "version": "1.2.2",
+      "version": "1.3.0",
       "url": "skills/email/SKILL.md",
       "apps": [
         "com.google.android.gm",
@@ -46,13 +52,15 @@
       ],
       "categories": [
         "email"
-      ]
+      ],
+      "actions": "rewrite,make",
+      "presentation": "text"
     },
     {
       "name": "friendly-message",
       "title": "Friendly message",
       "description": "Warm and conversational. Turns dictation into a text message in your own voice; use in messaging apps.",
-      "version": "1.3.0",
+      "version": "1.4.0",
       "url": "skills/friendly-message/SKILL.md",
       "apps": [
         "com.whatsapp",
@@ -68,34 +76,42 @@
       ],
       "categories": [
         "messaging"
-      ]
+      ],
+      "actions": "rewrite,make",
+      "presentation": "text"
     },
     {
       "name": "interview-qa",
       "title": "Interview Q&A",
       "description": "Each question paired with its answer. Turns an interview transcript with speakers into questions and answers; use after an interview, podcast or Q&A.",
-      "version": "1.1.0",
-      "url": "skills/interview-qa/SKILL.md"
+      "version": "1.2.0",
+      "url": "skills/interview-qa/SKILL.md",
+      "actions": "make",
+      "presentation": "text"
     },
     {
       "name": "lecture-notes",
       "title": "Lecture notes",
       "description": "Study notes by topic, with questions from the room kept apart. Turns a recorded lecture, class or talk into notes; use after a lecture or training session.",
-      "version": "1.1.0",
-      "url": "skills/lecture-notes/SKILL.md"
+      "version": "1.2.0",
+      "url": "skills/lecture-notes/SKILL.md",
+      "actions": "make",
+      "presentation": "text"
     },
     {
       "name": "meeting-notes",
       "title": "Meeting notes",
       "description": "Decisions, each person's actions and open questions. Turns a meeting transcript with speakers, or a spoken recap, into notes; use after a meeting or call.",
-      "version": "2.1.0",
-      "url": "skills/meeting-notes/SKILL.md"
+      "version": "2.2.0",
+      "url": "skills/meeting-notes/SKILL.md",
+      "actions": "make",
+      "presentation": "text"
     },
     {
       "name": "notes",
       "title": "Notes",
       "description": "Bullet points by topic. Turns a spoken brain dump into tidy notes; use in a notes app.",
-      "version": "2.0.0",
+      "version": "2.1.0",
       "url": "skills/notes/SKILL.md",
       "apps": [
         "com.google.android.keep",
@@ -104,27 +120,33 @@
         "notion.id",
         "com.microsoft.office.onenote",
         "com.automattic.simplenote"
-      ]
+      ],
+      "actions": "rewrite,make",
+      "presentation": "text"
     },
     {
       "name": "one-on-one",
       "title": "1:1 notes",
       "description": "Updates, blockers and actions for each person. Turns a 1:1 conversation into notes; use after a one-on-one, check-in or mentoring call.",
-      "version": "1.1.0",
-      "url": "skills/one-on-one/SKILL.md"
+      "version": "1.2.0",
+      "url": "skills/one-on-one/SKILL.md",
+      "actions": "make",
+      "presentation": "text"
     },
     {
       "name": "professional",
       "title": "Professional",
       "description": "Polished and businesslike. Rewrites dictation in a professional tone without making it stiff; use for clients, managers or anything formal.",
-      "version": "1.1.2",
-      "url": "skills/professional/SKILL.md"
+      "version": "1.2.0",
+      "url": "skills/professional/SKILL.md",
+      "actions": "rewrite",
+      "presentation": "text"
     },
     {
       "name": "social-post",
       "title": "Social post",
       "description": "One clear post in your voice. Turns dictation into a social media post; use in X, LinkedIn, Bluesky, Threads or Mastodon.",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "url": "skills/social-post/SKILL.md",
       "apps": [
         "com.twitter.android",
@@ -132,20 +154,24 @@
         "xyz.blueskyweb.app",
         "com.instagram.barcelona",
         "org.joinmastodon.android"
-      ]
+      ],
+      "actions": "rewrite,make",
+      "presentation": "text"
     },
     {
       "name": "summary",
       "title": "Summary",
       "description": "The key points, shorter. Use when a long dictation needs to become a quick read.",
-      "version": "1.1.3",
-      "url": "skills/summary/SKILL.md"
+      "version": "1.2.0",
+      "url": "skills/summary/SKILL.md",
+      "actions": "rewrite,make",
+      "presentation": "text"
     },
     {
       "name": "todo-list",
       "title": "To-do list",
       "description": "One task per line, ready for a to-do app. Turns spoken errands and commitments into task titles; use in Todoist, TickTick, Google Tasks or Microsoft To Do.",
-      "version": "2.0.0",
+      "version": "2.1.0",
       "url": "skills/todo-list/SKILL.md",
       "apps": [
         "com.todoist",
@@ -153,13 +179,15 @@
         "com.google.android.apps.tasks",
         "com.microsoft.todos",
         "com.anydo"
-      ]
+      ],
+      "actions": "rewrite,make",
+      "presentation": "text"
     },
     {
       "name": "work-chat",
       "title": "Work chat",
       "description": "Short, clear and friendly for a team channel. Turns dictation into a work chat message; use in Slack, Teams or Google Chat.",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "url": "skills/work-chat/SKILL.md",
       "apps": [
         "com.Slack",
@@ -167,7 +195,9 @@
         "com.google.android.apps.dynamite",
         "com.mattermost.rn",
         "im.vector.app"
-      ]
+      ],
+      "actions": "rewrite,make",
+      "presentation": "text"
     }
   ]
 }

@@ -26,9 +26,20 @@ const NAME = /^[a-z0-9]+(-[a-z0-9]+)*$/;
 const SEMVER = /^\d+\.\d+\.\d+$/;
 const PACKAGE = /^[A-Za-z][A-Za-z0-9_]*(\.[A-Za-z][A-Za-z0-9_]*)+$/;
 const TOP_KEYS = new Set(["name", "description", "license", "compatibility", "metadata", "allowed-tools"]);
-const SCRIBEKEY_KEYS = new Set(["scribekey-title", "scribekey-apps", "scribekey-categories"]);
+const SCRIBEKEY_KEYS = new Set([
+  "scribekey-title",
+  "scribekey-apps",
+  "scribekey-categories",
+  "scribekey-actions",
+  "scribekey-presentation",
+  "scribekey-output-format",
+  "scribekey-inputs",
+  "scribekey-requires",
+]);
 // Kinds of app ScribeKey can find on a phone (AppCategory in enhancement/presets/SkillImport.kt).
 const CATEGORIES = new Set(["email", "messaging"]);
+const ACTIONS = new Set(["rewrite", "make"]);
+const PRESENTATIONS = new Set(["text", "diagram", "page", "slides", "image", "audio"]);
 const KEPT_FOLDERS = ["references/", "assets/"];
 
 /** Splits a SKILL.md into its frontmatter lines and body; throws on a missing fence. */
@@ -174,6 +185,19 @@ function validate(folder, base) {
       problems.push(`"${category}" in metadata.scribekey-categories is not one of: ${[...CATEGORIES].join(", ")}`);
     }
   }
+  const actions = packages(meta["scribekey-actions"]);
+  if (actions.length === 0) {
+    problems.push("metadata.scribekey-actions is missing (rewrite, make, or rewrite,make)");
+  }
+  for (const action of actions) {
+    if (!ACTIONS.has(action)) {
+      problems.push(`"${action}" in metadata.scribekey-actions is not one of: ${[...ACTIONS].join(", ")}`);
+    }
+  }
+  const presentation = meta["scribekey-presentation"];
+  if (presentation && !PRESENTATIONS.has(presentation)) {
+    problems.push(`"${presentation}" in metadata.scribekey-presentation is not one of: ${[...PRESENTATIONS].join(", ")}`);
+  }
 
   const extra = files(dir).map((p) => relative(dir, p)).filter((p) => p !== "SKILL.md");
   let textChars = 0;
@@ -235,6 +259,10 @@ function buildIndex(results) {
     if (apps.length) entry.apps = apps;
     const categories = packages(meta["scribekey-categories"]);
     if (categories.length) entry.categories = categories;
+    const actions = packages(meta["scribekey-actions"]);
+    if (actions.length) entry.actions = actions.join(",");
+    const presentation = meta["scribekey-presentation"];
+    if (presentation) entry.presentation = presentation;
     return entry;
   });
   return JSON.stringify({ name: "ScribeKey skills", skills }, null, 2) + "\n";
