@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/scribekey-app/scribekey-skills/main/schema/index.schema.json",
+  "title": "ScribeKey skills index",
+  "description": "Generated listing the ScribeKey app reads. Produced by node scripts/skills.mjs build; do not edit by hand.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["name", "skills"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Marketplace title shown in ScribeKey."
+    },
+    "skills": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/skill" }
+    }
+  },
+  "definitions": {
+    "skill": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "title", "description", "version", "url"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+        },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "version": {
+          "type": "string",
+          "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+        },
+        "url": { "type": "string" },
+        "apps": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "categories": {
+          "type": "array",
+          "items": { "enum": ["email", "messaging"] }
+        },
+        "actions": {
+          "type": "string",
+          "pattern": "^(rewrite|make)(,(rewrite|make))*$"
+        },
+        "presentation": {
+          "type": "string",
+          "enum": ["text", "diagram", "page", "slides", "image", "audio"]
+        },
+        "icon": {
+          "type": "string",
+          "enum": ["auto_awesome", "article", "checklist", "mail", "chat", "code"]
+        }
+      }
+    }
+  }
+}

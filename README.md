@@ -80,6 +80,24 @@ and ScribeKey sends the ones named. `scripts/` is not allowed: ScribeKey never r
 `index.json` is generated from the skills by `node scripts/skills.mjs build`. Don't edit it by
 hand.
 
+## Schema
+
+There is no official Agent Skills JSON Schema: the spec is YAML frontmatter, and `metadata`
+must stay string keys to string values. This catalog keeps that shape and adds:
+
+- [`schema/skill-frontmatter.schema.json`](schema/skill-frontmatter.schema.json) — the `SKILL.md`
+  frontmatter this repo accepts, including the `scribekey-*` keys
+- [`schema/index.schema.json`](schema/index.schema.json) — the generated `index.json`
+
+With the [YAML](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml) extension,
+workspace settings map those schemas onto `skills/**/SKILL.md` and `index.json` so editors
+autocomplete and flag a YAML list in `scribekey-actions` (it has to stay a string). CI still
+runs `node scripts/skills.mjs check`: a schema cannot see that `name` matches the folder, that
+a changed skill bumped `metadata.version`, or that `index.json` is fresh.
+
+A `# yaml-language-server: $schema=…` comment in the frontmatter is allowed; existing skills
+leave it out so installing them does not offer a no-op Update.
+
 ## Credits
 
 The way these skills are written follows Matt Pocock's [writing-for-agents](https://github.com/mattpocock/skills) skill.

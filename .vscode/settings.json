@@ -1,0 +1,11 @@
+{
+  "yaml.schemas": {
+    "./schema/skill-frontmatter.schema.json": ["skills/**/SKILL.md"]
+  },
+  "json.schemas": [
+    {
+      "fileMatch": ["index.json"],
+      "url": "./schema/index.schema.json"
+    }
+  ]
+}

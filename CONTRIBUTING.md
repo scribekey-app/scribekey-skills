@@ -18,7 +18,9 @@ New skills and improvements are welcome. One skill per pull request.
    `checklist`, `mail`, `chat` or `code` — reuse a glyph for related skills, do not invent a unique
    one for each.
 5. Run `node scripts/skills.mjs build` (Node 18 or later, nothing to install), then commit
-   `index.json` with your skill.
+   `index.json` with your skill. Editors with the YAML extension pick up
+   `schema/skill-frontmatter.schema.json` for `skills/**/SKILL.md` (see the README Schema
+   section). Keep `scribekey-actions` and `scribekey-apps` as strings, not YAML lists.
 6. Open a pull request with one real dictated example and what the skill returned.
 
 ## Change a skill
@@ -32,7 +34,8 @@ choose Update.
 
 `node scripts/skills.mjs check` runs on every pull request. It fails when:
 
-- the frontmatter is not the plain form shown in the README, or a required field is missing;
+- the frontmatter is not the plain form shown in the README, or a required field is missing
+  (`#` comment lines are allowed);
 - `name` breaks the Agent Skills rules or does not match its folder;
 - the description is over 1,024 characters or the instructions over 20,000;
 - `metadata.version` is not `MAJOR.MINOR.PATCH`, or a changed skill kept its old version;

@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/scribekey-app/scribekey-skills/main/schema/skill-frontmatter.schema.json",
+  "title": "ScribeKey skill frontmatter",
+  "description": "YAML frontmatter of a catalog SKILL.md. Agent Skills requires metadata values to be strings, so lists are comma- or space-separated text, never YAML arrays. CI still runs node scripts/skills.mjs check (folder name, version bump, index freshness).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["name", "description", "license", "metadata"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64,
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "description": "Skill identity. Lowercase letters, digits and single hyphens. Must match the folder name."
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1024,
+      "description": "What it does, then when to use it. The first sentence is the line under the skill's name."
+    },
+    "license": {
+      "const": "Apache-2.0",
+      "description": "This catalog requires Apache-2.0."
+    },
+    "compatibility": {
+      "type": "string",
+      "description": "Optional Agent Skills field. Environment the skill expects."
+    },
+    "allowed-tools": {
+      "type": "string",
+      "description": "Optional experimental Agent Skills field. Space-separated tool names. ScribeKey never runs tools."
+    },
+    "metadata": { "$ref": "#/definitions/metadata" }
+  },
+  "definitions": {
+    "metadata": {
+      "type": "object",
+      "description": "String keys to string values only, per the Agent Skills spec.",
+      "additionalProperties": { "type": "string" },
+      "required": ["version", "scribekey-actions"],
+      "properties": {
+        "version": {
+          "type": "string",
+          "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+          "description": "MAJOR.MINOR.PATCH. Bump on every change so installed copies get Update."
+        },
+        "author": {
+          "type": "string",
+          "description": "Optional. Who wrote the skill."
+        },
+        "scribekey-title": {
+          "type": "string",
+          "description": "Display name. Default is the name humanised."
+        },
+        "scribekey-apps": {
+          "type": "string",
+          "description": "Android package names, space-separated. A string, not a YAML list."
+        },
+        "scribekey-categories": {
+          "type": "string",
+          "pattern": "^(email|messaging)([,\\s]+(email|messaging))*$",
+          "description": "email, messaging, or both, space- or comma-separated."
+        },
+        "scribekey-actions": {
+          "type": "string",
+          "pattern": "^(rewrite|make)([,\\s]+(rewrite|make))*$",
+          "description": "rewrite (in place), make (Studio result), or rewrite,make. A string, not a YAML list."
+        },
+        "scribekey-presentation": {
+          "type": "string",
+          "enum": ["text", "diagram", "page", "slides", "image", "audio"],
+          "description": "How Studio shows a Make result. Default text."
+        },
+        "scribekey-icon": {
+          "type": "string",
+          "enum": ["auto_awesome", "article", "checklist", "mail", "chat", "code"],
+          "description": "Marketplace and tile glyph. Related skills share a glyph; omit for auto_awesome."
+        },
+        "scribekey-output-format": {
+          "type": "string",
+          "enum": ["text/markdown", "text/vnd.mermaid", "text/html", "image/png", "audio/mpeg"],
+          "description": "MIME type a Make result is stored as. Default text/markdown."
+        },
+        "scribekey-requires": {
+          "type": "string",
+          "description": "Optional capability the host must have, kept as written."
+        },
+        "scribekey-inputs": {
+          "type": "string",
+          "description": "Path to a bundled JSON file declaring a Make run's inputs (a JSON Schema subset of string and boolean properties)."
+        }
+      }
+    }
+  }
+}
