@@ -4,8 +4,10 @@ description: >-
   Study notes by topic, with questions from the room kept apart. Turns a recorded lecture, class or talk into notes; use after a lecture or training session.
 license: Apache-2.0
 metadata:
-  version: "1.1.0"
+  version: "1.2.0"
   author: scribekey
+  scribekey-actions: make
+  scribekey-presentation: text
 ---
 
 Turn a lecture into study notes a student can revise from.

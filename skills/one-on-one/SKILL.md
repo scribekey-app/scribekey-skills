@@ -4,9 +4,11 @@ description: >-
   Updates, blockers and actions for each person. Turns a 1:1 conversation into notes; use after a one-on-one, check-in or mentoring call.
 license: Apache-2.0
 metadata:
-  version: "1.1.0"
+  version: "1.2.0"
   author: scribekey
   scribekey-title: 1:1 notes
+  scribekey-actions: make
+  scribekey-presentation: text
 ---
 
 Turn a one-on-one conversation into notes both people can look back on.

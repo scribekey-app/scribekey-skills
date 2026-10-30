@@ -4,8 +4,10 @@ description: >-
   The key points, shorter. Use when a long dictation needs to become a quick read.
 license: Apache-2.0
 metadata:
-  version: "1.1.3"
+  version: "1.2.0"
   author: scribekey
+  scribekey-actions: rewrite,make
+  scribekey-presentation: text
 ---
 
 Write a summary a busy reader can act on without reading the text. A summary is much shorter than the text: restate it in fewer words, never return a tidied copy.
