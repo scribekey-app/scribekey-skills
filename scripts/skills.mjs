@@ -35,11 +35,13 @@ const SCRIBEKEY_KEYS = new Set([
   "scribekey-output-format",
   "scribekey-inputs",
   "scribekey-requires",
+  "scribekey-icon",
 ]);
 // Kinds of app ScribeKey can find on a phone (AppCategory in enhancement/presets/SkillImport.kt).
 const CATEGORIES = new Set(["email", "messaging"]);
 const ACTIONS = new Set(["rewrite", "make"]);
 const PRESENTATIONS = new Set(["text", "diagram", "page", "slides", "image", "audio"]);
+const ICONS = new Set(["auto_awesome", "article", "checklist", "mail", "chat", "code"]);
 const KEPT_FOLDERS = ["references/", "assets/"];
 
 /** Splits a SKILL.md into its frontmatter lines and body; throws on a missing fence. */
@@ -198,6 +200,10 @@ function validate(folder, base) {
   if (presentation && !PRESENTATIONS.has(presentation)) {
     problems.push(`"${presentation}" in metadata.scribekey-presentation is not one of: ${[...PRESENTATIONS].join(", ")}`);
   }
+  const icon = meta["scribekey-icon"];
+  if (icon && !ICONS.has(icon)) {
+    problems.push(`"${icon}" in metadata.scribekey-icon is not one of: ${[...ICONS].join(", ")}`);
+  }
 
   const extra = files(dir).map((p) => relative(dir, p)).filter((p) => p !== "SKILL.md");
   let textChars = 0;
@@ -263,6 +269,8 @@ function buildIndex(results) {
     if (actions.length) entry.actions = actions.join(",");
     const presentation = meta["scribekey-presentation"];
     if (presentation) entry.presentation = presentation;
+    const icon = meta["scribekey-icon"];
+    if (icon) entry.icon = icon;
     return entry;
   });
   return JSON.stringify({ name: "ScribeKey skills", skills }, null, 2) + "\n";

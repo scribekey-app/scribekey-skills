@@ -56,6 +56,7 @@ metadata:
   scribekey-categories: email   # optional. email, messaging, or both.
   scribekey-actions: rewrite,make  # rewrite (in place), make (Studio result), or both.
   scribekey-presentation: text     # how Studio shows a Make result: text, diagram, page, slides, image or audio.
+  scribekey-icon: mail             # optional. Bundled Material Symbol: auto_awesome, article, checklist, mail, chat or code.
 ---
 
 Rewrite the text as the body of an email…
@@ -71,6 +72,7 @@ Rewrite the text as the body of an email…
 | `metadata.scribekey-categories` | Kinds of app it also offers itself in: `email` (apps that open `mailto:` links) or `messaging` (apps that open `smsto:` links). Each app still has its own switch |
 | `metadata.scribekey-actions` | `rewrite` (changes text in place: bubble, Improve), `make` (adds a Studio result), or `rewrite,make`. The marketplace groups on this; omitting it lists the skill as Make only |
 | `metadata.scribekey-presentation` | How Studio shows a Make result: `text`, `diagram`, `page`, `slides`, `image` or `audio`. Default `text` |
+| `metadata.scribekey-icon` | Marketplace and tile glyph. One of `auto_awesome`, `article`, `checklist`, `mail`, `chat`, `code`. Related skills share a glyph; omitting it uses auto_awesome |
 
 A skill may add text files under `references/` or `assets/`; the instructions name them by path
 and ScribeKey sends the ones named. `scripts/` is not allowed: ScribeKey never runs code.

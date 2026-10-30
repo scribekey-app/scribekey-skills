@@ -4,7 +4,7 @@ description: >-
   One task per line, ready for a to-do app. Turns spoken errands and commitments into task titles; use in Todoist, TickTick, Google Tasks or Microsoft To Do.
 license: Apache-2.0
 metadata:
-  version: "2.1.0"
+  version: "2.1.1"
   author: scribekey
   scribekey-title: To-do list
   scribekey-apps: >-
@@ -15,6 +15,7 @@ metadata:
     com.anydo
   scribekey-actions: rewrite,make
   scribekey-presentation: text
+  scribekey-icon: checklist
 ---
 
 Write the text as task titles for a to-do app, where each line becomes one task.
