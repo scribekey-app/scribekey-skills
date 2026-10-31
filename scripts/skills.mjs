@@ -30,6 +30,8 @@ const SCRIBEKEY_KEYS = new Set([
   "scribekey-title",
   "scribekey-apps",
   "scribekey-categories",
+  "scribekey-discovery-categories",
+  "scribekey-suggested-fields",
   "scribekey-actions",
   "scribekey-presentation",
   "scribekey-output-format",
@@ -39,6 +41,8 @@ const SCRIBEKEY_KEYS = new Set([
 ]);
 // Kinds of app ScribeKey can find on a phone (AppCategory in enhancement/presets/SkillImport.kt).
 const CATEGORIES = new Set(["email", "messaging"]);
+const DISCOVERY_CATEGORIES = new Set(["writing", "search", "productivity", "developer-ai", "languages"]);
+const SUGGESTED_FIELDS = new Set(["search"]);
 const ACTIONS = new Set(["rewrite", "make"]);
 const PRESENTATIONS = new Set(["text", "diagram", "page", "slides", "image", "audio"]);
 const ICONS = new Set(["auto_awesome", "article", "checklist", "mail", "chat", "code"]);
@@ -187,6 +191,16 @@ function validate(folder, base) {
       problems.push(`"${category}" in metadata.scribekey-categories is not one of: ${[...CATEGORIES].join(", ")}`);
     }
   }
+  for (const category of packages(meta["scribekey-discovery-categories"])) {
+    if (!DISCOVERY_CATEGORIES.has(category)) {
+      problems.push(`"${category}" in metadata.scribekey-discovery-categories is not one of: ${[...DISCOVERY_CATEGORIES].join(", ")}`);
+    }
+  }
+  for (const field of packages(meta["scribekey-suggested-fields"])) {
+    if (!SUGGESTED_FIELDS.has(field)) {
+      problems.push(`"${field}" in metadata.scribekey-suggested-fields is not one of: ${[...SUGGESTED_FIELDS].join(", ")}`);
+    }
+  }
   const actions = packages(meta["scribekey-actions"]);
   if (actions.length === 0) {
     problems.push("metadata.scribekey-actions is missing (rewrite, make, or rewrite,make)");
@@ -265,6 +279,10 @@ function buildIndex(results) {
     if (apps.length) entry.apps = apps;
     const categories = packages(meta["scribekey-categories"]);
     if (categories.length) entry.categories = categories;
+    const discoveryCategories = packages(meta["scribekey-discovery-categories"]);
+    if (discoveryCategories.length) entry.discoveryCategories = discoveryCategories;
+    const suggestedFields = packages(meta["scribekey-suggested-fields"]);
+    if (suggestedFields.length) entry.suggestedFields = suggestedFields;
     const actions = packages(meta["scribekey-actions"]);
     if (actions.length) entry.actions = actions.join(",");
     const presentation = meta["scribekey-presentation"];
