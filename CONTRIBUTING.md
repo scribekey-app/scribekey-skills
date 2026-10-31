@@ -60,7 +60,7 @@ Dictation goes straight into someone's email or chat, often without a second loo
 merged when it:
 
 - does one job, named in the first sentence of its description;
-- keeps every name, number, date and fact as given, in the language of the text;
+- keeps every name, number, date and fact as given, in the language of the text, unless the Skill explicitly transforms language or terminology for its stated purpose;
 - writes plain text unless the destination renders markdown;
 - handles its edge cases in the instructions (a very short input, nothing to act on);
 - passes the writing rules below.
@@ -96,7 +96,8 @@ here follow them.
    (`references/terms.md`). ScribeKey only sends the files the instructions name.
 
 Every skill here ends with the same fidelity sentence: "Every name, number, date and fact comes
-from the text exactly as given, in the language of the text." Keep it.
+from the text exactly as given, in the language of the text." A Skill that explicitly transforms
+language or terminology may state that narrow exception in its Check line.
 
 ## Testing a skill
 

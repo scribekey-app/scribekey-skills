@@ -27,6 +27,7 @@ The skills are ordinary `SKILL.md` files, so any client that reads Agent Skills 
 | [Search query](skills/search-query/SKILL.md) | One concise query for an ordinary web or search field | – |
 | [Social post](skills/social-post/SKILL.md) | One clear post in your voice | com.twitter.android, com.linkedin.android, xyz.blueskyweb.app, com.instagram.barcelona, org.joinmastodon.android |
 | [Summary](skills/summary/SKILL.md) | The key points, shorter | – |
+| [Taobao search](skills/taobao-search/SKILL.md) | One Simplified Chinese product query | com.taobao.taobao |
 | [To-do list](skills/todo-list/SKILL.md) | One task per line, for a to-do app | com.todoist, com.ticktick.task, com.google.android.apps.tasks, com.microsoft.todos, com.anydo |
 | [Work chat](skills/work-chat/SKILL.md) | Short, clear and friendly for a team channel | com.Slack, com.microsoft.teams, com.google.android.apps.dynamite, com.mattermost.rn, im.vector.app |
 

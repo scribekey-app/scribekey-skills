@@ -1,4 +1,60 @@
-[
+ [
+ {
+  "skill": "taobao-search",
+  "what": "wardrobe light uses plausible listing terms and keeps only stated features",
+  "transcript": "a magnetic motion sensor light for inside a wardrobe that doesn't need drilling",
+  "app": "Taobao",
+  "package": "com.taobao.taobao"
+ },
+ {
+  "skill": "taobao-search",
+  "what": "monitor size and USB-C survive without invented display specs",
+  "transcript": "a 34 inch ultrawide monitor with USB-C",
+  "app": "Taobao",
+  "package": "com.taobao.taobao"
+ },
+ {
+  "skill": "taobao-search",
+  "what": "charger remains a replacement part and the Dyson model survives",
+  "transcript": "replacement charger for a Dyson V11",
+  "app": "Taobao",
+  "package": "com.taobao.taobao"
+ },
+ {
+  "skill": "taobao-search",
+  "what": "shower shelf preserves no-drill, stainless steel without guessing attachment type",
+  "transcript": "a shelf for a shower with no drilling, stainless steel",
+  "app": "Taobao",
+  "package": "com.taobao.taobao"
+ },
+ {
+  "skill": "taobao-search",
+  "what": "a question asking to find a product becomes a query rather than an answer",
+  "transcript": "could you find a milk frother for coffee?",
+  "app": "Taobao",
+  "package": "com.taobao.taobao"
+ },
+ {
+  "skill": "taobao-search",
+  "what": "ambiguous door-stopper request stays cautious and does not invent specifications",
+  "transcript": "I'd like a thing that stops the sliding door from slamming",
+  "app": "Taobao",
+  "package": "com.taobao.taobao"
+ },
+ {
+  "skill": "taobao-search",
+  "what": "MacBook model, USB-C, and HDMI stay intact",
+  "transcript": "USB C hub for MacBook Air M3 with HDMI",
+  "app": "Taobao",
+  "package": "com.taobao.taobao"
+ },
+ {
+  "skill": "taobao-search",
+  "what": "already useful Chinese query stays Chinese and keeps its product terms",
+  "transcript": "衣柜人体感应灯 磁吸",
+  "app": "Taobao",
+  "package": "com.taobao.taobao"
+ },
  {
   "skill": "search-query",
   "what": "spoken question becomes a compact query without being answered",
