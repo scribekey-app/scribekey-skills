@@ -85,6 +85,14 @@ C = {
  "summary-4": lambda o: has(o, "viernes") and no(o, " the ", " and "),
  "meeting-notes-6": lambda o: no(o, "### decisions", "### actions", "### summary") and has(o, "marie"),
  "social-post-4": lambda o: has(o, "@maya") and len(o) < 90,
+ "taobao-search-1": lambda o: len(lines(o)) == 1 and has(o, "衣柜", "灯", "人体感应", "磁吸", "免打孔") and no(o, "充电", "usb", "尺寸", "厘米"),
+ "taobao-search-2": lambda o: len(lines(o)) == 1 and has(o, "34", "带鱼屏", "usb-c") and no(o, "4k", "曲面"),
+ "taobao-search-3": lambda o: len(lines(o)) == 1 and has(o, "戴森", "v11", "充电器") and no(o, "电压", "伏", "吸尘器"),
+ "taobao-search-4": lambda o: len(lines(o)) == 1 and has(o, "浴室", "置物架", "免打孔", "不锈钢") and no(o, "吸盘", "胶", "免钉胶"),
+ "taobao-search-5": lambda o: len(lines(o)) == 1 and has(o, "奶", "泡", "咖啡") and no(o, "可以", "当然", "推荐", "吗？", "吗?"),
+ "taobao-search-6": lambda o: len(lines(o)) == 1 and has(o, "推拉门") and no(o, "液压", "静音", "不锈钢"),
+ "taobao-search-7": lambda o: len(lines(o)) == 1 and has(o, "usb-c", "macbook air m3", "hdmi"),
+ "taobao-search-8": lambda o: len(lines(o)) == 1 and has(o, "衣柜", "人体感应灯", "磁吸") and no(o, "wardrobe", "english"),
 }
 CHECKS = C
 

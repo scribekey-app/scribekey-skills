@@ -181,6 +181,19 @@
       "icon": "article"
     },
     {
+      "name": "taobao-search",
+      "title": "Taobao search",
+      "description": "One Chinese search query for Taobao. Turns a spoken product description into concise Simplified Chinese marketplace keywords; use when searching for an item in Taobao.",
+      "version": "1.0.0",
+      "url": "skills/taobao-search/SKILL.md",
+      "apps": [
+        "com.taobao.taobao"
+      ],
+      "actions": "rewrite",
+      "presentation": "text",
+      "icon": "auto_awesome"
+    },
+    {
       "name": "todo-list",
       "title": "To-do list",
       "description": "One task per line, ready for a to-do app. Turns spoken errands and commitments into task titles; use in Todoist, TickTick, Google Tasks or Microsoft To Do.",
