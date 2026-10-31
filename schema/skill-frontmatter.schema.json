@@ -63,6 +63,16 @@
           "pattern": "^(email|messaging)([,\\s]+(email|messaging))*$",
           "description": "email, messaging, or both, space- or comma-separated."
         },
+        "scribekey-discovery-categories": {
+          "type": "string",
+          "pattern": "^(writing|search|productivity|developer-ai|languages)([,\\s]+(writing|search|productivity|developer-ai|languages))*$",
+          "description": "Discovery topics, space- or comma-separated: writing, search, productivity, developer-ai, languages."
+        },
+        "scribekey-suggested-fields": {
+          "type": "string",
+          "pattern": "^search$",
+          "description": "Field kinds for suggestion ordering only, space- or comma-separated. Current value: search."
+        },
         "scribekey-actions": {
           "type": "string",
           "pattern": "^(rewrite|make)([,\\s]+(rewrite|make))*$",

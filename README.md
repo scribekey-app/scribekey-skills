@@ -24,6 +24,7 @@ The skills are ordinary `SKILL.md` files, so any client that reads Agent Skills 
 | [Notes](skills/notes/SKILL.md) | Bullet points by topic | com.google.android.keep, com.samsung.android.app.notes, md.obsidian, notion.id, com.microsoft.office.onenote, com.automattic.simplenote |
 | [1:1 notes](skills/one-on-one/SKILL.md) | Updates, blockers and actions for each person | – |
 | [Professional](skills/professional/SKILL.md) | Polished and businesslike | – |
+| [Search query](skills/search-query/SKILL.md) | One concise query for an ordinary web or search field | – |
 | [Social post](skills/social-post/SKILL.md) | One clear post in your voice | com.twitter.android, com.linkedin.android, xyz.blueskyweb.app, com.instagram.barcelona, org.joinmastodon.android |
 | [Summary](skills/summary/SKILL.md) | The key points, shorter | – |
 | [To-do list](skills/todo-list/SKILL.md) | One task per line, for a to-do app | com.todoist, com.ticktick.task, com.google.android.apps.tasks, com.microsoft.todos, com.anydo |
@@ -54,6 +55,8 @@ metadata:
     com.google.android.gm
     com.microsoft.office.outlook
   scribekey-categories: email   # optional. email, messaging, or both.
+  scribekey-discovery-categories: writing  # optional. writing, search, productivity, developer-ai, languages.
+  scribekey-suggested-fields: search  # optional. Suggestion order for matching field kinds; never runs a skill.
   scribekey-actions: rewrite,make  # rewrite (in place), make (Studio result), or both.
   scribekey-presentation: text     # how Studio shows a Make result: text, diagram, page, slides, image or audio.
   scribekey-icon: mail             # optional. Bundled Material Symbol: auto_awesome, article, checklist, mail, chat or code.
@@ -70,6 +73,8 @@ Rewrite the text as the body of an email…
 | `metadata.scribekey-title` | The title shown in lists |
 | `metadata.scribekey-apps` | Apps the skill offers to apply automatically in |
 | `metadata.scribekey-categories` | Kinds of app it also offers itself in: `email` (apps that open `mailto:` links) or `messaging` (apps that open `smsto:` links). Each app still has its own switch |
+| `metadata.scribekey-discovery-categories` | Optional catalogue topics, space- or comma-separated: `writing`, `search`, `productivity`, `developer-ai`, `languages`. This is separate from app kinds in `scribekey-categories` |
+| `metadata.scribekey-suggested-fields` | Optional field kinds for suggestion ordering, currently `search`. This only influences recommendations; it never runs a Skill or grants a permission |
 | `metadata.scribekey-actions` | `rewrite` (changes text in place: bubble, Improve), `make` (adds a Studio result), or `rewrite,make`. The marketplace groups on this; omitting it lists the skill as Make only |
 | `metadata.scribekey-presentation` | How Studio shows a Make result: `text`, `diagram`, `page`, `slides`, `image` or `audio`. Default `text` |
 | `metadata.scribekey-icon` | Marketplace and tile glyph. One of `auto_awesome`, `article`, `checklist`, `mail`, `chat`, `code`. Related skills share a glyph; omitting it uses auto_awesome |
@@ -97,6 +102,9 @@ a changed skill bumped `metadata.version`, or that `index.json` is fresh.
 
 A `# yaml-language-server: $schema=…` comment in the frontmatter is allowed; existing skills
 leave it out so installing them does not offer a no-op Update.
+
+In `index.json`, these optional values appear as `discoveryCategories` and `suggestedFields`
+arrays. Missing values stay omitted, so existing entries remain uncategorised and neutral.
 
 ## Credits
 

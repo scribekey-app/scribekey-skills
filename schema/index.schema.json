@@ -41,6 +41,14 @@
           "type": "array",
           "items": { "enum": ["email", "messaging"] }
         },
+        "discoveryCategories": {
+          "type": "array",
+          "items": { "enum": ["writing", "search", "productivity", "developer-ai", "languages"] }
+        },
+        "suggestedFields": {
+          "type": "array",
+          "items": { "enum": ["search"] }
+        },
         "actions": {
           "type": "string",
           "pattern": "^(rewrite|make)(,(rewrite|make))*$"

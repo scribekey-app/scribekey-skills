@@ -1,5 +1,20 @@
 [
  {
+  "skill": "search-query",
+  "what": "spoken question becomes a compact query without being answered",
+  "transcript": "can you find a beginner friendly sourdough starter guide that doesn't use rye flour"
+ },
+ {
+  "skill": "search-query",
+  "what": "product model and budget stay exact",
+  "transcript": "look up reviews of the Sony WH-1000XM5 under three hundred dollars"
+ },
+ {
+  "skill": "search-query",
+  "what": "search request stays in Spanish and preserves its time range",
+  "transcript": "busca artículos sobre energía solar en Chile publicados desde 2024"
+ },
+ {
   "skill": "clean-up",
   "what": "rambling with fillers and a self-correction",
   "transcript": "um so I was thinking we could uh move the the standup to ten thirty actually no make that ten fifteen because Priya has a clash and you know it's basically easier for everyone"

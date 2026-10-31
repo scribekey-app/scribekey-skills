@@ -19,6 +19,9 @@ TELLS = ("—", "hope this", "reach out", "feel free", "let me know if", "don't 
          "serves as", "boasts", "not just", "worth noting", "in order to", "landscape", "testament")
 def clean(o): return no(o, *TELLS)
 C = {
+ "search-query-1": lambda o: len(lines(o)) == 1 and has(o, "sourdough", "rye") and no(o, "starter is", "you can"),
+ "search-query-2": lambda o: len(lines(o)) == 1 and has(o, "sony", "wh-1000xm5", "300") and no(o, "reviews are", "best headphones"),
+ "search-query-3": lambda o: len(lines(o)) == 1 and has(o, "artículos", "energía solar", "chile", "2024"),
  "clean-up-1": lambda o: has(o, "10:15") and no(o, "10:30"),
  "clean-up-2": lambda o: "\n\n" in o.strip() and has(o, "landlord"),
  "clean-up-3": lambda o: no(o, "canberra"),

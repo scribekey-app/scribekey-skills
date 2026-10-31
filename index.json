@@ -154,6 +154,21 @@
       "icon": "auto_awesome"
     },
     {
+      "name": "search-query",
+      "title": "Search query",
+      "description": "A concise search query from a spoken request. Use when dictation is meant for an ordinary web or search field, not a question for the assistant to answer.",
+      "version": "1.0.0",
+      "url": "skills/search-query/SKILL.md",
+      "discoveryCategories": [
+        "search"
+      ],
+      "suggestedFields": [
+        "search"
+      ],
+      "actions": "rewrite",
+      "icon": "auto_awesome"
+    },
+    {
       "name": "social-post",
       "title": "Social post",
       "description": "One clear post in your voice. Turns dictation into a social media post; use in X, LinkedIn, Bluesky, Threads or Mastodon.",
