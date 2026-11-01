@@ -61,6 +61,19 @@
       "icon": "mail"
     },
     {
+      "name": "flowchart",
+      "title": "Flowchart",
+      "description": "Steps and decisions as a flowchart. Turns a process or a choice someone talked through into a diagram; use after explaining how something works or what to do when.",
+      "version": "1.0.0",
+      "url": "skills/flowchart/SKILL.md",
+      "discoveryCategories": [
+        "productivity"
+      ],
+      "actions": "make",
+      "presentation": "diagram",
+      "icon": "auto_awesome"
+    },
+    {
       "name": "friendly-message",
       "title": "Friendly message",
       "description": "Warm and conversational. Turns dictation into a text message in your own voice; use in messaging apps.",
@@ -114,6 +127,19 @@
       "actions": "make",
       "presentation": "text",
       "icon": "article"
+    },
+    {
+      "name": "mind-map",
+      "title": "Mind map",
+      "description": "Ideas and how they branch, as a mind map. Turns a brainstorm or a ramble into a diagram of the main idea and what grows from it; use after thinking out loud.",
+      "version": "1.0.0",
+      "url": "skills/mind-map/SKILL.md",
+      "discoveryCategories": [
+        "productivity"
+      ],
+      "actions": "make",
+      "presentation": "diagram",
+      "icon": "auto_awesome"
     },
     {
       "name": "notes",
@@ -206,6 +232,19 @@
       ],
       "actions": "rewrite",
       "presentation": "text",
+      "icon": "auto_awesome"
+    },
+    {
+      "name": "timeline",
+      "title": "Timeline",
+      "description": "Events in order, as a timeline. Turns a story, a history or a plan with dates into a diagram of what happened when; use after recounting how something unfolded.",
+      "version": "1.0.0",
+      "url": "skills/timeline/SKILL.md",
+      "discoveryCategories": [
+        "productivity"
+      ],
+      "actions": "make",
+      "presentation": "diagram",
       "icon": "auto_awesome"
     },
     {

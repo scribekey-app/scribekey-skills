@@ -18,6 +18,8 @@ TELLS = ("—", "hope this", "reach out", "feel free", "let me know if", "don't 
          "foster", "unlock", "empower", "showcase", "elevate", "journey", "game-changer", "excited to",
          "serves as", "boasts", "not just", "worth noting", "in order to", "landscape", "testament")
 def clean(o): return no(o, *TELLS)
+# Diagram skills return Mermaid source alone: its header first, no fence, no theme or link directives.
+def mermaid(o, head, most=25): return o.startswith(head) and no(o, "```", "%%", "click ", "href") and sum(1 for l in lines(o)[1:] if l.strip() and not l.strip().startswith(("title ", "section "))) <= most
 C = {
  "search-query-1": lambda o: len(lines(o)) == 1 and has(o, "sourdough", "rye") and no(o, "starter is", "you can"),
  "search-query-2": lambda o: len(lines(o)) == 1 and has(o, "sony", "wh-1000xm5", "300") and no(o, "reviews are", "best headphones"),
@@ -96,6 +98,15 @@ C = {
  "taobao-search-6": lambda o: len(lines(o)) == 1 and has(o, "推拉门") and no(o, "液压", "静音", "不锈钢"),
  "taobao-search-7": lambda o: len(lines(o)) == 1 and has(o, "usb-c", "macbook air m3", "hdmi"),
  "taobao-search-8": lambda o: len(lines(o)) == 1 and has(o, "衣柜", "人体感应灯", "磁吸") and no(o, "wardrobe", "english"),
+ "flowchart-1": lambda o: mermaid(o, "flowchart TD") and "{" in o and has(o, "receipt", "30", "store credit", "returns sheet"),
+ "flowchart-2": lambda o: mermaid(o, "flowchart TD") and has(o, "restart the router") and "-->" not in o,
+ "flowchart-3": lambda o: mermaid(o, "flowchart TD") and has(o, "priya", "buddy", "remote") and re.search(r'\[[^"\]]', o) is None,
+ "mind-map-1": lambda o: mermaid(o, "mindmap") and o.count("((") == 1 and has(o, "hollins farm", "food truck", "12"),
+ "mind-map-2": lambda o: mermaid(o, "mindmap") and len(lines(o)) == 2 and has(o, "spanish"),
+ "mind-map-3": lambda o: mermaid(o, "mindmap") and has(o, "dana", "tuesday"),
+ "timeline-1": lambda o: mermaid(o, "timeline") and has(o, "2021", "2022", "solar") and o.lower().index("2021") < o.lower().index("solar"),
+ "timeline-2": lambda o: mermaid(o, "timeline") and has(o, "alarm", "toaster") and o.lower().index("alarm") < o.lower().index("toaster"),
+ "timeline-3": lambda o: mermaid(o, "timeline") and has(o, "keynote", "demo") and not re.search(r"\d:\d", o),
 }
 CHECKS = C
 

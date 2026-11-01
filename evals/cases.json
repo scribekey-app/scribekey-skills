@@ -449,5 +449,50 @@
   "transcript": "thanks heaps for dinner last night it was so good",
   "app": "WhatsApp",
   "package": "com.whatsapp"
+ },
+ {
+  "skill": "flowchart",
+  "what": "returns process with a decision and both branches",
+  "transcript": "so when a return comes in first we check the receipt if there's no receipt we offer store credit only if there is a receipt we check whether it's within thirty days if it is we refund to the card otherwise it's store credit too and then either way we log it in the returns sheet"
+ },
+ {
+  "skill": "flowchart",
+  "what": "single step stays one node, no fence",
+  "transcript": "just restart the router"
+ },
+ {
+  "skill": "flowchart",
+  "what": "quoted punctuation in labels and a speaker's name kept",
+  "transcript": "onboarding for new hires: Priya sends the welcome email, then IT sets up the laptop (usually takes a day), then they meet their buddy, and if they're remote we post the laptop instead"
+ },
+ {
+  "skill": "mind-map",
+  "what": "brainstorm branches under one centre",
+  "transcript": "thinking about the wedding we need a venue maybe the barn at Hollins Farm or the town hall food could be a food truck or a caterer music my cousin's band or a DJ and the budget is around twelve thousand"
+ },
+ {
+  "skill": "mind-map",
+  "what": "one idea is the centre alone",
+  "transcript": "learn Spanish"
+ },
+ {
+  "skill": "mind-map",
+  "what": "long ramble stays within 25 nodes",
+  "transcript": "ideas for the podcast season two guests could be Dana from the bakery, the mayor, the guy who runs the bike shop, maybe a teacher, topics local history the floods in 2019 the new tram line the closed cinema housing prices formats interviews listener questions a live episode at the library a walking episode production new microphones better editing a theme tune from Jess release weekly on Tuesdays promotion instagram reels the local paper flyers at the cafe posters at the library sponsorship the hardware store the bakery the gym maybe a Patreon merch stickers and mugs and tote bags"
+ },
+ {
+  "skill": "timeline",
+  "what": "dated events in order, two on one date",
+  "transcript": "we bought the house in March 2021 the roof was redone that summer in 2022 we had the baby and also finished the kitchen and then last year we put in solar panels"
+ },
+ {
+  "skill": "timeline",
+  "what": "no dates uses the speaker's order markers",
+  "transcript": "first I heard the alarm then I grabbed the cat after that we waited outside for the fire brigade and finally they said it was just the toaster"
+ },
+ {
+  "skill": "timeline",
+  "what": "times with colons do not break the timeline",
+  "transcript": "the launch day plan is doors open at 9:30 the keynote at 10:15 lunch at 12:00 and the demo at 2:45"
  }
 ]
