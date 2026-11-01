@@ -4,63 +4,63 @@
   "rep": "ideal",
   "should": "pass",
   "render": true,
-  "output": "flowchart TD\n    n1{\"Receipt?\"}\n    n1 -->|\"No\"| n2[\"Offer store credit\"]\n    n1 -->|\"Yes\"| n3{\"Within 30 days?\"}\n    n3 -->|\"Yes\"| n4[\"Refund to the card\"]\n    n3 -->|\"No\"| n2\n    n2 --> n5[\"Log it in the returns sheet\"]\n    n4 --> n5"
+  "output": "flowchart TD\n    n1{\"Receipt?\"}\n    n1 -->|\"No\"| n2[\"Offer store credit\"]\n    n1 -->|\"Yes\"| n3{\"Within 30 days?\"}\n    n3 -->|\"Yes\"| n4[\"Refund to the card\"]\n    n3 -->|\"No\"| n2\n    n2 --> n5([\"Log it in the returns sheet\"])\n    n4 --> n5"
  },
  {
   "id": "flowchart-2",
   "rep": "ideal",
   "should": "pass",
   "render": true,
-  "output": "flowchart TD\n    n1[\"Restart the router\"]"
+  "output": "flowchart TD\n    n1([\"Restart the router\"])"
  },
  {
   "id": "flowchart-3",
   "rep": "ideal",
   "should": "pass",
   "render": true,
-  "output": "flowchart TD\n    n1[\"Priya sends the welcome email\"] --> n2{\"Remote?\"}\n    n2 -->|\"No\"| n3[\"IT sets up the laptop (usually a day)\"]\n    n2 -->|\"Yes\"| n4[\"Post the laptop\"]\n    n3 --> n5[\"Meet their buddy\"]\n    n4 --> n5"
+  "output": "flowchart TD\n    n1([\"Priya sends the welcome email\"]) --> n2{\"Remote?\"}\n    n2 -->|\"No\"| n3[\"IT sets up the laptop\"]\n    n2 -->|\"Yes\"| n4[\"Post the laptop\"]\n    n3 --> n5([\"Meet their buddy\"])\n    n4 --> n5"
  },
  {
   "id": "flowchart-4",
   "rep": "ideal",
   "should": "pass",
   "render": true,
-  "output": "flowchart TD\n    n1[\"Last orders at 9\"] --> n2[\"Clean the coffee machine and milk jugs\"]\n    n2 --> n3[\"Chairs up on the tables\"]\n    n3 --> n4[\"Count the till twice against the Z report\"]\n    n4 --> n5{\"More than five pounds out?\"}\n    n5 -->|\"Yes\"| n6[\"Call Marco\"]\n    n5 -->|\"No\"| n7[\"Cash bag in the safe, total in the blue book\"]\n    n6 --> n8[\"Mop from the back to the door\"]\n    n7 --> n8\n    n8 --> n9[\"Take the bins out\"]\n    n9 --> n10[\"Lights off, set the alarm\"]\n    n10 --> n11[\"Lock the front door, pull the shutter\"]\n    n11 --> n12[\"Text the group chat\"]"
+  "output": "flowchart TD\n    n1([\"Call last orders at 9\"]) --> n2[\"Clean the coffee machine and jugs\"]\n    n2 --> n3[\"Put the chairs up\"]\n    n3 --> n4[\"Count the till twice\"]\n    n4 --> n5{\"More than five pounds out?\"}\n    n5 -->|\"Yes\"| n6[\"Call Marco\"]\n    n5 -->|\"No\"| n7[\"Put the cash in the safe\"]\n    n6 --> n8[\"Mop from back to door\"]\n    n7 --> n8\n    n8 --> n9[\"Take the bins out\"]\n    n9 --> n10[\"Turn off lights, set the alarm\"]\n    n10 --> n11[\"Lock up, pull the shutter\"]\n    n11 --> n12([\"Text the group chat\"])"
  },
  {
   "id": "flowchart-5",
   "rep": "ideal",
   "should": "pass",
   "render": true,
-  "output": "flowchart TD\n    n1[\"The concert last night\"]"
+  "output": "flowchart TD\n    n1([\"The concert last night\"])"
  },
  {
   "id": "flowchart-6",
   "rep": "ideal",
   "should": "pass",
   "render": true,
-  "output": "flowchart TD\n    n1[\"Take the wheel off\"] --> n2[\"Let the rest of the air out\"]\n    n2 --> n3[\"Lever the tyre off\"]\n    n3 --> n4[\"Swap the tube\"]\n    n4 --> n5[\"Pump it up to 60 psi\"]"
+  "output": "flowchart TD\n    n1([\"Take the wheel off\"]) --> n2[\"Let the remaining air out\"]\n    n2 --> n3[\"Lever the tyre off\"]\n    n3 --> n4[\"Swap the tube\"]\n    n4 --> n5([\"Pump it up to 60 psi\"])"
  },
  {
   "id": "flowchart-7",
   "rep": "ideal",
   "should": "pass",
   "render": true,
-  "output": "flowchart TD\n    n1[\"Run #quot;npm test#quot; (about 5 min)\"] --> n2{\"Result?\"}\n    n2 -->|\"FAIL\"| n3[\"Fix it and rerun the tests\"]\n    n3 --> n1\n    n2 -->|\"Passes\"| n4[\"Tag the release v2.3.1\"]\n    n4 --> n5[\"Post 🚀 in #releases\"]"
+  "output": "flowchart TD\n    n1([\"Run #quot;npm test#quot; (about 5 min)\"]) --> n2{\"Result?\"}\n    n2 -->|\"FAIL\"| n3[\"Fix it and rerun the tests\"]\n    n3 --> n1\n    n2 -->|\"Passes\"| n4[\"Tag the release v2.3.1\"]\n    n4 --> n5([\"Post 🚀 in #releases\"])"
  },
  {
   "id": "flowchart-8",
   "rep": "ideal",
   "should": "pass",
   "render": true,
-  "output": "flowchart TD\n    n1[\"Support logs the request\"] --> n2{\"Over 500 dollars?\"}\n    n2 -->|\"Yes\"| n3[\"Ana approves it\"]\n    n2 -->|\"No\"| n4[\"Support approves it\"]\n    n3 --> n5[\"Finance pays within five days\"]\n    n4 --> n5"
+  "output": "flowchart TD\n    n1([\"Support logs the request\"]) --> n2{\"Over 500 dollars?\"}\n    n2 -->|\"Yes\"| n3[\"Ana approves it\"]\n    n2 -->|\"No\"| n4[\"Support approves it\"]\n    n3 --> n5([\"Finance pays within five days\"])\n    n4 --> n5"
  },
  {
   "id": "flowchart-9",
   "rep": "ideal",
   "should": "pass",
   "render": true,
-  "output": "flowchart TD\n    n1[\"Druck prüfen\"] --> n2{\"Unter 1 bar?\"}\n    n2 -->|\"Ja\"| n3[\"Wasser nachfüllen\"]\n    n2 -->|\"Nein\"| n4[\"Notdienst anrufen (Nummer am Kessel)\"]\n    n3 --> n5[\"Protokoll ausfüllen\"]\n    n4 --> n5"
+  "output": "flowchart TD\n    n1([\"Druck prüfen\"]) --> n2{\"Unter 1 bar?\"}\n    n2 -->|\"Ja\"| n3[\"Wasser nachfüllen\"]\n    n2 -->|\"Nein\"| n4[\"Notdienst anrufen (Nummer am Kessel)\"]\n    n3 --> n5([\"Protokoll ausfüllen\"])\n    n4 --> n5"
  },
  {
   "id": "mind-map-1",
@@ -261,6 +261,20 @@
   "render": true,
   "why": "German turned into English",
   "output": "flowchart TD\n    n1[\"Check the pressure\"] --> n2{\"Under 1 bar?\"}\n    n2 -->|\"Yes\"| n3[\"Top up the water\"]\n    n2 -->|\"No\"| n4[\"Call the emergency service\"]\n    n3 --> n5[\"Fill in the log\"]\n    n4 --> n5"
+ },
+ {
+  "id": "flowchart-8",
+  "rep": "bad-square-ends",
+  "should": "fail",
+  "render": true,
+  "output": "flowchart TD\n    n1[\"Support logs the request\"] --> n2{\"Over 500 dollars?\"}\n    n2 -->|\"Yes\"| n3[\"Ana approves it\"]\n    n2 -->|\"No\"| n4[\"Support approves it\"]\n    n3 --> n5[\"Finance pays within five days\"]\n    n4 --> n5"
+ },
+ {
+  "id": "flowchart-8",
+  "rep": "bad-long-decision",
+  "should": "fail",
+  "render": true,
+  "output": "flowchart TD\n    n1([\"Support logs the request\"]) --> n2{\"Is the request for more than 500 dollars?\"}\n    n2 -->|\"Yes\"| n3[\"Ana approves it\"]\n    n2 -->|\"No\"| n4[\"Support approves it\"]\n    n3 --> n5([\"Finance pays within five days\"])\n    n4 --> n5"
  },
  {
   "id": "mind-map-1",

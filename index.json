@@ -64,7 +64,7 @@
       "name": "flowchart",
       "title": "Flowchart",
       "description": "Steps and decisions as a flowchart. Turns a process or a choice someone talked through into a diagram; use after explaining how something works or what to do when.",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "url": "skills/flowchart/SKILL.md",
       "discoveryCategories": [
         "productivity"

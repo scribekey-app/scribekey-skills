@@ -112,6 +112,9 @@ CHECKS = C
 #              timeline: each term's line comes no later than the next one's.
 #   decisions  flowchart: at least expect "decisions" diamonds, each with two or more exits, all
 #              labelled with the answer.
+#   shapes     flowchart: the first node is a stadium (or a diamond, when the process opens with a
+#              question) and so is every final outcome, a node no arrow leaves; a diamond holds at
+#              most 5 words and any other node at most 6, so the drawing stays small on a phone.
 #   hierarchy  mind map: one centre, at most three levels below it, and each ["child", "parent"]
 #              in "under" has the child's node somewhere beneath the parent's.
 #   colons     timeline: no time like 9:30 left in, which Pele splits into another event.
@@ -174,6 +177,10 @@ def diagram_checks(case_id, output):
         diamonds = [i for i, (_, shape) in nodes.items() if shape == "{"]
         exits = {d: [lbl for a, _, lbl in edges if a == d] for d in diamonds}
         r["decisions"] = len(diamonds) >= e.get("decisions", 0) and all(len(x) >= 2 and all(x) for x in exits.values())
+        first = next(iter(nodes), None)
+        ends = [i for i, (_, shape) in nodes.items() if shape != "{" and not any(a == i for a, _, _ in edges)]
+        r["shapes"] = ((first is None or nodes[first][1] in ("([", "{")) and all(nodes[i][1] == "([" for i in ends)
+                       and all(len(l.replace("#quot;", "").split()) <= (5 if shape == "{" else 6) for l, shape in nodes.values()))
         if "order" in e:
             find = lambda t: [i for i, (l, _) in nodes.items() if term_in(t, l)]  # noqa: E731
             r["order"] = all(any(b in reachable(a, edges) for a in find(s) for b in find(t)) for s, t in zip(e["order"], e["order"][1:]))
