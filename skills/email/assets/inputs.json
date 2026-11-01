@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "tone": {"type": "string", "title": "Tone", "enum": ["Friendly", "Formal", "Direct"], "default": "Friendly", "x-scribekey-control": "connected"},
+    "length": {"type": "string", "title": "Length", "enum": ["Short", "Standard", "Detailed"], "default": "Standard", "x-scribekey-control": "connected"},
+    "recipient": {"type": "string", "title": "About the recipient", "maxLength": 200},
+    "subject": {"type": "boolean", "title": "Suggest a subject", "default": false}
+  },
+  "additionalProperties": false
+}

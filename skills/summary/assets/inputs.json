@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "length": {"type": "string", "title": "Length", "enum": ["Short", "Standard", "Detailed"], "default": "Standard", "x-scribekey-control": "connected"},
+    "audience": {"type": "string", "title": "Audience", "enum": ["Anyone", "Me", "My team", "Leadership"], "default": "Anyone", "x-scribekey-control": "cards"},
+    "format": {"type": "string", "title": "Format", "enum": ["Bullets", "Paragraph"], "default": "Bullets", "x-scribekey-control": "connected"},
+    "focus": {"type": "string", "title": "Focus", "maxLength": 300}
+  },
+  "additionalProperties": false
+}
