@@ -1,0 +1,369 @@
+[
+ {
+  "id": "flowchart-1",
+  "rep": "ideal",
+  "should": "pass",
+  "render": true,
+  "output": "flowchart TD\n    n1{\"Receipt?\"}\n    n1 -->|\"No\"| n2[\"Offer store credit\"]\n    n1 -->|\"Yes\"| n3{\"Within 30 days?\"}\n    n3 -->|\"Yes\"| n4[\"Refund to the card\"]\n    n3 -->|\"No\"| n2\n    n2 --> n5[\"Log it in the returns sheet\"]\n    n4 --> n5"
+ },
+ {
+  "id": "flowchart-2",
+  "rep": "ideal",
+  "should": "pass",
+  "render": true,
+  "output": "flowchart TD\n    n1[\"Restart the router\"]"
+ },
+ {
+  "id": "flowchart-3",
+  "rep": "ideal",
+  "should": "pass",
+  "render": true,
+  "output": "flowchart TD\n    n1[\"Priya sends the welcome email\"] --> n2{\"Remote?\"}\n    n2 -->|\"No\"| n3[\"IT sets up the laptop (usually a day)\"]\n    n2 -->|\"Yes\"| n4[\"Post the laptop\"]\n    n3 --> n5[\"Meet their buddy\"]\n    n4 --> n5"
+ },
+ {
+  "id": "flowchart-4",
+  "rep": "ideal",
+  "should": "pass",
+  "render": true,
+  "output": "flowchart TD\n    n1[\"Last orders at 9\"] --> n2[\"Clean the coffee machine and milk jugs\"]\n    n2 --> n3[\"Chairs up on the tables\"]\n    n3 --> n4[\"Count the till twice against the Z report\"]\n    n4 --> n5{\"More than five pounds out?\"}\n    n5 -->|\"Yes\"| n6[\"Call Marco\"]\n    n5 -->|\"No\"| n7[\"Cash bag in the safe, total in the blue book\"]\n    n6 --> n8[\"Mop from the back to the door\"]\n    n7 --> n8\n    n8 --> n9[\"Take the bins out\"]\n    n9 --> n10[\"Lights off, set the alarm\"]\n    n10 --> n11[\"Lock the front door, pull the shutter\"]\n    n11 --> n12[\"Text the group chat\"]"
+ },
+ {
+  "id": "flowchart-5",
+  "rep": "ideal",
+  "should": "pass",
+  "render": true,
+  "output": "flowchart TD\n    n1[\"The concert last night\"]"
+ },
+ {
+  "id": "flowchart-6",
+  "rep": "ideal",
+  "should": "pass",
+  "render": true,
+  "output": "flowchart TD\n    n1[\"Take the wheel off\"] --> n2[\"Let the rest of the air out\"]\n    n2 --> n3[\"Lever the tyre off\"]\n    n3 --> n4[\"Swap the tube\"]\n    n4 --> n5[\"Pump it up to 60 psi\"]"
+ },
+ {
+  "id": "flowchart-7",
+  "rep": "ideal",
+  "should": "pass",
+  "render": true,
+  "output": "flowchart TD\n    n1[\"Run #quot;npm test#quot; (about 5 min)\"] --> n2{\"Result?\"}\n    n2 -->|\"FAIL\"| n3[\"Fix it and rerun the tests\"]\n    n3 --> n1\n    n2 -->|\"Passes\"| n4[\"Tag the release v2.3.1\"]\n    n4 --> n5[\"Post 🚀 in #releases\"]"
+ },
+ {
+  "id": "flowchart-8",
+  "rep": "ideal",
+  "should": "pass",
+  "render": true,
+  "output": "flowchart TD\n    n1[\"Support logs the request\"] --> n2{\"Over 500 dollars?\"}\n    n2 -->|\"Yes\"| n3[\"Ana approves it\"]\n    n2 -->|\"No\"| n4[\"Support approves it\"]\n    n3 --> n5[\"Finance pays within five days\"]\n    n4 --> n5"
+ },
+ {
+  "id": "flowchart-9",
+  "rep": "ideal",
+  "should": "pass",
+  "render": true,
+  "output": "flowchart TD\n    n1[\"Druck prüfen\"] --> n2{\"Unter 1 bar?\"}\n    n2 -->|\"Ja\"| n3[\"Wasser nachfüllen\"]\n    n2 -->|\"Nein\"| n4[\"Notdienst anrufen (Nummer am Kessel)\"]\n    n3 --> n5[\"Protokoll ausfüllen\"]\n    n4 --> n5"
+ },
+ {
+  "id": "mind-map-1",
+  "rep": "ideal",
+  "should": "pass",
+  "render": true,
+  "output": "mindmap\n  root((\"Wedding\"))\n    [\"Venue\"]\n      [\"Barn at Hollins Farm\"]\n      [\"Town hall\"]\n    [\"Food\"]\n      [\"Food truck\"]\n      [\"Caterer\"]\n    [\"Music\"]\n      [\"My cousin's band\"]\n      [\"DJ\"]\n    [\"Budget around 12,000\"]"
+ },
+ {
+  "id": "mind-map-2",
+  "rep": "ideal",
+  "should": "pass",
+  "render": true,
+  "output": "mindmap\n  root((\"Learn Spanish\"))"
+ },
+ {
+  "id": "mind-map-3",
+  "rep": "ideal",
+  "should": "pass",
+  "render": true,
+  "output": "mindmap\n  root((\"Podcast season two\"))\n    [\"Guests\"]\n      [\"Dana from the bakery, the mayor\"]\n      [\"Bike shop owner, a teacher\"]\n    [\"Topics\"]\n      [\"Local history, the 2019 floods\"]\n      [\"New tram line, closed cinema\"]\n      [\"Housing prices\"]\n    [\"Formats\"]\n      [\"Interviews, listener questions\"]\n      [\"Live episode at the library\"]\n      [\"Walking episode\"]\n    [\"Production\"]\n      [\"New microphones, better editing\"]\n      [\"Theme tune from Jess\"]\n      [\"Weekly on Tuesdays\"]\n    [\"Promotion\"]\n      [\"Instagram reels, local paper\"]\n      [\"Flyers at the cafe, posters at the library\"]\n    [\"Sponsorship\"]\n      [\"Hardware store, bakery, gym\"]\n      [\"Patreon\"]\n    [\"Merch\"]\n      [\"Stickers, mugs, tote bags\"]"
+ },
+ {
+  "id": "mind-map-4",
+  "rep": "ideal",
+  "should": "pass",
+  "render": true,
+  "output": "mindmap\n  root((\"Japan trip\"))\n    [\"Tokyo\"]\n      [\"Stay in Shinjuku\"]\n        [\"The Gracery\"]\n        [\"Capsule hotel, women-only floor for Mia\"]\n    [\"Kyoto\"]\n      [\"Temples\"]\n        [\"Fushimi Inari at six am\"]\n    [\"Budget\"]\n      [\"Flights about 1200 each\"]"
+ },
+ {
+  "id": "mind-map-5",
+  "rep": "ideal",
+  "should": "pass",
+  "render": true,
+  "output": "mindmap\n  root((\"Café menu\"))\n    [\"#quot;Big Breakfast#quot;\"]\n      [\"Eggs, bacon, toast\"]\n    [\"Matcha latte\"]\n      [\"抹茶ラテ on the board\"]\n    [\"Vegan option\"]\n      [\"Tofu scramble\"]\n    [\"🍰 Cake specials on Fridays\"]"
+ },
+ {
+  "id": "mind-map-6",
+  "rep": "ideal",
+  "should": "pass",
+  "render": true,
+  "output": "mindmap\n  root((\"School fundraiser\"))\n    [\"Bake sale\"]\n    [\"Fun run\"]\n      [\"Round the park\"]\n      [\"Marshals\"]\n    [\"Prizes\"]\n      [\"Vouchers from the bookshop\"]"
+ },
+ {
+  "id": "mind-map-7",
+  "rep": "ideal",
+  "should": "pass",
+  "render": true,
+  "output": "mindmap\n  root((\"App ideas for next release\"))\n    [\"Dark mode\"]\n    [\"Home screen widgets\"]\n    [\"Share sheet\"]"
+ },
+ {
+  "id": "mind-map-8",
+  "rep": "ideal",
+  "should": "pass",
+  "render": true,
+  "output": "mindmap\n  root((\"House renovation\"))\n    [\"Kitchen\"]\n      [\"Knock through to the dining room\"]\n        [\"Steel beam, about 4,000\"]\n      [\"Green units, island if there's room\"]\n      [\"Tiles or wood-look vinyl\"]\n      [\"New extractor\"]\n    [\"Bathroom\"]\n      [\"Walk-in shower for the cracked bath\"]\n      [\"Pink tiles out\"]\n      [\"Heated towel rail\"]\n    [\"Loft\"]\n      [\"Boarding for storage\"]\n    [\"Garden\"]\n      [\"Back fence, neighbour splits the cost\"]\n      [\"Clear the shed\"]\n      [\"Veg patch where the gravel is\"]\n    [\"Budget 30,000\"]\n      [\"20 saved, the rest a loan\"]\n    [\"Timing\"]\n      [\"Gary starts in March, kitchen first\"]\n      [\"Two weeks at Mum's\"]\n    [\"Other jobs\"]\n      [\"Windows, hallway, stair carpet\"]"
+ },
+ {
+  "id": "timeline-1",
+  "rep": "ideal",
+  "should": "pass",
+  "render": true,
+  "output": "timeline\n    title Our house\n    March 2021 : Bought the house\n    Summer 2021 : Roof redone\n    2022 : Had the baby : Finished the kitchen\n    Last year : Put in solar panels"
+ },
+ {
+  "id": "timeline-2",
+  "rep": "ideal",
+  "should": "pass",
+  "render": true,
+  "output": "timeline\n    title The fire alarm\n    First : Heard the alarm\n    Then : Grabbed the cat\n    After that : Waited outside for the fire brigade\n    Finally : It was just the toaster"
+ },
+ {
+  "id": "timeline-3",
+  "rep": "ideal",
+  "should": "pass",
+  "render": true,
+  "output": "timeline\n    title Launch day plan\n    9#58;30 : Doors open\n    10#58;15 : Keynote\n    12#58;00 : Lunch\n    2#58;45 : Demo"
+ },
+ {
+  "id": "timeline-4",
+  "rep": "ideal",
+  "should": "pass",
+  "render": true,
+  "output": "timeline\n    title Buying the bakery\n    About two years ago : Started at the bakery\n    Last spring : Promoted to head baker\n    Three weeks ago : The owner said she's selling\n    Next month : Meeting the bank about buying it"
+ },
+ {
+  "id": "timeline-5",
+  "rep": "ideal",
+  "should": "pass",
+  "render": true,
+  "output": "timeline\n    title Lisbon and back\n    2018 : Moved to Lisbon\n    2020 : The twins were born\n    2023 : Came back to Manchester"
+ },
+ {
+  "id": "timeline-6",
+  "rep": "ideal",
+  "should": "pass",
+  "render": true,
+  "output": "timeline\n    title Histoire du club\n    1923 : Fondé par « les frères Martin » (deux boulangers)\n    1951 : Premier titre 🏆\n    2004 : Le stade #quot;Les Pins#quot; rouvert"
+ },
+ {
+  "id": "timeline-7",
+  "rep": "ideal",
+  "should": "pass",
+  "render": true,
+  "output": "timeline\n    title The redesign\n    January : Kicked off the redesign\n    March : Ran the user interviews\n    May : Beta went out\n    August : Launch, slipped from June"
+ },
+ {
+  "id": "timeline-8",
+  "rep": "ideal",
+  "should": "pass",
+  "render": true,
+  "output": "timeline\n    title Company history\n    2009 : Priya starts it in her garage\n    2010 : Model A thermostat, about 200 units\n    2011 : Moved into the unit on Mill Lane\n    2012 : First five hires, including Raj\n    2013 : Model B, 10,000 units in the first year\n    2014 : Halford Homes contract\n    2015 : Opened the Leeds office\n    2016 : Model B battery recall, nearly went under\n    2017 : First funding round, 2 million from Northern Ventures\n    2018 : Launched the app\n    2019 : Rebuilt the app, reviews turned around\n    2020 : Pandemic, everyone remote, orders doubled\n    2021 : Model C, app built in\n    2022 : Passed 100 staff\n    2023 : Moved to the building by the canal\n    2024 : Started selling in Germany and the Netherlands\n    This year : Heat pump controller"
+ },
+ {
+  "id": "flowchart-1",
+  "rep": "bad-fenced",
+  "should": "fail",
+  "render": false,
+  "why": "code fence: Pele detects no diagram",
+  "output": "```mermaid\nflowchart TD\n    n1{\"Receipt?\"}\n    n1 -->|\"No\"| n2[\"Offer store credit\"]\n    n1 -->|\"Yes\"| n3{\"Within 30 days?\"}\n    n3 -->|\"Yes\"| n4[\"Refund to the card\"]\n    n3 -->|\"No\"| n2\n    n2 --> n5[\"Log it in the returns sheet\"]\n    n4 --> n5\n```"
+ },
+ {
+  "id": "flowchart-1",
+  "rep": "bad-init",
+  "should": "fail",
+  "render": true,
+  "why": "%%{init}%% directive: Pele ignores it, the skill forbids it",
+  "output": "%%{init: {\"theme\": \"dark\"}}%%\nflowchart TD\n    n1{\"Receipt?\"}\n    n1 -->|\"No\"| n2[\"Offer store credit\"]\n    n1 -->|\"Yes\"| n3{\"Within 30 days?\"}\n    n3 -->|\"Yes\"| n4[\"Refund to the card\"]\n    n3 -->|\"No\"| n2\n    n2 --> n5[\"Log it in the returns sheet\"]\n    n4 --> n5"
+ },
+ {
+  "id": "flowchart-1",
+  "rep": "bad-click",
+  "should": "fail",
+  "render": true,
+  "why": "click line: links are off in the app, the skill forbids it",
+  "output": "flowchart TD\n    n1{\"Receipt?\"}\n    n1 -->|\"No\"| n2[\"Offer store credit\"]\n    n1 -->|\"Yes\"| n3{\"Within 30 days?\"}\n    n3 -->|\"Yes\"| n4[\"Refund to the card\"]\n    n3 -->|\"No\"| n2\n    n2 --> n5[\"Log it in the returns sheet\"]\n    n4 --> n5\n    click n4 \"https://example.com\" \"Open\""
+ },
+ {
+  "id": "flowchart-1",
+  "rep": "bad-start-end",
+  "should": "fail",
+  "render": true,
+  "why": "Start and End boxes the speaker never said",
+  "output": "flowchart TD\n    n0[\"Start\"] --> n1{\"Receipt?\"}\n    n1 -->|\"No\"| n2[\"Offer store credit\"]\n    n1 -->|\"Yes\"| n3{\"Within 30 days?\"}\n    n3 -->|\"Yes\"| n4[\"Refund to the card\"]\n    n3 -->|\"No\"| n2\n    n2 --> n5[\"Log it in the returns sheet\"]\n    n4 --> n5\n    n5 --> n6[\"End\"]"
+ },
+ {
+  "id": "flowchart-1",
+  "rep": "bad-unlabelled-answers",
+  "should": "fail",
+  "render": true,
+  "why": "decision exits carry no answer",
+  "output": "flowchart TD\n    n1{\"Receipt?\"}\n    n1 --> n2[\"Offer store credit\"]\n    n1 --> n3{\"Within 30 days?\"}\n    n3 --> n4[\"Refund to the card\"]\n    n3 --> n2\n    n2 --> n5[\"Log it in the returns sheet\"]\n    n4 --> n5"
+ },
+ {
+  "id": "flowchart-1",
+  "rep": "bad-preface",
+  "should": "fail",
+  "render": false,
+  "why": "a line before the source",
+  "output": "Here is your flowchart:\nflowchart TD\n    n1{\"Receipt?\"}\n    n1 -->|\"No\"| n2[\"Offer store credit\"]\n    n1 -->|\"Yes\"| n3{\"Within 30 days?\"}\n    n3 -->|\"Yes\"| n4[\"Refund to the card\"]\n    n3 -->|\"No\"| n2\n    n2 --> n5[\"Log it in the returns sheet\"]\n    n4 --> n5"
+ },
+ {
+  "id": "flowchart-3",
+  "rep": "bad-unquoted-punctuation",
+  "should": "fail",
+  "render": false,
+  "why": "unquoted parentheses break the parse",
+  "output": "flowchart TD\n    n1[\"Priya sends the welcome email\"] --> n2{\"Remote?\"}\n    n2 -->|\"No\"| n3[IT sets up the laptop (usually a day)]\n    n2 -->|\"Yes\"| n4[\"Post the laptop\"]\n    n3 --> n5[\"Meet their buddy\"]\n    n4 --> n5"
+ },
+ {
+  "id": "flowchart-4",
+  "rep": "bad-60-nodes",
+  "should": "fail",
+  "render": true,
+  "why": "every remark a node: past the 25-node cap",
+  "output": "flowchart TD\n    n1[\"Step 1 of closing\"] --> n2[\"Step 2 of closing\"]\n    n2[\"Step 2 of closing\"] --> n3[\"Step 3 of closing\"]\n    n3[\"Step 3 of closing\"] --> n4[\"Step 4 of closing\"]\n    n4[\"Step 4 of closing\"] --> n5[\"Step 5 of closing\"]\n    n5[\"Step 5 of closing\"] --> n6[\"Step 6 of closing\"]\n    n6[\"Step 6 of closing\"] --> n7[\"Step 7 of closing\"]\n    n7[\"Step 7 of closing\"] --> n8[\"Step 8 of closing\"]\n    n8[\"Step 8 of closing\"] --> n9[\"Step 9 of closing\"]\n    n9[\"Step 9 of closing\"] --> n10[\"Step 10 of closing\"]\n    n10[\"Step 10 of closing\"] --> n11[\"Step 11 of closing\"]\n    n11[\"Step 11 of closing\"] --> n12[\"Step 12 of closing\"]\n    n12[\"Step 12 of closing\"] --> n13[\"Step 13 of closing\"]\n    n13[\"Step 13 of closing\"] --> n14[\"Step 14 of closing\"]\n    n14[\"Step 14 of closing\"] --> n15[\"Step 15 of closing\"]\n    n15[\"Step 15 of closing\"] --> n16[\"Step 16 of closing\"]\n    n16[\"Step 16 of closing\"] --> n17[\"Step 17 of closing\"]\n    n17[\"Step 17 of closing\"] --> n18[\"Step 18 of closing\"]\n    n18[\"Step 18 of closing\"] --> n19[\"Step 19 of closing\"]\n    n19[\"Step 19 of closing\"] --> n20[\"Step 20 of closing\"]\n    n20[\"Step 20 of closing\"] --> n21[\"Step 21 of closing\"]\n    n21[\"Step 21 of closing\"] --> n22[\"Step 22 of closing\"]\n    n22[\"Step 22 of closing\"] --> n23[\"Step 23 of closing\"]\n    n23[\"Step 23 of closing\"] --> n24[\"Step 24 of closing\"]\n    n24[\"Step 24 of closing\"] --> n25[\"Step 25 of closing\"]\n    n25[\"Step 25 of closing\"] --> n26[\"Step 26 of closing\"]\n    n26[\"Step 26 of closing\"] --> n27[\"Step 27 of closing\"]\n    n27[\"Step 27 of closing\"] --> n28[\"Step 28 of closing\"]\n    n28[\"Step 28 of closing\"] --> n29[\"Step 29 of closing\"]\n    n29[\"Step 29 of closing\"] --> n30[\"Step 30 of closing\"]\n    n30[\"Step 30 of closing\"] --> n31[\"Step 31 of closing\"]\n    n31[\"Step 31 of closing\"] --> n32[\"Step 32 of closing\"]\n    n32[\"Step 32 of closing\"] --> n33[\"Step 33 of closing\"]\n    n33[\"Step 33 of closing\"] --> n34[\"Step 34 of closing\"]\n    n34[\"Step 34 of closing\"] --> n35[\"Step 35 of closing\"]\n    n35[\"Step 35 of closing\"] --> n36[\"Step 36 of closing\"]\n    n36[\"Step 36 of closing\"] --> n37[\"Step 37 of closing\"]\n    n37[\"Step 37 of closing\"] --> n38[\"Step 38 of closing\"]\n    n38[\"Step 38 of closing\"] --> n39[\"Step 39 of closing\"]\n    n39[\"Step 39 of closing\"] --> n40[\"Step 40 of closing\"]\n    n40[\"Step 40 of closing\"] --> n41[\"Step 41 of closing\"]\n    n41[\"Step 41 of closing\"] --> n42[\"Step 42 of closing\"]\n    n42[\"Step 42 of closing\"] --> n43[\"Step 43 of closing\"]\n    n43[\"Step 43 of closing\"] --> n44[\"Step 44 of closing\"]\n    n44[\"Step 44 of closing\"] --> n45[\"Step 45 of closing\"]\n    n45[\"Step 45 of closing\"] --> n46[\"Step 46 of closing\"]\n    n46[\"Step 46 of closing\"] --> n47[\"Step 47 of closing\"]\n    n47[\"Step 47 of closing\"] --> n48[\"Step 48 of closing\"]\n    n48[\"Step 48 of closing\"] --> n49[\"Step 49 of closing\"]\n    n49[\"Step 49 of closing\"] --> n50[\"Step 50 of closing\"]\n    n50[\"Step 50 of closing\"] --> n51[\"Step 51 of closing\"]\n    n51[\"Step 51 of closing\"] --> n52[\"Step 52 of closing\"]\n    n52[\"Step 52 of closing\"] --> n53[\"Step 53 of closing\"]\n    n53[\"Step 53 of closing\"] --> n54[\"Step 54 of closing\"]\n    n54[\"Step 54 of closing\"] --> n55[\"Step 55 of closing\"]\n    n55[\"Step 55 of closing\"] --> n56[\"Step 56 of closing\"]\n    n56[\"Step 56 of closing\"] --> n57[\"Step 57 of closing\"]\n    n57[\"Step 57 of closing\"] --> n58[\"Step 58 of closing\"]\n    n58[\"Step 58 of closing\"] --> n59[\"Step 59 of closing\"]\n    n59[\"Step 59 of closing\"] --> n60[\"Step 60 of closing\"]"
+ },
+ {
+  "id": "flowchart-4",
+  "rep": "bad-asides",
+  "should": "fail",
+  "render": true,
+  "why": "the fox and the birthday drinks are asides",
+  "output": "flowchart TD\n    n1[\"Last orders at 9\"] --> n2[\"Clean the coffee machine and milk jugs\"]\n    n2 --> n3[\"Chairs up on the tables\"]\n    n3 --> n4[\"Count the till twice against the Z report\"]\n    n4 --> n5{\"More than five pounds out?\"}\n    n5 -->|\"Yes\"| n6[\"Call Marco\"]\n    n5 -->|\"No\"| n7[\"Cash bag in the safe, total in the blue book\"]\n    n6 --> n8[\"Mop from the back to the door\"]\n    n7 --> n8\n    n8 --> n9[\"Take the bins out\"]\n    n9 --> n10[\"Lights off, set the alarm\"]\n    n10 --> n11[\"Lock the front door, pull the shutter\"]\n    n11 --> n12[\"Text the group chat\"]\n    n9 --> n13[\"Watch out for the fox\"]\n    n12 --> n14[\"Jess has birthday drinks on Friday\"]"
+ },
+ {
+  "id": "flowchart-6",
+  "rep": "bad-uncorrected",
+  "should": "fail",
+  "render": true,
+  "why": "keeps the order the speaker took back",
+  "output": "flowchart TD\n    n1[\"Let the air out\"] --> n2[\"Take the wheel off\"]\n    n2 --> n3[\"Lever the tyre off\"]\n    n3 --> n4[\"Swap the tube\"]\n    n4 --> n5[\"Pump it up to 60 psi\"]"
+ },
+ {
+  "id": "flowchart-9",
+  "rep": "bad-translated",
+  "should": "fail",
+  "render": true,
+  "why": "German turned into English",
+  "output": "flowchart TD\n    n1[\"Check the pressure\"] --> n2{\"Under 1 bar?\"}\n    n2 -->|\"Yes\"| n3[\"Top up the water\"]\n    n2 -->|\"No\"| n4[\"Call the emergency service\"]\n    n3 --> n5[\"Fill in the log\"]\n    n4 --> n5"
+ },
+ {
+  "id": "mind-map-1",
+  "rep": "bad-two-roots",
+  "should": "fail",
+  "render": false,
+  "why": "a second centre",
+  "output": "mindmap\n  root((\"Wedding\"))\n    [\"Venue\"]\n      [\"Barn at Hollins Farm\"]\n      [\"Town hall\"]\n    [\"Food\"]\n      [\"Food truck\"]\n      [\"Caterer\"]\n    [\"Music\"]\n      [\"My cousin's band\"]\n      [\"DJ\"]\n    [\"Budget around 12,000\"]\nroot2((\"Honeymoon\"))"
+ },
+ {
+  "id": "mind-map-1",
+  "rep": "bad-flat",
+  "should": "fail",
+  "render": true,
+  "why": "everything hangs off the centre, so food truck is not under food",
+  "output": "mindmap\n  root((\"Wedding\"))\n    [\"Barn at Hollins Farm\"]\n    [\"Town hall\"]\n    [\"Food truck\"]\n    [\"Caterer\"]\n    [\"Cousin's band\"]\n    [\"DJ\"]\n    [\"Budget around 12,000\"]\n    [\"Venue\"]\n    [\"Food\"]\n    [\"Music\"]"
+ },
+ {
+  "id": "mind-map-4",
+  "rep": "bad-too-deep",
+  "should": "fail",
+  "render": true,
+  "why": "five levels below the centre",
+  "output": "mindmap\n  root((\"Japan trip\"))\n    [\"Tokyo\"]\n      [\"Shinjuku\"]\n        [\"Hotels\"]\n          [\"Capsule hotel\"]\n            [\"Women-only floor\"]\n    [\"Kyoto\"]\n      [\"Fushimi Inari\"]\n    [\"Budget\"]\n      [\"Flights 1200\"]\n        [\"The Gracery\"]"
+ },
+ {
+  "id": "mind-map-5",
+  "rep": "bad-unquoted",
+  "should": "fail",
+  "render": true,
+  "why": "unquoted label: Pele silently drops \"Big\"",
+  "output": "mindmap\n  root((Café menu))\n    Big (Breakfast)\n    Matcha latte\n    Tofu scramble\n    Fridays"
+ },
+ {
+  "id": "mind-map-7",
+  "rep": "bad-kept-retraction",
+  "should": "fail",
+  "render": true,
+  "why": "keeps the idea the speaker scratched",
+  "output": "mindmap\n  root((\"App ideas for next release\"))\n    [\"Dark mode\"]\n    [\"Home screen widgets\"]\n    [\"Share sheet\"]\n    [\"Offline sync\"]"
+ },
+ {
+  "id": "mind-map-3",
+  "rep": "bad-every-remark",
+  "should": "fail",
+  "render": true,
+  "why": "34 nodes: past the cap",
+  "output": "mindmap\n  root((\"Podcast\"))\n    [\"Idea 0\"]\n    [\"Idea 1\"]\n    [\"Idea 2\"]\n    [\"Idea 3\"]\n    [\"Idea 4\"]\n    [\"Idea 5\"]\n    [\"Idea 6\"]\n    [\"Idea 7\"]\n    [\"Idea 8\"]\n    [\"Idea 9\"]\n    [\"Idea 10\"]\n    [\"Idea 11\"]\n    [\"Idea 12\"]\n    [\"Idea 13\"]\n    [\"Idea 14\"]\n    [\"Idea 15\"]\n    [\"Idea 16\"]\n    [\"Idea 17\"]\n    [\"Idea 18\"]\n    [\"Idea 19\"]\n    [\"Idea 20\"]\n    [\"Idea 21\"]\n    [\"Idea 22\"]\n    [\"Idea 23\"]\n    [\"Idea 24\"]\n    [\"Idea 25\"]\n    [\"Idea 26\"]\n    [\"Idea 27\"]\n    [\"Idea 28\"]\n    [\"Idea 29\"]\n    [\"Idea 30\"]\n    [\"Idea 31\"]\n    [\"Idea 32\"]"
+ },
+ {
+  "id": "timeline-3",
+  "rep": "bad-raw-colons",
+  "should": "fail",
+  "render": false,
+  "why": "9:30 left as typed breaks the parse",
+  "output": "timeline\n    title Launch day plan\n    9:30 : Doors open\n    10:15 : Keynote\n    12:00 : Lunch\n    2:45 : Demo"
+ },
+ {
+  "id": "timeline-2",
+  "rep": "bad-out-of-order",
+  "should": "fail",
+  "render": true,
+  "why": "the toaster before the alarm",
+  "output": "timeline\n    title The fire alarm\n    First : It was just the toaster\n    Then : Heard the alarm\n    After that : Grabbed the cat\n    Finally : Waited for the fire brigade"
+ },
+ {
+  "id": "timeline-4",
+  "rep": "bad-invented-years",
+  "should": "fail",
+  "render": true,
+  "why": "works out years the speaker never said",
+  "output": "timeline\n    title Buying the bakery\n    2024 (about two years ago) : Started at the bakery\n    Spring 2025 : Promoted to head baker\n    Three weeks ago : The owner said she's selling\n    Next month : Meeting the bank about buying it"
+ },
+ {
+  "id": "timeline-5",
+  "rep": "bad-kept-mistake",
+  "should": "fail",
+  "render": true,
+  "why": "keeps the year the speaker corrected",
+  "output": "timeline\n    title Lisbon and back\n    2019 : Moved to Lisbon\n    2020 : The twins were born\n    2023 : Came back to Manchester"
+ },
+ {
+  "id": "timeline-6",
+  "rep": "bad-translated",
+  "should": "fail",
+  "render": true,
+  "why": "French turned into English",
+  "output": "timeline\n    title Club history\n    1923 : Founded by the Martin brothers\n    1951 : First title\n    2004 : Les Pins stadium reopened"
+ },
+ {
+  "id": "timeline-8",
+  "rep": "bad-long-title",
+  "should": "fail",
+  "render": true,
+  "why": "a title past six words",
+  "output": "timeline\n    title The whole history of the company for new starters\n    2009 : Priya starts it in her garage\n    2010 : Model A thermostat, about 200 units\n    2011 : Moved into the unit on Mill Lane\n    2012 : First five hires, including Raj\n    2013 : Model B, 10,000 units in the first year\n    2014 : Halford Homes contract\n    2015 : Opened the Leeds office\n    2016 : Model B battery recall, nearly went under\n    2017 : First funding round, 2 million from Northern Ventures\n    2018 : Launched the app\n    2019 : Rebuilt the app, reviews turned around\n    2020 : Pandemic, everyone remote, orders doubled\n    2021 : Model C, app built in\n    2022 : Passed 100 staff\n    2023 : Moved to the building by the canal\n    2024 : Started selling in Germany and the Netherlands\n    This year : Heat pump controller"
+ },
+ {
+  "id": "timeline-3",
+  "rep": "ok-dashes",
+  "should": "pass",
+  "render": true,
+  "why": "the 1.0.0 advice, 9-30, renders and passes; 9#58;30 shows the speaker's own 9:30",
+  "output": "timeline\n    title Launch day plan\n    9-30 : Doors open\n    10-15 : Keynote\n    12-00 : Lunch\n    2-45 : Demo"
+ }
+]

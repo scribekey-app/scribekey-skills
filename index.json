@@ -238,7 +238,7 @@
       "name": "timeline",
       "title": "Timeline",
       "description": "Events in order, as a timeline. Turns a story, a history or a plan with dates into a diagram of what happened when; use after recounting how something unfolded.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "url": "skills/timeline/SKILL.md",
       "discoveryCategories": [
         "productivity"

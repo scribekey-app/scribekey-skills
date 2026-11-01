@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "description": "Eval-only tools for render.mjs; nothing here ships in a skill.",
+  "type": "module",
+  "devDependencies": {
+    "@resvg/resvg-js": "2.6.2",
+    "pele": "1.13.0"
+  }
+}
