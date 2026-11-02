@@ -4,14 +4,14 @@ description: >-
   Steps and decisions as a flowchart. Turns a process or a choice someone talked through into a diagram; use after explaining how something works or what to do when.
 license: Apache-2.0
 metadata:
-  version: "1.1.0"
+  version: "1.1.1"
   author: scribekey
   scribekey-discovery-categories: productivity
   scribekey-actions: make
   scribekey-output-format: text/vnd.mermaid
   scribekey-presentation: diagram
   scribekey-requires: render.mermaid
-  scribekey-icon: auto_awesome
+  scribekey-icon: account_tree
 ---
 
 Draw the process or decision in the text as a Mermaid flowchart someone can follow on a phone screen.

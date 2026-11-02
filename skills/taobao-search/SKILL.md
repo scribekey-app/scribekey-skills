@@ -4,13 +4,13 @@ description: >-
   One Chinese search query for Taobao. Turns a spoken product description into concise Simplified Chinese marketplace keywords; use when searching for an item in Taobao.
 license: Apache-2.0
 metadata:
-  version: "1.0.0"
+  version: "1.0.1"
   author: scribekey
   scribekey-title: Taobao search
   scribekey-apps: com.taobao.taobao
   scribekey-actions: rewrite
   scribekey-presentation: text
-  scribekey-icon: auto_awesome
+  scribekey-icon: shopping_bag
 ---
 
 Turn the spoken product request into one concise Simplified Chinese query for Taobao. This skill deliberately changes the product terminology's language so the query uses Mainland Chinese marketplace terms.

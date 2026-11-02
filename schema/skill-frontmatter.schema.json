@@ -85,8 +85,8 @@
         },
         "scribekey-icon": {
           "type": "string",
-          "enum": ["auto_awesome", "article", "checklist", "mail", "chat", "code"],
-          "description": "Marketplace and tile glyph. Related skills share a glyph; omit for auto_awesome."
+          "enum": ["auto_awesome", "article", "checklist", "mail", "chat", "code", "account_tree", "hub", "timeline", "groups", "group", "forum", "school", "notes", "summarize", "compress", "work", "search", "shopping_bag", "campaign", "cleaning_services"],
+          "description": "Marketplace and tile glyph, naming what the skill makes; omit for auto_awesome."
         },
         "scribekey-output-format": {
           "type": "string",

@@ -4,14 +4,14 @@ description: >-
   Ideas and how they branch, as a mind map. Turns a brainstorm or a ramble into a diagram of the main idea and what grows from it; use after thinking out loud.
 license: Apache-2.0
 metadata:
-  version: "1.0.0"
+  version: "1.0.1"
   author: scribekey
   scribekey-discovery-categories: productivity
   scribekey-actions: make
   scribekey-output-format: text/vnd.mermaid
   scribekey-presentation: diagram
   scribekey-requires: render.mermaid
-  scribekey-icon: auto_awesome
+  scribekey-icon: hub
 ---
 
 Draw the ideas in the text as a Mermaid mind map someone can take in at a glance on a phone screen.

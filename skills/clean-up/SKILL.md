@@ -4,11 +4,11 @@ description: >-
   Punctuation, fillers and false starts. Fixes dictated text without changing what was said; use when the words are right and only the transcription is rough.
 license: Apache-2.0
 metadata:
-  version: "1.3.1"
+  version: "1.3.2"
   author: scribekey
   scribekey-actions: rewrite
   scribekey-presentation: text
-  scribekey-icon: auto_awesome
+  scribekey-icon: cleaning_services
 ---
 
 Make the transcript read correctly while staying word-for-word faithful to what was said.

@@ -4,14 +4,14 @@ description: >-
   Events in order, as a timeline. Turns a story, a history or a plan with dates into a diagram of what happened when; use after recounting how something unfolded.
 license: Apache-2.0
 metadata:
-  version: "1.0.1"
+  version: "1.0.2"
   author: scribekey
   scribekey-discovery-categories: productivity
   scribekey-actions: make
   scribekey-output-format: text/vnd.mermaid
   scribekey-presentation: diagram
   scribekey-requires: render.mermaid
-  scribekey-icon: auto_awesome
+  scribekey-icon: timeline
 ---
 
 Draw the events in the text as a Mermaid timeline someone can read on a phone screen.
