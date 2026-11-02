@@ -170,6 +170,19 @@
       "icon": "group"
     },
     {
+      "name": "polish",
+      "title": "Polish",
+      "description": "Clearer wording. Tidies dictation into readable sentences and paragraphs in the speaker's own voice; use when the words came out rambling but say the right thing.",
+      "version": "1.0.0",
+      "url": "skills/polish/SKILL.md",
+      "discoveryCategories": [
+        "writing"
+      ],
+      "actions": "rewrite",
+      "presentation": "text",
+      "icon": "auto_awesome"
+    },
+    {
       "name": "professional",
       "title": "Professional",
       "description": "Polished and businesslike. Rewrites dictation in a professional tone without making it stiff; use for clients, managers or anything formal.",
