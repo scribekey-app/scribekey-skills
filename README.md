@@ -5,7 +5,8 @@ voice-to-text app. Each one turns dictation into something ready to send: an ema
 a prompt for an agent. Apache 2.0 licensed.
 
 ScribeKey lists this repository as its default skill marketplace. Open **Settings → Skills →
-Marketplaces** to install one; it shows **Update** when a new version lands here.
+Explore skills** to install one; it shows **Update** when a new version lands here. Four of them,
+Polish, Summary, Flowchart and Email, ship inside the app as its default skills.
 
 The skills are ordinary `SKILL.md` files, so any client that reads Agent Skills can use them.
 
@@ -25,6 +26,7 @@ The skills are ordinary `SKILL.md` files, so any client that reads Agent Skills 
 | [Mind map](skills/mind-map/SKILL.md) | Ideas and how they branch, as a mind map | – |
 | [Notes](skills/notes/SKILL.md) | Bullet points by topic | com.google.android.keep, com.samsung.android.app.notes, md.obsidian, notion.id, com.microsoft.office.onenote, com.automattic.simplenote |
 | [1:1 notes](skills/one-on-one/SKILL.md) | Updates, blockers and actions for each person | – |
+| [Polish](skills/polish/SKILL.md) | Clearer wording | – |
 | [Professional](skills/professional/SKILL.md) | Polished and businesslike | – |
 | [Search query](skills/search-query/SKILL.md) | One concise query for an ordinary web or search field | – |
 | [Social post](skills/social-post/SKILL.md) | One clear post in your voice | com.twitter.android, com.linkedin.android, xyz.blueskyweb.app, com.instagram.barcelona, org.joinmastodon.android |
@@ -36,10 +38,14 @@ The skills are ordinary `SKILL.md` files, so any client that reads Agent Skills 
 
 Suggest an app only when the skill's output fits the box you dictate into there. A to-do app's box holds one task, so To-do list writes one plain line per task rather than a `- [ ]` checklist.
 
-**Suggested apps** are an offer, never a switch. After you add a skill, its page in ScribeKey
-lists the ones you have installed under **Apply automatically**, each with its own switch.
+**Suggested apps** are an offer, never a switch: the dictation bubble lists the skill first when
+you dictate in one of them. A skill's page in ScribeKey shows the ones you have installed under
+**Suggested in**.
 
 ## Format
+
+The full reference, including inputs, variables and default skills, is
+[docs/skill-format.md](docs/skill-format.md).
 
 A skill is a folder with a `SKILL.md`: YAML frontmatter, then the instructions. ScribeKey's
 additions live under `metadata`, which the Agent Skills spec defines as string keys to string
@@ -64,6 +70,7 @@ metadata:
   scribekey-actions: rewrite,make  # rewrite (in place), make (Studio result), or both.
   scribekey-presentation: text     # how Studio shows a Make result: text, diagram, page, slides, image or audio.
   scribekey-icon: mail             # optional. A bundled Material Symbol; the list is in schema/skill-frontmatter.schema.json.
+  scribekey-writing-rules: on      # optional. off sends the instructions without ScribeKey's writing rules.
 ---
 
 Rewrite the text as the body of an email…
@@ -75,13 +82,14 @@ Rewrite the text as the body of an email…
 | `description` | The first sentence is the line under the skill's name |
 | `metadata.version` | What **Update** compares |
 | `metadata.scribekey-title` | The title shown in lists |
-| `metadata.scribekey-apps` | Apps the skill offers to apply automatically in |
+| `metadata.scribekey-apps` | Apps where the bubble suggests the skill first |
 | `metadata.scribekey-categories` | Kinds of app it also offers itself in: `email` (apps that open `mailto:` links) or `messaging` (apps that open `smsto:` links). Each app still has its own switch |
 | `metadata.scribekey-discovery-categories` | Optional catalogue topics, space- or comma-separated: `writing`, `search`, `productivity`, `developer-ai`, `languages`. This is separate from app kinds in `scribekey-categories` |
 | `metadata.scribekey-suggested-fields` | Optional field kinds for suggestion ordering, currently `search`. This only influences recommendations; it never runs a Skill or grants a permission |
-| `metadata.scribekey-actions` | `rewrite` (changes text in place: bubble, Improve), `make` (adds a Studio result), or `rewrite,make`. The marketplace groups on this; omitting it lists the skill as Make only |
+| `metadata.scribekey-actions` | `rewrite` (changes text in place: bubble, Improve), `make` (adds a Studio result), or `rewrite,make`. The marketplace groups on this; omitting it means both |
 | `metadata.scribekey-presentation` | How Studio shows a Make result: `text`, `diagram`, `page`, `slides`, `image` or `audio`. Default `text` |
 | `metadata.scribekey-icon` | Marketplace and tile glyph, naming what the skill makes. One of the bundled names in `schema/skill-frontmatter.schema.json`; omitting it uses auto_awesome |
+| `metadata.scribekey-writing-rules` | `on` (default) wraps the instructions in ScribeKey's cleanup, Dictionary and style rules; `off` sends them as written |
 
 A skill may add text files under `references/` or `assets/`; the instructions name them by path
 and ScribeKey sends the ones named. `scripts/` is not allowed: ScribeKey never runs code.

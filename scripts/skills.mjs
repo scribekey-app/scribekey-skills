@@ -38,6 +38,7 @@ const SCRIBEKEY_KEYS = new Set([
   "scribekey-inputs",
   "scribekey-requires",
   "scribekey-icon",
+  "scribekey-writing-rules",
 ]);
 // Kinds of app ScribeKey can find on a phone (AppCategory in enhancement/presets/SkillImport.kt).
 const CATEGORIES = new Set(["email", "messaging"]);
@@ -45,6 +46,7 @@ const DISCOVERY_CATEGORIES = new Set(["writing", "search", "productivity", "deve
 const SUGGESTED_FIELDS = new Set(["search"]);
 const ACTIONS = new Set(["rewrite", "make"]);
 const PRESENTATIONS = new Set(["text", "diagram", "page", "slides", "image", "audio"]);
+const WRITING_RULES = new Set(["on", "off"]);
 const ICONS = new Set(["auto_awesome", "article", "checklist", "mail", "chat", "code", "account_tree", "hub", "timeline", "groups", "group", "forum", "school", "notes", "summarize", "compress", "work", "search", "shopping_bag", "campaign", "cleaning_services"]);
 const KEPT_FOLDERS = ["references/", "assets/"];
 
@@ -209,6 +211,10 @@ function validate(folder, base) {
     if (!ACTIONS.has(action)) {
       problems.push(`"${action}" in metadata.scribekey-actions is not one of: ${[...ACTIONS].join(", ")}`);
     }
+  }
+  const writingRules = meta["scribekey-writing-rules"];
+  if (writingRules && !WRITING_RULES.has(writingRules)) {
+    problems.push(`"${writingRules}" in metadata.scribekey-writing-rules is not one of: ${[...WRITING_RULES].join(", ")}`);
   }
   const presentation = meta["scribekey-presentation"];
   if (presentation && !PRESENTATIONS.has(presentation)) {

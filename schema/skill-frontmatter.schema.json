@@ -83,6 +83,11 @@
           "enum": ["text", "diagram", "page", "slides", "image", "audio"],
           "description": "How Studio shows a Make result. Default text."
         },
+        "scribekey-writing-rules": {
+          "type": "string",
+          "enum": ["on", "off"],
+          "description": "on (default): ScribeKey's cleanup, Dictionary and style rules wrap the instructions. off: only the instructions are sent."
+        },
         "scribekey-icon": {
           "type": "string",
           "enum": ["auto_awesome", "article", "checklist", "mail", "chat", "code", "account_tree", "hub", "timeline", "groups", "group", "forum", "school", "notes", "summarize", "compress", "work", "search", "shopping_bag", "campaign", "cleaning_services"],
