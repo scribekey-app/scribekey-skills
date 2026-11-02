@@ -59,7 +59,7 @@
         },
         "icon": {
           "type": "string",
-          "enum": ["auto_awesome", "article", "checklist", "mail", "chat", "code"]
+          "enum": ["auto_awesome", "article", "checklist", "mail", "chat", "code", "account_tree", "hub", "timeline", "groups", "group", "forum", "school", "notes", "summarize", "compress", "work", "search", "shopping_bag", "campaign", "cleaning_services"]
         }
       }
     }

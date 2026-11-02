@@ -4,12 +4,12 @@ description: >-
   Each question paired with its answer. Turns an interview transcript with speakers into questions and answers; use after an interview, podcast or Q&A.
 license: Apache-2.0
 metadata:
-  version: "1.2.1"
+  version: "1.2.2"
   author: scribekey
   scribekey-title: Interview Q&A
   scribekey-actions: make
   scribekey-presentation: text
-  scribekey-icon: article
+  scribekey-icon: forum
 ---
 
 Turn an interview into questions and answers a reader can scan.

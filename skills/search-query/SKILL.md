@@ -3,10 +3,10 @@ name: search-query
 description: A concise search query from a spoken request. Use when dictation is meant for an ordinary web or search field, not a question for the assistant to answer.
 license: Apache-2.0
 metadata:
-  version: "1.0.0"
+  version: "1.0.1"
   scribekey-title: Search query
   scribekey-actions: rewrite
-  scribekey-icon: auto_awesome
+  scribekey-icon: search
   scribekey-discovery-categories: search
   scribekey-suggested-fields: search
 ---

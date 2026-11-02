@@ -4,11 +4,11 @@ description: >-
   Decisions, each person's actions and open questions. Turns a meeting transcript with speakers, or a spoken recap, into notes; use after a meeting or call.
 license: Apache-2.0
 metadata:
-  version: "2.3.0"
+  version: "2.3.1"
   author: scribekey
   scribekey-actions: make
   scribekey-presentation: text
-  scribekey-icon: article
+  scribekey-icon: groups
   scribekey-inputs: assets/inputs.json
 ---
 

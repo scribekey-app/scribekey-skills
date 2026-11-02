@@ -23,21 +23,21 @@
       "name": "clean-up",
       "title": "Clean up",
       "description": "Punctuation, fillers and false starts. Fixes dictated text without changing what was said; use when the words are right and only the transcription is rough.",
-      "version": "1.3.1",
+      "version": "1.3.2",
       "url": "skills/clean-up/SKILL.md",
       "actions": "rewrite",
       "presentation": "text",
-      "icon": "auto_awesome"
+      "icon": "cleaning_services"
     },
     {
       "name": "concise",
       "title": "Concise",
       "description": "Same message, fewer words. Cuts repetition and padding from dictation; use when you rambled.",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "url": "skills/concise/SKILL.md",
       "actions": "rewrite",
       "presentation": "text",
-      "icon": "auto_awesome"
+      "icon": "compress"
     },
     {
       "name": "email",
@@ -64,14 +64,14 @@
       "name": "flowchart",
       "title": "Flowchart",
       "description": "Steps and decisions as a flowchart. Turns a process or a choice someone talked through into a diagram; use after explaining how something works or what to do when.",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "url": "skills/flowchart/SKILL.md",
       "discoveryCategories": [
         "productivity"
       ],
       "actions": "make",
       "presentation": "diagram",
-      "icon": "auto_awesome"
+      "icon": "account_tree"
     },
     {
       "name": "friendly-message",
@@ -102,50 +102,50 @@
       "name": "interview-qa",
       "title": "Interview Q&A",
       "description": "Each question paired with its answer. Turns an interview transcript with speakers into questions and answers; use after an interview, podcast or Q&A.",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "url": "skills/interview-qa/SKILL.md",
       "actions": "make",
       "presentation": "text",
-      "icon": "article"
+      "icon": "forum"
     },
     {
       "name": "lecture-notes",
       "title": "Lecture notes",
       "description": "Study notes by topic, with questions from the room kept apart. Turns a recorded lecture, class or talk into notes; use after a lecture or training session.",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "url": "skills/lecture-notes/SKILL.md",
       "actions": "make",
       "presentation": "text",
-      "icon": "article"
+      "icon": "school"
     },
     {
       "name": "meeting-notes",
       "title": "Meeting notes",
       "description": "Decisions, each person's actions and open questions. Turns a meeting transcript with speakers, or a spoken recap, into notes; use after a meeting or call.",
-      "version": "2.3.0",
+      "version": "2.3.1",
       "url": "https://github.com/scribekey-app/scribekey-skills/tree/main/skills/meeting-notes",
       "actions": "make",
       "presentation": "text",
-      "icon": "article"
+      "icon": "groups"
     },
     {
       "name": "mind-map",
       "title": "Mind map",
       "description": "Ideas and how they branch, as a mind map. Turns a brainstorm or a ramble into a diagram of the main idea and what grows from it; use after thinking out loud.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "url": "skills/mind-map/SKILL.md",
       "discoveryCategories": [
         "productivity"
       ],
       "actions": "make",
       "presentation": "diagram",
-      "icon": "auto_awesome"
+      "icon": "hub"
     },
     {
       "name": "notes",
       "title": "Notes",
       "description": "Bullet points by topic. Turns a spoken brain dump into tidy notes; use in a notes app.",
-      "version": "2.1.1",
+      "version": "2.1.2",
       "url": "skills/notes/SKILL.md",
       "apps": [
         "com.google.android.keep",
@@ -157,33 +157,33 @@
       ],
       "actions": "rewrite,make",
       "presentation": "text",
-      "icon": "article"
+      "icon": "notes"
     },
     {
       "name": "one-on-one",
       "title": "1:1 notes",
       "description": "Updates, blockers and actions for each person. Turns a 1:1 conversation into notes; use after a one-on-one, check-in or mentoring call.",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "url": "skills/one-on-one/SKILL.md",
       "actions": "make",
       "presentation": "text",
-      "icon": "article"
+      "icon": "group"
     },
     {
       "name": "professional",
       "title": "Professional",
       "description": "Polished and businesslike. Rewrites dictation in a professional tone without making it stiff; use for clients, managers or anything formal.",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "url": "skills/professional/SKILL.md",
       "actions": "rewrite",
       "presentation": "text",
-      "icon": "auto_awesome"
+      "icon": "work"
     },
     {
       "name": "search-query",
       "title": "Search query",
       "description": "A concise search query from a spoken request. Use when dictation is meant for an ordinary web or search field, not a question for the assistant to answer.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "url": "skills/search-query/SKILL.md",
       "discoveryCategories": [
         "search"
@@ -192,13 +192,13 @@
         "search"
       ],
       "actions": "rewrite",
-      "icon": "auto_awesome"
+      "icon": "search"
     },
     {
       "name": "social-post",
       "title": "Social post",
       "description": "One clear post in your voice. Turns dictation into a social media post; use in X, LinkedIn, Bluesky, Threads or Mastodon.",
-      "version": "1.3.1",
+      "version": "1.3.2",
       "url": "skills/social-post/SKILL.md",
       "apps": [
         "com.twitter.android",
@@ -209,43 +209,43 @@
       ],
       "actions": "rewrite,make",
       "presentation": "text",
-      "icon": "chat"
+      "icon": "campaign"
     },
     {
       "name": "summary",
       "title": "Summary",
       "description": "The key points, shorter. Use when a long dictation needs to become a quick read.",
-      "version": "1.3.1",
+      "version": "1.3.2",
       "url": "https://github.com/scribekey-app/scribekey-skills/tree/main/skills/summary",
       "actions": "rewrite,make",
       "presentation": "text",
-      "icon": "article"
+      "icon": "summarize"
     },
     {
       "name": "taobao-search",
       "title": "Taobao search",
       "description": "One Chinese search query for Taobao. Turns a spoken product description into concise Simplified Chinese marketplace keywords; use when searching for an item in Taobao.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "url": "skills/taobao-search/SKILL.md",
       "apps": [
         "com.taobao.taobao"
       ],
       "actions": "rewrite",
       "presentation": "text",
-      "icon": "auto_awesome"
+      "icon": "shopping_bag"
     },
     {
       "name": "timeline",
       "title": "Timeline",
       "description": "Events in order, as a timeline. Turns a story, a history or a plan with dates into a diagram of what happened when; use after recounting how something unfolded.",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "url": "skills/timeline/SKILL.md",
       "discoveryCategories": [
         "productivity"
       ],
       "actions": "make",
       "presentation": "diagram",
-      "icon": "auto_awesome"
+      "icon": "timeline"
     },
     {
       "name": "todo-list",

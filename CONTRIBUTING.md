@@ -18,9 +18,8 @@ New skills and improvements are welcome. One skill per pull request.
    changes suggestion order and does not enable execution or permissions. Both fields are optional.
 4. Set `metadata.scribekey-actions` to `rewrite` (changes the text in place), `make` (adds a
    Studio result), or `rewrite,make`. Set `metadata.scribekey-presentation` when Make should show
-   as something other than text. Set `metadata.scribekey-icon` to one of `auto_awesome`, `article`,
-   `checklist`, `mail`, `chat` or `code` — reuse a glyph for related skills, do not invent a unique
-   one for each.
+   as something other than text. Set `metadata.scribekey-icon` to the bundled
+   glyph that names what the skill makes; the list is in `schema/skill-frontmatter.schema.json`.
 5. Run `node scripts/skills.mjs build` (Node 18 or later, nothing to install), then commit
    `index.json` with your skill. Editors with the YAML extension pick up
    `schema/skill-frontmatter.schema.json` for `skills/**/SKILL.md` (see the README Schema

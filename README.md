@@ -63,7 +63,7 @@ metadata:
   scribekey-suggested-fields: search  # optional. Suggestion order for matching field kinds; never runs a skill.
   scribekey-actions: rewrite,make  # rewrite (in place), make (Studio result), or both.
   scribekey-presentation: text     # how Studio shows a Make result: text, diagram, page, slides, image or audio.
-  scribekey-icon: mail             # optional. Bundled Material Symbol: auto_awesome, article, checklist, mail, chat or code.
+  scribekey-icon: mail             # optional. A bundled Material Symbol; the list is in schema/skill-frontmatter.schema.json.
 ---
 
 Rewrite the text as the body of an email…
@@ -81,7 +81,7 @@ Rewrite the text as the body of an email…
 | `metadata.scribekey-suggested-fields` | Optional field kinds for suggestion ordering, currently `search`. This only influences recommendations; it never runs a Skill or grants a permission |
 | `metadata.scribekey-actions` | `rewrite` (changes text in place: bubble, Improve), `make` (adds a Studio result), or `rewrite,make`. The marketplace groups on this; omitting it lists the skill as Make only |
 | `metadata.scribekey-presentation` | How Studio shows a Make result: `text`, `diagram`, `page`, `slides`, `image` or `audio`. Default `text` |
-| `metadata.scribekey-icon` | Marketplace and tile glyph. One of `auto_awesome`, `article`, `checklist`, `mail`, `chat`, `code`. Related skills share a glyph; omitting it uses auto_awesome |
+| `metadata.scribekey-icon` | Marketplace and tile glyph, naming what the skill makes. One of the bundled names in `schema/skill-frontmatter.schema.json`; omitting it uses auto_awesome |
 
 A skill may add text files under `references/` or `assets/`; the instructions name them by path
 and ScribeKey sends the ones named. `scripts/` is not allowed: ScribeKey never runs code.

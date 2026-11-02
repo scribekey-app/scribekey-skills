@@ -4,11 +4,11 @@ description: >-
   Polished and businesslike. Rewrites dictation in a professional tone without making it stiff; use for clients, managers or anything formal.
 license: Apache-2.0
 metadata:
-  version: "1.2.1"
+  version: "1.2.2"
   author: scribekey
   scribekey-actions: rewrite
   scribekey-presentation: text
-  scribekey-icon: auto_awesome
+  scribekey-icon: work
 ---
 
 Rewrite the text for a client, a manager or any formal reader: courteous, clear and direct.

@@ -45,7 +45,7 @@ const DISCOVERY_CATEGORIES = new Set(["writing", "search", "productivity", "deve
 const SUGGESTED_FIELDS = new Set(["search"]);
 const ACTIONS = new Set(["rewrite", "make"]);
 const PRESENTATIONS = new Set(["text", "diagram", "page", "slides", "image", "audio"]);
-const ICONS = new Set(["auto_awesome", "article", "checklist", "mail", "chat", "code"]);
+const ICONS = new Set(["auto_awesome", "article", "checklist", "mail", "chat", "code", "account_tree", "hub", "timeline", "groups", "group", "forum", "school", "notes", "summarize", "compress", "work", "search", "shopping_bag", "campaign", "cleaning_services"]);
 const KEPT_FOLDERS = ["references/", "assets/"];
 
 /** Splits a SKILL.md into its frontmatter lines and body; throws on a missing fence. */
