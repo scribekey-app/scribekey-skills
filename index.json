@@ -43,7 +43,7 @@
       "name": "email",
       "title": "Email",
       "description": "Greeting, clear paragraphs, sign-off. Turns dictation into an email body ready to paste; use when writing an email.",
-      "version": "1.4.0",
+      "version": "1.4.1",
       "url": "https://github.com/scribekey-app/scribekey-skills/tree/main/skills/email",
       "apps": [
         "com.google.android.gm",
@@ -189,7 +189,7 @@
       "name": "summary",
       "title": "Summary",
       "description": "The key points, shorter. Use when a long dictation needs to become a quick read.",
-      "version": "1.3.0",
+      "version": "1.3.1",
       "url": "https://github.com/scribekey-app/scribekey-skills/tree/main/skills/summary",
       "actions": "rewrite,make",
       "presentation": "text",
