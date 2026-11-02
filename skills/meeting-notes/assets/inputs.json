@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "detail": {"type": "string", "title": "Detail", "enum": ["Brief", "Standard", "Detailed"], "default": "Standard", "x-scribekey-control": "cards"},
+    "format": {"type": "string", "title": "Format", "enum": ["Structured", "Narrative"], "default": "Structured", "x-scribekey-control": "connected"},
+    "include_actions": {"type": "boolean", "title": "Include actions", "default": true},
+    "focus": {"type": "string", "title": "Focus", "maxLength": 300}
+  },
+  "additionalProperties": false
+}
