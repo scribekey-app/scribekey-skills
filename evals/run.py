@@ -2,7 +2,7 @@
 
 Usage: python3 evals/run.py <prompts dir from build.py> <results.json> [repeats]
 Environment: OPENAI_API_KEY; MODEL (default gpt-5-nano, ScribeKey's default); EFFORT (default
-minimal, what ScribeKey sends to gpt-5 nano and mini); BASE_URL (default https://api.openai.com/v1;
+minimal, what ScribeKey sends to gpt-5 nano and mini); SKILLS (space-separated, default all); BASE_URL (default https://api.openai.com/v1;
 for OpenRouter use https://openrouter.ai/api/v1 with MODEL=openai/gpt-5-nano).
 Small models vary between runs, so repeat each case (3 is a useful default) and compare rates.
 """
@@ -18,7 +18,9 @@ src, out = sys.argv[1], sys.argv[2]
 repeats = int(sys.argv[3]) if len(sys.argv) > 3 else 3
 model = os.environ.get("MODEL", "gpt-5-nano")
 base = os.environ.get("BASE_URL", "https://api.openai.com/v1").rstrip("/")
-cases = [c for f in sorted(glob.glob(f"{src}/*.json")) for c in json.load(open(f))]
+only = os.environ.get("SKILLS", "").split()
+cases = [c for f in sorted(glob.glob(f"{src}/*.json")) for c in json.load(open(f))
+         if not only or c["id"].rsplit("-", 1)[0] in only]
 
 
 def call(job):

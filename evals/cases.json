@@ -1,4 +1,4 @@
- [
+[
  {
   "skill": "taobao-search",
   "what": "wardrobe light uses plausible listing terms and keeps only stated features",
@@ -449,5 +449,155 @@
   "transcript": "thanks heaps for dinner last night it was so good",
   "app": "WhatsApp",
   "package": "com.whatsapp"
+ },
+ {
+  "skill": "flowchart",
+  "what": "returns process with a decision and both branches",
+  "transcript": "so when a return comes in first we check the receipt if there's no receipt we offer store credit only if there is a receipt we check whether it's within thirty days if it is we refund to the card otherwise it's store credit too and then either way we log it in the returns sheet",
+  "expect": {"must": ["receipt", ["30", "thirty"], "store credit", "refund", "returns sheet"], "decisions": 2, "order": ["receipt", "refund", "returns sheet"]}
+ },
+ {
+  "skill": "flowchart",
+  "what": "single step stays one node, no fence",
+  "transcript": "just restart the router",
+  "expect": {"must": ["restart the router"], "nodes": [1, 1]}
+ },
+ {
+  "skill": "flowchart",
+  "what": "quoted punctuation in labels and a speaker's name kept",
+  "transcript": "onboarding for new hires: Priya sends the welcome email, then IT sets up the laptop (usually takes a day), then they meet their buddy, and if they're remote we post the laptop instead",
+  "expect": {"must": ["priya", "welcome email", "laptop", "buddy", "remote"], "decisions": 1, "order": ["welcome email", "buddy"]}
+ },
+ {
+  "skill": "flowchart",
+  "what": "a ten-minute ramble keeps the closing-up path within 25 nodes and drops the asides",
+  "transcript": "okay so this is for Tom who's starting on the late shift next week and he asked me how we close up the café at night so I'm just going to talk it through and he can read it later um so the first thing is last orders at nine, we call last orders at nine o'clock, not before, even if it's dead, because Sandra got a complaint once about closing early and it was a whole thing with the owner, anyway last orders at nine then you start on the coffee machine, you backflush the group heads with the cleaning tablet, that takes about ten minutes and you can do the milk jugs at the same time, put the jugs in the dishwasher, and wipe the steam wands, really wipe them because the milk goes like cement overnight, honestly the machine we had before was worse, it was this old Italian thing that leaked, we finally got rid of it in the spring, anyway, once the machine's done you bring the chairs up onto the tables so the floor's clear, then you count the till, you count it twice, and you compare it to the Z report on the screen, and if it's more than five pounds out either way you call Marco, his number's on the fridge, don't text him, call him, and he'll tell you what to do, but if it's within five pounds you just put the cash bag in the safe and write the total in the blue book, oh and the safe code changes every month, Marco will text you that, the blue book lives under the counter by the cups, then you mop the floor, starting from the back by the toilets and working towards the door so you don't walk on it, the mop is terrible by the way, I keep asking for a new one, maybe you can ask too, then the bins, take the bins out to the yard, the food waste goes in the brown one and everything else in the black one, and watch out for the fox, there's a fox that comes around the yard, it's harmless but it'll make you jump, and Jess has her birthday drinks on Friday by the way so if you're closing Friday you can come after, then last thing you turn off the lights, set the alarm, the code is the same as the back door, and you lock the front door and pull the shutter down, and that's it, you're done, text the group chat that it's locked up so we know",
+  "expect": {"must": [["last orders", "9"], "coffee machine", "chairs", ["count the till", "till"], ["five pounds", "£5", "5 pounds"], "marco", "safe", "mop", "bins", "alarm", ["lock", "shutter"]], "must_not": ["fox", "birthday", "italian", "jess"], "decisions": 1, "order": [["last orders", "9"], ["till", "count"], "mop", "alarm"], "nodes": [8, 25]}
+ },
+ {
+  "skill": "flowchart",
+  "what": "no process at all is one node naming the topic",
+  "transcript": "honestly the concert last night was amazing the support act was better than the headliner and the sound up in the balcony was terrible",
+  "expect": {"must": ["concert"], "nodes": [1, 1]}
+ },
+ {
+  "skill": "flowchart",
+  "what": "a self-correction reorders the steps the way the speaker settled on",
+  "transcript": "to fix a flat on the bike first you let the air out no wait first you take the wheel off then let the rest of the air out lever the tyre off swap the tube and pump it back up to 60 psi",
+  "expect": {"must": ["wheel", "air", "tyre", "tube", "60"], "order": ["wheel", "air", "tube", "60"], "nodes": [4, 7]}
+ },
+ {
+  "skill": "flowchart",
+  "what": "quotes, parentheses, colons, a hashtag and an emoji still render",
+  "transcript": "release steps: run \"npm test\" (takes about 5 min); if it says FAIL: fix it & rerun the tests; if it passes, tag the release v2.3.1 and post 🚀 in #releases",
+  "expect": {"must": ["npm test", "v2.3.1", "releases"], "decisions": 1, "order": ["npm test", "v2.3.1"]}
+ },
+ {
+  "skill": "flowchart",
+  "what": "two speakers build one process; their names are not steps",
+  "transcript": "**Ana:** How do we handle a refund request over 500 dollars?\n\n**Ben:** Support logs it first. If it's over 500 it goes to Ana for approval, otherwise support approves it themselves.\n\n**Ana:** And once it's approved, finance pays it within five days.",
+  "expect": {"must": ["log", "500", ["approv"], "finance", ["five days", "5 days"]], "decisions": 1, "order": ["log", "finance"], "must_not": ["how do we handle"]}
+ },
+ {
+  "skill": "flowchart",
+  "what": "German stays German, decision and all",
+  "transcript": "Wenn die Heizung ausfällt: zuerst den Druck prüfen, liegt er unter 1 bar, Wasser nachfüllen, sonst den Notdienst anrufen (Nummer steht am Kessel). Danach das Protokoll ausfüllen.",
+  "expect": {"must": ["druck", "1 bar", "wasser", "notdienst", "protokoll"], "decisions": 1, "must_not": ["pressure", "call", "water", "yes", "no"], "order": ["druck", "protokoll"]}
+ },
+ {
+  "skill": "mind-map",
+  "what": "brainstorm branches under one centre",
+  "transcript": "thinking about the wedding we need a venue maybe the barn at Hollins Farm or the town hall food could be a food truck or a caterer music my cousin's band or a DJ and the budget is around twelve thousand",
+  "expect": {"must": ["venue", "hollins farm", "town hall", "food truck", "caterer", "cousin", "dj", ["12", "twelve"]], "under": [["hollins farm", "venue"], ["food truck", "food"], ["dj", "music"]]}
+ },
+ {
+  "skill": "mind-map",
+  "what": "one idea is the centre alone",
+  "transcript": "learn Spanish",
+  "expect": {"must": ["spanish"], "nodes": [1, 1]}
+ },
+ {
+  "skill": "mind-map",
+  "what": "long ramble stays within 25 nodes",
+  "transcript": "ideas for the podcast season two guests could be Dana from the bakery, the mayor, the guy who runs the bike shop, maybe a teacher, topics local history the floods in 2019 the new tram line the closed cinema housing prices formats interviews listener questions a live episode at the library a walking episode production new microphones better editing a theme tune from Jess release weekly on Tuesdays promotion instagram reels the local paper flyers at the cafe posters at the library sponsorship the hardware store the bakery the gym maybe a Patreon merch stickers and mugs and tote bags",
+  "expect": {"must": ["guest", "topic", "dana", "tuesday", "sponsor", "merch"], "under": [["dana", "guest"], ["floods", "topic"]], "nodes": [6, 25]}
+ },
+ {
+  "skill": "mind-map",
+  "what": "deep nesting folds to three levels below the centre",
+  "transcript": "planning the Japan trip, so Tokyo first, in Tokyo we'd stay in Shinjuku, and in Shinjuku the hotel options are the Gracery or a capsule hotel, and the capsule hotel near the station has a women-only floor which Mia would want, then Kyoto, in Kyoto it's temples, Fushimi Inari early in the morning before the crowds, like six am, and then the budget, flights are about 1200 each",
+  "expect": {"must": ["tokyo", "shinjuku", "gracery", "capsule", "kyoto", "fushimi inari", "1200"], "under": [["shinjuku", "tokyo"], ["gracery", "tokyo"], ["fushimi", "kyoto"]], "nodes": [6, 25]}
+ },
+ {
+  "skill": "mind-map",
+  "what": "quotes, parentheses, colons, emoji and Japanese still render",
+  "transcript": "menu ideas for the café: the \"Big Breakfast\" (eggs, bacon, toast), a matcha latte, 抹茶ラテ on the board, a vegan option: tofu scramble, and 🍰 cake specials on Fridays",
+  "expect": {"must": ["big breakfast", "matcha", "抹茶", "tofu", "friday"]}
+ },
+ {
+  "skill": "mind-map",
+  "what": "two speakers' ideas join one map; their names are not ideas",
+  "transcript": "**Ana:** For the school fundraiser we could do a bake sale or a fun run.\n\n**Tom:** The fun run could go round the park, and we'd need marshals.\n\n**Ana:** Prizes too. The bookshop offered vouchers.",
+  "expect": {"must": ["fundraiser", "bake sale", "fun run", "park", "marshals", "bookshop"], "under": [["park", "fun run"], ["marshals", "fun run"]], "must_not": ["ana", "tom"]}
+ },
+ {
+  "skill": "mind-map",
+  "what": "an idea the speaker takes back is left out",
+  "transcript": "app ideas for next release dark mode offline sync actually no scratch offline sync that's for next year widgets for the home screen and a share sheet",
+  "expect": {"must": ["dark mode", "widget", "share sheet"], "must_not": ["offline"]}
+ },
+ {
+  "skill": "mind-map",
+  "what": "a ten-minute renovation ramble keeps its branches within 25 nodes",
+  "transcript": "right so the house, where do I even start, the kitchen is the big one, we want to knock through to the dining room, which means a steel beam, and the builder, Gary, said that's about four thousand just for the beam, then new units, I like the green ones from the showroom, and an island if there's room, and the floor, maybe tiles, maybe that wood-look vinyl, I keep going back and forth, and I need to sort the extractor because the old one just blows the smell round the room, then the bathroom, the bath is cracked so it has to go, a walk-in shower instead, and the tiles in there are pink, which, no, they're going, and I'd like a heated towel rail, oh and the loft, we could board the loft for storage, Gary said a loft conversion is way over budget so it's just boarding for now, the garden, the fence at the back is falling down, the neighbour said she'd split the cost, there's the shed which is full of the previous owner's stuff, needs clearing, and I'd love a veg patch where the gravel is, maybe raised beds, and the budget overall is thirty thousand, we've got twenty saved and the rest would be a loan, and timing, Gary can start in March, kitchen first because that's the most disruptive, and we'd stay at my mum's for the two weeks the kitchen is out, oh and the windows, the front ones are single glazed and they rattle, that's maybe next year though, and the boiler is fifteen years old, the plumber said it's fine for now, and the hallway needs painting, I'm thinking that dark blue, and the stair carpet is worn through on the third step, the cat did that",
+  "expect": {"must": ["kitchen", "bathroom", "garden", "budget", ["30", "thirty"], "march"], "under": [["beam", "kitchen"], ["shower", "bathroom"], ["fence", "garden"]], "nodes": [10, 25]}
+ },
+ {
+  "skill": "timeline",
+  "what": "dated events in order, two on one date",
+  "transcript": "we bought the house in March 2021 the roof was redone that summer in 2022 we had the baby and also finished the kitchen and then last year we put in solar panels",
+  "expect": {"must": ["2021", "roof", "2022", "baby", "kitchen", "solar"], "order": ["2021", "roof", "2022", "solar"]}
+ },
+ {
+  "skill": "timeline",
+  "what": "no dates uses the speaker's order markers",
+  "transcript": "first I heard the alarm then I grabbed the cat after that we waited outside for the fire brigade and finally they said it was just the toaster",
+  "expect": {"must": ["alarm", "cat", "fire brigade", "toaster"], "order": ["alarm", "cat", "fire brigade", "toaster"]}
+ },
+ {
+  "skill": "timeline",
+  "what": "times with colons do not break the timeline",
+  "transcript": "the launch day plan is doors open at 9:30 the keynote at 10:15 lunch at 12:00 and the demo at 2:45",
+  "expect": {"must": ["doors", "keynote", "lunch", "demo", ["9:30", "9-30", "9.30"], ["10:15", "10-15", "10.15"], ["12:00", "12-00", "12.00", "noon"], ["2:45", "2-45", "2.45"]], "order": ["doors", "keynote", "lunch", "demo"]}
+ },
+ {
+  "skill": "timeline",
+  "what": "relative dates stay as spoken, no years worked out",
+  "transcript": "about two years ago I started at the bakery last spring I got promoted to head baker three weeks ago the owner told me she's selling and next month I'm meeting the bank about buying it",
+  "expect": {"must": ["two years ago", "last spring", "three weeks ago", "next month", "bakery", "head baker", "bank"], "must_not": ["2023", "2024", "2025", "2026"], "order": ["two years ago", "last spring", "three weeks ago", "next month"]}
+ },
+ {
+  "skill": "timeline",
+  "what": "a corrected date keeps only the correction",
+  "transcript": "we moved to Lisbon in 2019 no sorry 2018 then the twins were born in 2020 and we came back to Manchester in 2023",
+  "expect": {"must": ["2018", "lisbon", "twins", "2020", "manchester", "2023"], "must_not": ["2019"], "order": ["2018", "2020", "2023"]}
+ },
+ {
+  "skill": "timeline",
+  "what": "French with quotes, parentheses and an emoji stays French and renders",
+  "transcript": "l'histoire du club : fondé en 1923 par « les frères Martin » (deux boulangers), premier titre en 1951 🏆, et le stade \"Les Pins\" rouvert en 2004",
+  "expect": {"must": ["1923", "martin", "1951", "pins", "2004"], "must_not": ["founded", "first title", "reopened"], "order": ["1923", "1951", "2004"]}
+ },
+ {
+  "skill": "timeline",
+  "what": "two speakers tell one history; their names are not events",
+  "transcript": "**Maya:** We kicked off the redesign in January.\n\n**Leo:** Then in March we ran the user interviews, and in May the beta went out.\n\n**Maya:** And the launch slipped from June to August.",
+  "expect": {"must": ["january", "redesign", "march", "interviews", "may", "beta", "august", "launch"], "order": ["january", "march", "may", "august"], "must_not": ["maya", "leo"]}
+ },
+ {
+  "skill": "timeline",
+  "what": "a long company history keeps its turning points within 25 events",
+  "transcript": "okay the history of the company for the new starters, so Priya started it in her garage in 2009, just her and a soldering iron honestly, the first product was the Model A thermostat in 2010, it sold maybe two hundred units, then in 2011 we moved into the unit on Mill Lane, which flooded twice, in 2012 we hired the first five people including Raj who's still here, 2013 was the Model B, that was the big one, ten thousand units in the first year, in 2014 we got the contract with Halford Homes, which basically paid for everything, 2015 we opened the Leeds office, 2016 was rough, the recall on the Model B batteries, cost us a fortune, and we nearly went under, in 2017 we raised the first round of funding, two million, from Northern Ventures, 2018 we launched the app, which people hated at first, then in 2019 we rebuilt it and the reviews turned around, 2020 obviously the pandemic, everyone went remote and orders actually doubled because people were at home fixing their heating, 2021 the Model C, with the app built in, 2022 we passed a hundred staff, 2023 we moved out of Mill Lane into the new building by the canal, and last year, 2024, we started selling in Germany and the Netherlands, and this year the plan is the heat pump controller, and somewhere in there we won the regional business award, I think 2015 or 2016, and there was the Christmas party where the fire alarm went off but that's not really history",
+  "expect": {"must": ["2009", "garage", "model a", "model b", "2016", "recall", "2017", "2020", "2024", "germany"], "must_not": ["christmas", "fire alarm"], "order": ["2009", "2013", "2016", "2020", "2024"], "nodes": [10, 25]}
  }
 ]

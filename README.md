@@ -17,10 +17,12 @@ The skills are ordinary `SKILL.md` files, so any client that reads Agent Skills 
 | [Clean up](skills/clean-up/SKILL.md) | Punctuation, fillers and false starts | – |
 | [Concise](skills/concise/SKILL.md) | Same message, fewer words | – |
 | [Email](skills/email/SKILL.md) | Greeting, clear paragraphs, sign-off | com.google.android.gm, com.microsoft.office.outlook, com.samsung.android.email.provider, ch.protonmail.android, com.fastmail.app, com.readdle.spark |
+| [Flowchart](skills/flowchart/SKILL.md) | Steps and decisions as a flowchart | – |
 | [Friendly message](skills/friendly-message/SKILL.md) | Warm and conversational | com.whatsapp, com.google.android.apps.messaging, com.samsung.android.messaging, org.thoughtcrime.securesms, org.telegram.messenger, com.facebook.orca, com.whatsapp.w4b, com.viber.voip, jp.naver.line.android, com.discord |
 | [Interview Q&A](skills/interview-qa/SKILL.md) | Each question paired with its answer | – |
 | [Lecture notes](skills/lecture-notes/SKILL.md) | Study notes by topic, with questions from the room | – |
 | [Meeting notes](skills/meeting-notes/SKILL.md) | Summary, decisions and actions | – |
+| [Mind map](skills/mind-map/SKILL.md) | Ideas and how they branch, as a mind map | – |
 | [Notes](skills/notes/SKILL.md) | Bullet points by topic | com.google.android.keep, com.samsung.android.app.notes, md.obsidian, notion.id, com.microsoft.office.onenote, com.automattic.simplenote |
 | [1:1 notes](skills/one-on-one/SKILL.md) | Updates, blockers and actions for each person | – |
 | [Professional](skills/professional/SKILL.md) | Polished and businesslike | – |
@@ -28,6 +30,7 @@ The skills are ordinary `SKILL.md` files, so any client that reads Agent Skills 
 | [Social post](skills/social-post/SKILL.md) | One clear post in your voice | com.twitter.android, com.linkedin.android, xyz.blueskyweb.app, com.instagram.barcelona, org.joinmastodon.android |
 | [Summary](skills/summary/SKILL.md) | The key points, shorter | – |
 | [Taobao search](skills/taobao-search/SKILL.md) | One Simplified Chinese product query | com.taobao.taobao |
+| [Timeline](skills/timeline/SKILL.md) | Events in order, as a timeline | – |
 | [To-do list](skills/todo-list/SKILL.md) | One task per line, for a to-do app | com.todoist, com.ticktick.task, com.google.android.apps.tasks, com.microsoft.todos, com.anydo |
 | [Work chat](skills/work-chat/SKILL.md) | Short, clear and friendly for a team channel | com.Slack, com.microsoft.teams, com.google.android.apps.dynamite, com.mattermost.rn, im.vector.app |
 

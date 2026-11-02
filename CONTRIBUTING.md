@@ -118,6 +118,18 @@ app it lands in, and read clearly first time.
 `MODEL` (and `BASE_URL` for another OpenAI-compatible host) to try others. `grade.py` scores each
 case with a string check; read the outputs as well. Add cases and checks for a new skill.
 
+Diagram skills (Flowchart, Mind map, Timeline) have their own pipeline, which also draws each
+output with Pele 1.13.0, the renderer ScribeKey bundles, and measures it for a phone:
+
+```sh
+sh evals/diagrams.sh <scribekey checkout> out/diagrams   # needs Node 18+; installs evals/package.json once
+```
+
+It runs build, run, `evals/render.mjs`, grade and judge, skipping run and judge without their keys.
+Without `OPENAI_API_KEY` it scores `evals/fixtures/diagrams.json` instead: a good output for every
+case and deliberately bad ones (fenced, `%%{init}`, `click`, unquoted punctuation, 60 nodes), each
+marked with how it must score, so a broken check fails the script. PNGs land in `out/diagrams/png`.
+
 Small models follow the first rules they read over a skill's later ones, so a skill that changes
 the length or shape of the text has to say so plainly: name what to cut ("filler words, even
 though plain clean-up keeps them"), and show the shape in one short example. Wording that works
