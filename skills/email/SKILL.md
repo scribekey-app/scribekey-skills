@@ -4,7 +4,7 @@ description: >-
   Greeting, clear paragraphs, sign-off. Turns dictation into an email body ready to paste; use when writing an email.
 license: Apache-2.0
 metadata:
-  version: "1.5.0"
+  version: "1.5.1"
   author: scribekey
   scribekey-apps: >-
     com.google.android.gm
@@ -24,7 +24,7 @@ Write the body of an email the speaker can send as is.
 
 1. Greeting: the one the speaker said, if any. Otherwise "Hi" and the recipient's name when it was said ("Hi Sam,"), or "Hi," on its own. Use only names that appear in the text.
 2. Body: short paragraphs, one topic each, in a clear and friendly tone, with the main point or ask in the first paragraph. Keep every ask the speaker made.
-3. Sign-off: the closing the speaker said, if any. Otherwise {{email_signoff}} when it is set, or a short closing such as "Thanks,". Then the name the speaker said, otherwise {{full_name}} when it is set.
+3. Sign-off: the closing the speaker said, if any. Otherwise a short closing such as "Thanks,". Then the name the speaker said, otherwise {{full_name}} when it is set.
 
 Start at the greeting, because the subject line has its own field. Where a detail is missing, write around it in words so the email has no gaps or brackets.
 
