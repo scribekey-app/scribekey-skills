@@ -119,17 +119,16 @@ These variables are filled in where the skill runs:
 | `{{app}}` | The app being dictated into, when known. |
 | `{{language}}` | The transcript's language code, such as `en`. |
 
-Every other `{{name}}` is one of the person's own details, from About you & variables in the app.
-Names are letters, digits and underscores, starting with a letter:
+These four are the person's own details, from About you in the app:
 
 | Variable | Becomes |
 | --- | --- |
 | `{{first_name}}`, `{{last_name}}` | The person's name. |
 | `{{full_name}}` | First and last name together. |
 | `{{about_me}}` | What the person wrote about themselves. |
-| `{{company}}`, or any other name | A variable the person added under that name. |
 
-ScribeKey sends only the details a skill names. Each placeholder becomes its name in backticks
+Any other `{{name}}` is not a detail ScribeKey saves, so it always arrives empty. ScribeKey
+sends only the details a skill names. Each placeholder becomes its name in backticks
 (`` `full_name` ``) and the values follow the instructions as one fenced JSON block of data, so
 a value can never act as an instruction. A detail the person has not set arrives empty, with the
 rule to leave it out, so write "the name, when it is set" rather than assuming one. Installing a

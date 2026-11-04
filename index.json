@@ -109,19 +109,6 @@
       "icon": "forum"
     },
     {
-      "name": "introduce-me",
-      "title": "Introduce me",
-      "description": "A short first-person introduction written from your saved details. Use for a meetup, a cold email, a LinkedIn note or a short bio.",
-      "version": "1.0.0",
-      "url": "skills/introduce-me/SKILL.md",
-      "discoveryCategories": [
-        "writing"
-      ],
-      "actions": "rewrite,make",
-      "presentation": "text",
-      "icon": "chat"
-    },
-    {
       "name": "lecture-notes",
       "title": "Lecture notes",
       "description": "Study notes by topic, with questions from the room kept apart. Turns a recorded lecture, class or talk into notes; use after a lecture or training session.",
