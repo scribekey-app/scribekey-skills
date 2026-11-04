@@ -55,7 +55,7 @@ C = {
  "todo-list-4": lambda o: len(lines(o)) == 1 and has(o, "dentist", "tomorrow") and not o.endswith(".") and no(o, "- [", "* "),
  "todo-list-5": lambda o: len(lines(o)) == 2 and no(o, "week", "ugh") and has(o, "thursday"),
  "todo-list-6": lambda o: len(lines(o)) == 3 and not any(l.lstrip()[:1] in "-*•[" for l in lines(o)),
- "professional-4": lambda o: clean(o) and has(o, "two weeks", "supplier"),
+ "professional-4": lambda o: clean(o) and has(o, "supplier") and re.search(r"\b(?:2|two) weeks\b", o, re.I) is not None,
  "email-4": lambda o: clean(o) and has(o, "thursday"),
  "social-post-5": lambda o: clean(o) and has(o, "ten years") and "?" not in o,
  "friendly-message-5": lambda o: clean(o) and len(o) < 140,
