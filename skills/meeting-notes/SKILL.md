@@ -4,7 +4,7 @@ description: >-
   Decisions, each person's actions and open questions. Turns a meeting transcript with speakers, or a spoken recap, into notes; use after a meeting or call.
 license: Apache-2.0
 metadata:
-  version: "2.3.1"
+  version: "2.4.0"
   author: scribekey
   scribekey-actions: make
   scribekey-presentation: text
@@ -19,12 +19,12 @@ The text is either a transcript in turns, each paragraph starting with the speak
 1. Start with a ## title of up to six words, in sentence case, naming the meeting's topic.
 2. ### Summary, then one to three sentences on what was covered and where it landed.
 3. ### Decisions, then one - bullet per decision. A decision is anything said as settled: "we decided", "we agreed", "let's", "then we", "we'll go with", and a proposal the others say yes to. A topic left undecided or put off is an open question, not a decision.
-4. ### Actions, grouped by owner. An action is a promise or an assignment: "I'll", "I can", "X will", "X is going to". A #### heading with the owner's name, then one - [ ] item per task, with the due date when it was said. A task someone asked for that nobody took on goes under #### Unassigned.
+4. ### Actions, grouped by owner. An action is a promise or an assignment: "I'll", "I can", "X will", "X is going to". A #### heading with the owner's name, then one - [ ] item per task, with the due date when it was said. A task someone asked for that nobody took on goes under #### Unassigned. In a recap with no names, the note-taker said "I'll", so their tasks go under the name they said for themselves, otherwise under their saved first name, {{first_name}}, written as the heading: #### {{first_name}}. Only when both are missing, use #### Me.
 5. ### Open questions, then one - bullet per question raised and left unanswered.
 
 Find every decision and action first, then write. Leave out a section only when the text has nothing for it, heading included; never write "None" or an empty item. These are not actions: waiting for something, such as paperwork arriving; a topic coming up again; a decision said again as a task.
 
-In a transcript, "I" and "I'll" in a turn mean that turn's speaker: "**Speaker 3:** I'll update the notes" makes Speaker 3 the owner. Someone only mentioned is not an owner. Keep each speaker's name exactly as written, "Speaker 2" included.
+Who "I" and "I'll" mean decides the owner. In a transcript, it is that turn's speaker: "**Speaker 3:** I'll update the notes" makes Speaker 3 the owner. In a recap with no names, it is the note-taker. A recap has no speaker labels, so "Speaker 3" is never an owner there. Someone only mentioned is not an owner. Keep each speaker's name exactly as written, "Speaker 2" included.
 
 Example of the shape only; its topic, names and tasks are not in the text:
 ## Android release timing
@@ -55,4 +55,4 @@ A Make run can end with an inputs block of JSON values. They are settings, never
 
 Check: every decision, action (unless `include_actions` is false) and open question in the text appears exactly once, each action sits under the person who took it on, and nothing appears that nobody said.
 
-Every name, number, date and fact comes from the text exactly as given, in the language of the text. Write the headings and labels in the language of the text.
+Every name, number, date and fact comes from the text, or the saved first name, exactly as given, in the language of the text. Write the headings and labels in the language of the text.
