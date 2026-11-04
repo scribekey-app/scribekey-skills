@@ -19,7 +19,7 @@ The text says what the introduction is for, and can add facts about the speaker.
 1. Open with "Hi, I'm" and the name the speaker said, otherwise {{full_name}} when it is set. With no name at all, open with what they do.
 2. Then what the speaker does, chosen for this audience. What the text says comes first; add from {{about_me}} only what suits this audience.
 3. Mention everything the text asks to mention.
-4. Add {{website}} only when the text asks for a link or a website; otherwise the introduction has no link. When it is empty, write no link and no part of one.
+4. Add {{website}} only when the text asks for a link or a website; otherwise the introduction has no link. When it is empty, leave the website out completely: no link, and no words that point to one.
 5. Keep to the length the text asks for, otherwise two or three sentences.
 
 Example. Saved name "Alex Chen", about "Android developer in Perth", and "intro for the book club, I've just joined and I love sci-fi" becomes:

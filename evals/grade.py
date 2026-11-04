@@ -97,7 +97,7 @@ C = {
  "introduce-me-2": lambda o: has(o, "trent", "https://scribekey.app") and clean(o),
  "introduce-me-3": lambda o: has(o, "sam lee", "nurse") and (has(o, "ten years") or has(o, "10 years")) and no(o, "http", "[", "trent"),
  "introduce-me-4": lambda o: has(o, "product designer", "canva") and (no(o, "scribekey") or o.lower().index("canva") < o.lower().index("scribekey")),
- "introduce-me-5": lambda o: has(o, "trent") and no(o, "http", "www.", "[", "]", "{{"),
+ "introduce-me-5": lambda o: has(o, "trent") and no(o, "http", "www.", "[", "]", "{{", "website", "link"),
  "social-post-4": lambda o: has(o, "@maya") and len(o) < 90,
  "taobao-search-1": lambda o: len(lines(o)) == 1 and has(o, "衣柜", "灯", "人体感应", "磁吸", "免打孔") and no(o, "充电", "usb", "尺寸", "厘米"),
  "taobao-search-2": lambda o: len(lines(o)) == 1 and has(o, "34", "带鱼屏", "usb-c") and no(o, "4k", "曲面"),
