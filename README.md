@@ -21,6 +21,7 @@ The skills are ordinary `SKILL.md` files, so any client that reads Agent Skills 
 | [Flowchart](skills/flowchart/SKILL.md) | Steps and decisions as a flowchart | – |
 | [Friendly message](skills/friendly-message/SKILL.md) | Warm and conversational | com.whatsapp, com.google.android.apps.messaging, com.samsung.android.messaging, org.thoughtcrime.securesms, org.telegram.messenger, com.facebook.orca, com.whatsapp.w4b, com.viber.voip, jp.naver.line.android, com.discord |
 | [Interview Q&A](skills/interview-qa/SKILL.md) | Each question paired with its answer | – |
+| [Introduce me](skills/introduce-me/SKILL.md) | A short introduction from your saved details | – |
 | [Lecture notes](skills/lecture-notes/SKILL.md) | Study notes by topic, with questions from the room | – |
 | [Meeting notes](skills/meeting-notes/SKILL.md) | Summary, decisions and actions | – |
 | [Mind map](skills/mind-map/SKILL.md) | Ideas and how they branch, as a mind map | – |

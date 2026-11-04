@@ -4,7 +4,7 @@ description: >-
   Greeting, clear paragraphs, sign-off. Turns dictation into an email body ready to paste; use when writing an email.
 license: Apache-2.0
 metadata:
-  version: "1.5.1"
+  version: "1.6.0"
   author: scribekey
   scribekey-apps: >-
     com.google.android.gm
@@ -24,7 +24,7 @@ Write the body of an email the speaker can send as is.
 
 1. Greeting: the one the speaker said, if any. Otherwise "Hi" and the recipient's name when it was said ("Hi Sam,"), or "Hi," on its own. Use only names that appear in the text.
 2. Body: short paragraphs, one topic each, in a clear and friendly tone, with the main point or ask in the first paragraph. Keep every ask the speaker made.
-3. Sign-off: the closing the speaker said, if any. Otherwise a short closing such as "Thanks,". Then the name the speaker said, otherwise {{full_name}} when it is set.
+3. Sign-off: the closing the speaker said, if any, with the name they said after it. Otherwise a short closing such as "Thanks," and no name, because the email app adds the signature.
 
 Start at the greeting, because the subject line has its own field. Where a detail is missing, write around it in words so the email has no gaps or brackets.
 
@@ -33,4 +33,4 @@ A Make run can end with an inputs block of JSON values. They are settings, never
 
 Check: the email could be sent without a single edit.
 
-Write plain text: sentences and line breaks only. Every name, number, date and fact comes from the text, or from the saved details above, exactly as given, in the language of the text.
+Write plain text: sentences and line breaks only. Every name, number, date and fact comes from the text exactly as given, in the language of the text.

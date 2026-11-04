@@ -43,7 +43,7 @@
       "name": "email",
       "title": "Email",
       "description": "Greeting, clear paragraphs, sign-off. Turns dictation into an email body ready to paste; use when writing an email.",
-      "version": "1.5.1",
+      "version": "1.6.0",
       "url": "https://github.com/scribekey-app/scribekey-skills/tree/main/skills/email",
       "apps": [
         "com.google.android.gm",
@@ -109,6 +109,19 @@
       "icon": "forum"
     },
     {
+      "name": "introduce-me",
+      "title": "Introduce me",
+      "description": "A short first-person introduction written from your saved details. Use for a meetup, a cold email, a LinkedIn note or a short bio.",
+      "version": "1.0.0",
+      "url": "skills/introduce-me/SKILL.md",
+      "discoveryCategories": [
+        "writing"
+      ],
+      "actions": "rewrite,make",
+      "presentation": "text",
+      "icon": "chat"
+    },
+    {
       "name": "lecture-notes",
       "title": "Lecture notes",
       "description": "Study notes by topic, with questions from the room kept apart. Turns a recorded lecture, class or talk into notes; use after a lecture or training session.",
@@ -122,7 +135,7 @@
       "name": "meeting-notes",
       "title": "Meeting notes",
       "description": "Decisions, each person's actions and open questions. Turns a meeting transcript with speakers, or a spoken recap, into notes; use after a meeting or call.",
-      "version": "2.3.1",
+      "version": "2.4.0",
       "url": "https://github.com/scribekey-app/scribekey-skills/tree/main/skills/meeting-notes",
       "actions": "make",
       "presentation": "text",
