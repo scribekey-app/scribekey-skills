@@ -191,11 +191,14 @@ such as a length or a tone. It is a small subset of JSON Schema:
 | `required` (on the root) | Keys Make waits for. |
 | `x-scribekey-control` | `connected` (button group), `cards`, `language` (a language picker; the value `source` keeps the transcript's language) or `multiline`. |
 | `x-scribekey-labels` | For an `enum`: the value sent mapped to the label shown. |
+| `x-scribekey-presets` | A list of named bundles. Each has a `title`, an optional `description`, and `values` that set declared properties. Studio shows them first. Choosing one fills those values in, and the person can still change any input. A run sends the resolved values, never the preset's title, so the instructions describe the properties only. |
 
-Anything else becomes a diagnostic and is left out; the skill still installs and runs. The chosen
-values reach the model as a JSON block at the end of a Make run, so the instructions should say
-what each value means and what to assume when it is missing. See
-[`skills/email/SKILL.md`](../skills/email/SKILL.md).
+A preset value that does not fit its property is left out, and a preset with no usable values is
+left out. Both become diagnostics. Anything else becomes a diagnostic and is left out; the skill
+still installs and runs. The chosen values reach the model as a JSON block at the end of a Make
+run, so the instructions should say what each value means and what to assume when it is missing.
+See [`skills/email/SKILL.md`](../skills/email/SKILL.md) and the presets on
+[`skills/meeting-notes/assets/inputs.json`](../skills/meeting-notes/assets/inputs.json).
 
 ## Default skills
 

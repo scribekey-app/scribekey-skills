@@ -24,7 +24,7 @@ The skills are ordinary `SKILL.md` files, so any client that reads Agent Skills 
 | [Friendly message](skills/friendly-message/SKILL.md) | Warm and conversational | com.whatsapp, com.google.android.apps.messaging, com.samsung.android.messaging, org.thoughtcrime.securesms, org.telegram.messenger, com.facebook.orca, com.whatsapp.w4b, com.viber.voip, jp.naver.line.android, com.discord |
 | [Interview Q&A](skills/interview-qa/SKILL.md) | Each question paired with its answer | – |
 | [Lecture notes](skills/lecture-notes/SKILL.md) | Study notes by topic, with questions from the room | – |
-| [Meeting notes](skills/meeting-notes/SKILL.md) | Decisions, each person's actions and open questions | – |
+| [Conversation notes](skills/meeting-notes/SKILL.md) | Decisions, actions and what each person raised | – |
 | [Mind map](skills/mind-map/SKILL.md) | Ideas and how they branch, as a mind map | – |
 | [Notes](skills/notes/SKILL.md) | Bullet points by topic | com.google.android.keep, com.samsung.android.app.notes, md.obsidian, notion.id, com.microsoft.office.onenote, com.automattic.simplenote |
 | [1:1 notes](skills/one-on-one/SKILL.md) | Updates, blockers and actions for each person | – |
@@ -38,6 +38,10 @@ The skills are ordinary `SKILL.md` files, so any client that reads Agent Skills 
 | [Key takeaways](skills/takeaways/SKILL.md) | The claims and advice worth keeping, each with its reason | – |
 | [To-do list](skills/todo-list/SKILL.md) | One task per line, for a to-do app | com.todoist, com.ticktick.task, com.google.android.apps.tasks, com.microsoft.todos, com.anydo |
 | [Work chat](skills/work-chat/SKILL.md) | Short, clear and friendly for a team channel | com.Slack, com.microsoft.teams, com.google.android.apps.dynamite, com.mattermost.rn, im.vector.app |
+
+Conversation notes covers meetings and 1:1s. Choose a Meeting, 1:1, Actions or Full preset, then
+adjust the sections, detail, organisation and focus. The original 1:1 notes skill remains available
+for existing installations; Conversation notes keeps the `meeting-notes` identity for updates.
 
 Suggest an app only when the skill's output fits the box you dictate into there. A to-do app's box holds one task, so To-do list writes one plain line per task rather than a `- [ ]` checklist.
 

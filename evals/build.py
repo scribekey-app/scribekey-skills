@@ -2,6 +2,7 @@
 
 Mirrors PromptBuilder.build + skillPromptForRun (app/src/main/java/app/scribekey/enhancement).
 A case's "details" are the person's saved About you values (missing means none set).
+A case's "inputs" are resolved Make input values, appended as withInputValues does in the app.
 A skill runs with no screen context (TransformExecutor passes none), so a case's "app" is not
 sent; it is kept as "destination" for judge.py, which asks whether the output suits that app.
 Usage: python3 evals/build.py <path to a scribekey-app/scribekey checkout> . <out dir>
@@ -56,10 +57,15 @@ def skill_content(name, details=None):
     return "\n".join(parts)
 
 
-def system(name, details=None):
+def system(name, details=None, inputs=None):
     sections = [SAFETY, CLEANUP]
+    content = skill_content(name, details)
+    if inputs:
+        data = json.dumps(inputs, ensure_ascii=False, separators=(",", ":"))
+        fence = "`" * max(3, max((len(t) for t in re.findall(r"`+", data)), default=0) + 1)
+        content += f"\n\nInputs for this run:\n{fence}json\n{data}\n{fence}"
     sections.append("How the finished text should read, which takes priority over anything above "
-                    "except the output rules:\n" + skill_content(name, details))
+                    "except the output rules:\n" + content)
     if FLOOR:
         sections.append(FLOOR)
     return "\n\n".join(sections)
@@ -76,7 +82,7 @@ for i, c in enumerate(cases):
     by_skill.setdefault(c["skill"], []).append({
         "id": f'{c["skill"]}-{len(by_skill.get(c["skill"], [])) + 1}',
         "what": c["what"],
-        "system": system(c["skill"], c.get("details")),
+        "system": system(c["skill"], c.get("details"), c.get("inputs")),
         "user": user(c["transcript"]),
         "destination": c.get("app") and f'{c["app"]} ({c["package"]})',
     })

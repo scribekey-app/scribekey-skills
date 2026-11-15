@@ -612,5 +612,23 @@
  {"skill": "flashcards", "what": "Spanish stays Spanish and the Q and A labels are kept", "transcript": "la fotosíntesis ocurre en los cloroplastos. la clorofila absorbe sobre todo la luz roja y azul, por eso las hojas se ven verdes. el producto principal es la glucosa y se libera oxígeno."},
  {"skill": "takeaways", "what": "claims with their figures, most important first; the plug gives no takeaway", "transcript": "so the big thing from the trial is that the four day week didn't cut output, revenue was actually up 1.4 percent across the 61 companies. um if you like the show please rate and subscribe. the second thing is sick days fell by about two thirds, 65 percent. and honestly the companies that struggled were the ones that just squeezed five days into four without cutting any meetings, so you have to cut meetings first. 56 of the 61 kept it going after the trial ended."},
  {"skill": "takeaways", "what": "one idea is one bullet", "transcript": "note to self the whole talk boiled down to one thing, write the test before you fix the bug"},
- {"skill": "takeaways", "what": "named speakers who disagree are each given their view", "transcript": "**Ana:** I think we should raise prices now, churn is only 2 percent so people clearly value it.\n\n**Ben:** I disagree, the 2 percent is because we're cheap. I'd wait until the new reports feature ships in March and raise then."}
+ {"skill": "takeaways", "what": "named speakers who disagree are each given their view", "transcript": "**Ana:** I think we should raise prices now, churn is only 2 percent so people clearly value it.\n\n**Ben:** I disagree, the 2 percent is because we're cheap. I'd wait until the new reports feature ships in March and raise then."},
+ {
+  "skill": "meeting-notes",
+  "what": "1:1 preset keeps updates, blockers, attributed feedback and both speakers' promises",
+  "inputs": {"organise": "Person", "include_summary": false, "include_decisions": false, "include_actions": true, "include_open_questions": false, "include_updates": true, "include_blockers": true, "include_feedback": true},
+  "transcript": "**Ellis:** I shipped the reimbursement flow. The audit approval is blocking the next release. I'll patch the receipt error by Thursday.\n\n**Noor:** Your audit notes were unusually clear. I'll chase the approval by Tuesday."
+ },
+ {
+  "skill": "meeting-notes",
+  "what": "Actions preset keeps only promises, with the right owners and dates",
+  "inputs": {"organise": "Topic", "include_summary": false, "include_decisions": false, "include_actions": true, "include_open_questions": false, "include_updates": false, "include_blockers": false, "include_feedback": false},
+  "transcript": "**Zara:** We agreed on green labels. I shipped the refund fix. I'll send the invoice by Monday.\n\n**Ivo:** I'll book the courier for Wednesday. Your refund explanation was clear."
+ },
+ {
+  "skill": "meeting-notes",
+  "what": "custom narrative keeps blunt feedback and updates; disabled actions and blockers stay out",
+  "inputs": {"format": "Narrative", "organise": "Person", "include_summary": false, "include_decisions": false, "include_actions": false, "include_open_questions": false, "include_updates": true, "include_blockers": false, "include_feedback": true},
+  "transcript": "**Priya:** I finished the alert dashboard. I'm blocked on staging access.\n\n**Leo:** Your incident report omitted the root cause and delayed the handover. I'll rotate the certificate by Friday."
+ }
 ]
