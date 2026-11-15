@@ -39,7 +39,7 @@
       "type": "object",
       "description": "String keys to string values only, per the Agent Skills spec.",
       "additionalProperties": { "type": "string" },
-      "required": ["version", "scribekey-actions"],
+      "required": ["version", "scribekey-actions", "scribekey-discovery-categories"],
       "properties": {
         "version": {
           "type": "string",

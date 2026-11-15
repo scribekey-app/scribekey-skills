@@ -4,8 +4,9 @@ description: >-
   Greeting, clear paragraphs, sign-off. Turns dictation into an email body ready to paste; use when writing an email.
 license: Apache-2.0
 metadata:
-  version: "1.6.0"
+  version: "1.6.1"
   author: scribekey
+  scribekey-discovery-categories: writing
   scribekey-apps: >-
     com.google.android.gm
     com.microsoft.office.outlook

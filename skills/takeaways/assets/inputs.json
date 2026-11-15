@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "count": {"type": "string", "title": "How many", "enum": ["Fewer", "Standard", "More"], "default": "Standard", "x-scribekey-control": "connected"},
+    "focus": {"type": "string", "title": "Focus", "description": "A topic to draw the takeaways from", "maxLength": 300}
+  },
+  "additionalProperties": false
+}

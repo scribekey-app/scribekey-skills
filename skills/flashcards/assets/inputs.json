@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "count": {"type": "string", "title": "Number of cards", "enum": ["Fewer", "Standard", "More"], "default": "Standard", "x-scribekey-control": "connected"},
+    "difficulty": {"type": "string", "title": "Difficulty", "enum": ["Easy", "Medium", "Hard"], "default": "Medium", "x-scribekey-control": "connected"},
+    "focus": {"type": "string", "title": "Focus", "description": "A topic to make the cards about", "maxLength": 300}
+  },
+  "additionalProperties": false
+}

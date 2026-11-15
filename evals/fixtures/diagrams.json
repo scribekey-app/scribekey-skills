@@ -379,5 +379,21 @@
   "render": true,
   "why": "the 1.0.0 advice, 9-30, renders and passes; 9#58;30 shows the speaker's own 9:30",
   "output": "timeline\n    title Launch day plan\n    9-30 : Doors open\n    10-15 : Keynote\n    12-00 : Lunch\n    2-45 : Demo"
+ },
+ {
+  "id": "flowchart-8",
+  "rep": "bad-two-charts",
+  "should": "fail",
+  "render": true,
+  "what": "a second chain no arrow joins to the first draws as two charts side by side",
+  "output": "flowchart TD\n    n1([\"Support logs the request\"]) --> n2{\"Over 500 dollars?\"}\n    n2 -->|\"Yes\"| n3[\"Ana approves it\"]\n    n2 -->|\"No\"| n4[\"Support approves it\"]\n    n3 --> n5([\"Finance pays within five days\"])\n    n4 --> n5\n    n6([\"Customer asks for an update\"]) --> n7([\"Support replies\"])"
+ },
+ {
+  "id": "flowchart-8",
+  "rep": "bad-mid-stadium",
+  "should": "fail",
+  "render": true,
+  "what": "a pill in the middle of the path reads as an end",
+  "output": "flowchart TD\n    n1([\"Support logs the request\"]) --> n2{\"Over 500 dollars?\"}\n    n2 -->|\"Yes\"| n3([\"Ana approves it\"])\n    n2 -->|\"No\"| n4[\"Support approves it\"]\n    n3 --> n5([\"Finance pays within five days\"])\n    n4 --> n5"
  }
 ]

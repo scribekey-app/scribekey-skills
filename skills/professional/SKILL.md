@@ -4,8 +4,9 @@ description: >-
   Polished and businesslike. Rewrites dictation in a professional tone without making it stiff; use for clients, managers or anything formal.
 license: Apache-2.0
 metadata:
-  version: "1.2.2"
+  version: "1.2.3"
   author: scribekey
+  scribekey-discovery-categories: writing
   scribekey-actions: rewrite
   scribekey-presentation: text
   scribekey-icon: work

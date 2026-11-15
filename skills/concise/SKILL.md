@@ -4,8 +4,9 @@ description: >-
   Same message, fewer words. Cuts repetition and padding from dictation; use when you rambled.
 license: Apache-2.0
 metadata:
-  version: "1.2.2"
+  version: "1.2.3"
   author: scribekey
+  scribekey-discovery-categories: writing
   scribekey-actions: rewrite
   scribekey-presentation: text
   scribekey-icon: compress

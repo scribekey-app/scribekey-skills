@@ -4,8 +4,9 @@ description: >-
   Bullet points by topic. Turns a spoken brain dump into tidy notes; use in a notes app.
 license: Apache-2.0
 metadata:
-  version: "2.1.2"
+  version: "2.1.3"
   author: scribekey
+  scribekey-discovery-categories: productivity
   scribekey-apps: >-
     com.google.android.keep
     com.samsung.android.app.notes

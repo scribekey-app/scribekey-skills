@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "format": {"type": "string", "title": "Format", "enum": ["Checklist", "Plain lines"], "default": "Checklist", "x-scribekey-control": "connected"}
+  },
+  "additionalProperties": false
+}

@@ -4,8 +4,9 @@ description: >-
   Short, clear and friendly for a team channel. Turns dictation into a work chat message; use in Slack, Teams or Google Chat.
 license: Apache-2.0
 metadata:
-  version: "1.3.1"
+  version: "1.3.2"
   author: scribekey
+  scribekey-discovery-categories: writing
   scribekey-apps: >-
     com.Slack
     com.microsoft.teams

@@ -4,8 +4,9 @@ description: >-
   Goal, context, constraints, done when. Turns a spoken request into instructions for a coding or chat agent; use in an AI assistant app.
 license: Apache-2.0
 metadata:
-  version: "1.3.1"
+  version: "1.3.2"
   author: scribekey
+  scribekey-discovery-categories: developer-ai
   scribekey-title: Prompt for an agent
   scribekey-apps: >-
     com.openai.chatgpt

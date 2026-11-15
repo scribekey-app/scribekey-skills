@@ -19,6 +19,8 @@ TELLS = ("—", "hope this", "reach out", "feel free", "let me know if", "don't 
          "foster", "unlock", "empower", "showcase", "elevate", "journey", "game-changer", "excited to",
          "serves as", "boasts", "not just", "worth noting", "in order to", "landscape", "testament")
 def clean(o): return no(o, *TELLS)
+def cards(o): return o.count("**Q:**") if o.count("**Q:**") == o.count("**A:**") and o.startswith("**Q:**") else 0
+def bullets(o): return [l for l in lines(o) if l.startswith("- ")]
 C = {
  "search-query-1": lambda o: len(lines(o)) == 1 and has(o, "sourdough", "rye") and no(o, "starter is", "you can"),
  "search-query-2": lambda o: len(lines(o)) == 1 and has(o, "sony", "wh-1000xm5", "300") and no(o, "reviews are", "best headphones"),
@@ -46,7 +48,7 @@ C = {
  "one-on-one-1": lambda o: has(o, "### ken", "export", "empty state", "### feedback", "- [ ] ana") ,
  "one-on-one-2": lambda o: has(o, "late", "held up") and has(o, "- [ ] jo"),
  "one-on-one-3": lambda o: no(o, "blockers") and has(o, "onboarding"),
- "lecture-notes-1": lambda o: o.count("\n### ") >= 2 and has(o, "**equilibrium price**", "### questions from the room", "rent control"),
+ "lecture-notes-1": lambda o: ("\n" + o).count("\n### ") >= 2 and has(o, "**equilibrium price**", "### questions from the room", "rent control"),
  "lecture-notes-2": lambda o: has(o, "f = ma") or has(o, "f = m", "6 n") or has(o, "6 newtons"),
  "lecture-notes-3": lambda o: no(o, "questions from the room") and has(o, "1789", "14 july", "1793"),
  "todo-list-1": lambda o: 4 <= len(lines(o)) <= 5 and no(o, "job", "- [") and not any(l.endswith(".") for l in lines(o)),
@@ -102,6 +104,17 @@ C = {
  "taobao-search-6": lambda o: len(lines(o)) == 1 and has(o, "推拉门") and no(o, "液压", "静音", "不锈钢"),
  "taobao-search-7": lambda o: len(lines(o)) == 1 and has(o, "usb-c", "macbook air m3", "hdmi"),
  "taobao-search-8": lambda o: len(lines(o)) == 1 and has(o, "衣柜", "人体感应灯", "磁吸") and no(o, "wardrobe", "english"),
+ # An ad leaves no trace: no marker line, no sponsor, and the talk either side of it is still there.
+ "clean-podcast-1": lambda o: has(o, "**Speaker 1:**", "12 schools", "9 points") and no(o, "northwind", "sponsor", "removed", "[", "back to it", "—"),
+ "clean-podcast-2": lambda o: o.startswith("**Dana:**") and has(o, "google sheets", "**Sam:**") and no(o, "brightpay", "lumen", "patreon", "removed", "["),
+ # Cards are **Q:** / **A:** pairs and nothing else; a list the speaker gave is split, an aside is not carded.
+ "flashcards-1": lambda o: cards(o) >= 5 and has(o, "partially permeable", "turgid", "plasmolysis", "temperature") and no(o, "projector", "facilities", "\n- ", "#") and not any(has(c, "temperature", "surface area") for c in o.split("**Q:**")),
+ "flashcards-2": lambda o: cards(o) == 1 and has(o, "waitangi", "1840"),
+ "flashcards-3": lambda o: cards(o) >= 2 and has(o, "cloroplastos", "glucosa") and no(o, "chloroplast", "glucose", "photosynthesis", "what ", "where ", "**P:**", "**R:**"),
+ "takeaways-1": lambda o: 3 <= len(bullets(o)) <= 5 and all(b.startswith("- **") for b in bullets(o)) and has(o, "1.4", "65", "meetings") and has(bullets(o)[0], "1.4") and no(o, "subscribe", "#") and clean(o),
+ "takeaways-2": lambda o: len(bullets(o)) == 1 and has(o, "test") and len(o) < 120 and no(o, "because", "regress"),
+ "takeaways-3": lambda o: (all(b.startswith("- **") for b in bullets(o)) and any(has(b, "ana", "now") for b in bullets(o))
+                          and any(has(b, "ben", "march") for b in bullets(o))),
 }
 CHECKS = C
 
@@ -118,8 +131,10 @@ CHECKS = C
 #   decisions  flowchart: at least expect "decisions" diamonds, each with two or more exits, all
 #              labelled with the answer.
 #   shapes     flowchart: the first node is a stadium (or a diamond, when the process opens with a
-#              question) and so is every final outcome, a node no arrow leaves; a diamond holds at
-#              most 5 words and any other node at most 6, so the drawing stays small on a phone.
+#              question) and so is every final outcome, a node no arrow leaves; no step with an
+#              arrow in and an arrow out is a stadium, and every node is reached from the first,
+#              so it draws as one chart; a diamond holds at most 5 words and any other node at
+#              most 6, so the drawing stays small on a phone.
 #   hierarchy  mind map: one centre, at most three levels below it, and each ["child", "parent"]
 #              in "under" has the child's node somewhere beneath the parent's.
 #   colons     timeline: no time like 9:30 left in, which Pele splits into another event.
@@ -185,6 +200,8 @@ def diagram_checks(case_id, output):
         first = next(iter(nodes), None)
         ends = [i for i, (_, shape) in nodes.items() if shape != "{" and not any(a == i for a, _, _ in edges)]
         r["shapes"] = ((first is None or nodes[first][1] in ("([", "{")) and all(nodes[i][1] == "([" for i in ends)
+                       and all(shape != "([" or i == first or i in ends for i, (_, shape) in nodes.items())
+                       and (first is None or reachable(first, edges) >= set(nodes))
                        and all(len(l.replace("#quot;", "").split()) <= (5 if shape == "{" else 6) for l, shape in nodes.values()))
         if "order" in e:
             find = lambda t: [i for i, (l, _) in nodes.items() if term_in(t, l)]  # noqa: E731

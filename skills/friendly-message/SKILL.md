@@ -4,8 +4,9 @@ description: >-
   Warm and conversational. Turns dictation into a text message in your own voice; use in messaging apps.
 license: Apache-2.0
 metadata:
-  version: "1.4.1"
+  version: "1.4.2"
   author: scribekey
+  scribekey-discovery-categories: writing
   scribekey-apps: >-
     com.whatsapp
     com.google.android.apps.messaging

@@ -4,8 +4,9 @@ description: >-
   The key points, shorter. Use when a long dictation needs to become a quick read.
 license: Apache-2.0
 metadata:
-  version: "1.3.2"
+  version: "1.3.3"
   author: scribekey
+  scribekey-discovery-categories: productivity
   scribekey-actions: rewrite,make
   scribekey-presentation: text
   scribekey-icon: summarize
