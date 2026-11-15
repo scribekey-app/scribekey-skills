@@ -167,9 +167,9 @@
     },
     {
       "name": "meeting-notes",
-      "title": "Meeting notes",
-      "description": "Decisions, each person's actions and open questions. Turns a meeting transcript with speakers, or a spoken recap, into notes; use after a meeting or call.",
-      "version": "3.0.0",
+      "title": "Conversation notes",
+      "description": "Decisions, actions and what each person raised. Turns a meeting, call or 1:1 into notes, with presets for the sections to keep; use after a meeting, call or check-in.",
+      "version": "3.1.0",
       "url": "https://github.com/scribekey-app/scribekey-skills/tree/main/skills/meeting-notes",
       "discoveryCategories": [
         "productivity"

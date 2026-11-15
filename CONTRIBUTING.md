@@ -105,6 +105,9 @@ language or terminology may state that narrow exception in its Check line.
 ## Testing a skill
 
 `evals/cases.json` holds three sample dictations per skill: a typical one and two edge cases.
+A case can also set `inputs` to the resolved Make values to test a preset or a custom combination.
+Run the offline prompt-builder and grader checks with
+`python3 -m unittest discover -s evals -p 'test_*.py'`.
 
 ```sh
 python3 evals/build.py <scribekey checkout> . out/prompts   # the exact messages ScribeKey sends

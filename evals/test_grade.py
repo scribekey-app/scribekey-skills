@@ -39,6 +39,24 @@ class FlowchartShapeTest(unittest.TestCase):
         self.assertFalse(diagram_checks("flowchart-8", good + '\n    n4(["Ask for an update"]) --> n5(["Reply"])')["shapes"])
 
 
+class ConversationNotesTest(unittest.TestCase):
+    def test_one_on_one_preserves_action_owners(self):
+        good = "### Ellis\n**Updates**\n- Shipped the reimbursement flow\n**Blockers**\n- Audit approval\n### Feedback\n- Noor to Ellis: the audit notes were unusually clear\n### Actions\n- [ ] Ellis: patch the receipt error by Thursday\n- [ ] Noor: chase the approval by Tuesday"
+        self.assertTrue(passed("meeting-notes-11", good))
+        self.assertFalse(passed("meeting-notes-11", good.replace("Ellis:", "Other:").replace("Noor:", "Ellis:").replace("Other:", "Noor:")))
+
+    def test_actions_preset_rejects_extra_sections(self):
+        good = "### Actions\n#### Zara\n- [ ] Send the invoice by Monday\n\n#### Ivo\n- [ ] Book the courier for Wednesday"
+        self.assertTrue(passed("meeting-notes-12", good))
+        self.assertFalse(passed("meeting-notes-12", good.replace("Zara", "Other").replace("Ivo", "Zara").replace("Other", "Ivo")))
+        self.assertFalse(passed("meeting-notes-12", good + "\n### Decisions\n- Use green labels"))
+
+    def test_disabled_actions_cannot_leak_into_updates(self):
+        good = "### Priya\n**Updates**\nFinished the alert dashboard.\n### Feedback\nLeo to Priya: the incident report omitted the root cause and delayed the handover."
+        self.assertTrue(passed("meeting-notes-13", good))
+        self.assertFalse(passed("meeting-notes-13", good + "\nLeo will rotate the certificate by Friday."))
+
+
 class CardShapeTest(unittest.TestCase):
     def test_a_card_is_one_question_and_one_answer(self):
         card = "**Q:** When was the Treaty of Waitangi signed?\n\n**A:** 1840."

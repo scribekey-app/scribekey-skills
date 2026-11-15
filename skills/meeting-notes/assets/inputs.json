@@ -4,8 +4,73 @@
   "properties": {
     "detail": {"type": "string", "title": "Detail", "enum": ["Brief", "Standard", "Detailed"], "default": "Standard", "x-scribekey-control": "cards"},
     "format": {"type": "string", "title": "Format", "enum": ["Structured", "Narrative"], "default": "Structured", "x-scribekey-control": "connected"},
-    "include_actions": {"type": "boolean", "title": "Include actions", "default": true},
+    "organise": {"type": "string", "title": "Organise", "description": "Topic follows what was discussed. Person groups each person's news.", "enum": ["Topic", "Person"], "default": "Topic", "x-scribekey-control": "connected"},
+    "include_summary": {"type": "boolean", "title": "Summary", "default": true},
+    "include_decisions": {"type": "boolean", "title": "Decisions", "default": true},
+    "include_actions": {"type": "boolean", "title": "Actions", "default": true},
+    "include_open_questions": {"type": "boolean", "title": "Open questions", "default": true},
+    "include_updates": {"type": "boolean", "title": "Updates", "default": false},
+    "include_blockers": {"type": "boolean", "title": "Blockers", "default": false},
+    "include_feedback": {"type": "boolean", "title": "Feedback", "default": false},
     "focus": {"type": "string", "title": "Focus", "maxLength": 300}
   },
+  "x-scribekey-presets": [
+    {
+      "title": "Meeting",
+      "description": "Summary, decisions, actions and open questions",
+      "values": {
+        "organise": "Topic",
+        "include_summary": true,
+        "include_decisions": true,
+        "include_actions": true,
+        "include_open_questions": true,
+        "include_updates": false,
+        "include_blockers": false,
+        "include_feedback": false
+      }
+    },
+    {
+      "title": "1:1",
+      "description": "Updates, blockers, feedback and actions for each person",
+      "values": {
+        "organise": "Person",
+        "include_summary": false,
+        "include_decisions": false,
+        "include_actions": true,
+        "include_open_questions": false,
+        "include_updates": true,
+        "include_blockers": true,
+        "include_feedback": true
+      }
+    },
+    {
+      "title": "Actions",
+      "description": "Only the tasks people took on",
+      "values": {
+        "organise": "Topic",
+        "include_summary": false,
+        "include_decisions": false,
+        "include_actions": true,
+        "include_open_questions": false,
+        "include_updates": false,
+        "include_blockers": false,
+        "include_feedback": false
+      }
+    },
+    {
+      "title": "Full",
+      "description": "Every section the conversation supports",
+      "values": {
+        "organise": "Topic",
+        "include_summary": true,
+        "include_decisions": true,
+        "include_actions": true,
+        "include_open_questions": true,
+        "include_updates": true,
+        "include_blockers": true,
+        "include_feedback": true
+      }
+    }
+  ],
   "additionalProperties": false
 }
