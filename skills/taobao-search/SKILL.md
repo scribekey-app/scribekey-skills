@@ -4,8 +4,9 @@ description: >-
   One Chinese search query for Taobao. Turns a spoken product description into concise Simplified Chinese marketplace keywords; use when searching for an item in Taobao.
 license: Apache-2.0
 metadata:
-  version: "1.0.1"
+  version: "1.0.2"
   author: scribekey
+  scribekey-discovery-categories: search languages
   scribekey-title: Taobao search
   scribekey-apps: com.taobao.taobao
   scribekey-actions: rewrite

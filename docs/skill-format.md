@@ -83,7 +83,7 @@ if it declares `rewrite`, but makes nothing.
 
 | Key | Default | Meaning |
 | --- | --- | --- |
-| `scribekey-writing-rules` | `on` | `on` wraps the instructions in ScribeKey's writing rules: cleanup, the person's Dictionary and their style. `off` sends the instructions as written, for a skill that sets its own format completely, such as a diagram. In the app this is **Add ScribeKey's writing rules** under the editor's Advanced section. The Dictionary still runs over the result either way. |
+| `scribekey-writing-rules` | `on` | `on` wraps the instructions in ScribeKey's writing rules: cleanup, the person's Dictionary and their style. `off` sends the instructions as written, for a skill that sets its own format completely. The catalogue's diagram skills leave it on, because the cleanup rules also resolve self-corrections and write numbers as numerals. In the app this is **Add ScribeKey's writing rules** under the editor's Advanced section. The Dictionary still runs over the result either way. |
 | `scribekey-inputs` | none | Path to the inputs file, usually `assets/inputs.json`. See [Inputs](#inputs). |
 
 ### How it looks
@@ -102,7 +102,7 @@ Suggestions only change order. They never run a skill on their own, and never gr
 | `scribekey-apps` | Android package names, separated by spaces or new lines. The bubble lists the skill first, marked as suggested, when you dictate in one of them. Suggest an app only when the skill's output fits the box you dictate into there. |
 | `scribekey-categories` | `email` (apps that open `mailto:` links), `messaging` (apps that open `smsto:` links), or both. Like `scribekey-apps`, for apps the author cannot list one by one. |
 | `scribekey-suggested-fields` | Field kinds the skill suits, currently `search`. |
-| `scribekey-discovery-categories` | Topics for browsing the catalogue: `writing`, `search`, `productivity`, `developer-ai`, `languages`. Separate from `scribekey-categories`. |
+| `scribekey-discovery-categories` | Topics for browsing the catalogue: `writing`, `search`, `productivity`, `developer-ai`, `languages`. Required in this catalogue, because a skill without one is listed under Other. The app reads it from `index.json`. Separate from `scribekey-categories`. |
 
 ## Instructions
 
@@ -110,6 +110,33 @@ The Markdown after the frontmatter is what the model reads. Write it as instruct
 that sees only the transcript. The house style follows Matt Pocock's
 [writing-for-agents](https://github.com/mattpocock/skills) skill: numbered steps, one check at the
 end, no meta commentary.
+
+### What ScribeKey adds around the instructions
+
+The model reads the instructions between text the app adds, so a skill leaves these out and never
+asks for the opposite:
+
+- Before: return only the finished text, write a dictated question down rather than answer it,
+  drop hesitation sounds and corrected false starts, keep ordinary words such as "like" and "so",
+  and write numbers as numerals.
+- After: the writing floor. No em dashes, stock openers or closers, "not just X but Y", inflated
+  words, or a closing line that restates the text.
+- On a Make run: the chosen input values, then a request to start with a `Title:` line, which
+  ScribeKey strips and shows as the document's name. A Make skill starts at its content; a title
+  line of its own would show twice.
+
+### Shapes ScribeKey can act on
+
+A Make result is a document people keep working in, so write lists the way the app reads them:
+
+- a task is `- [ ] text` on one line, which shows as a box to tick; group tasks under a `####`
+  heading with a blank line between groups;
+- a list item is `- text` on one line, with a child indented two spaces;
+- a heading is `#` signs, a space, then the words. `#word` with no space is a tag, and tags
+  belong to the person, so a skill writes none of its own.
+
+The inputs block only arrives on a Make run. A skill that also rewrites text in other apps can use
+an input to choose the Make shape, as To-do list does with `format`.
 
 These variables are filled in where the skill runs:
 
@@ -172,7 +199,8 @@ what each value means and what to assume when it is missing. See
 
 ## Default skills
 
-ScribeKey ships four skills from this catalogue: Polish, Summary, Flowchart and Email. They are
+ScribeKey ships five skills from this catalogue: Polish, Clean podcast, Summary, Flowchart and
+Email. Clean podcast is offered only in Improve, on a session imported from a link or a file. They are
 ordinary catalogue skills, the way Claude Code and Codex ship bundled skills inside their binaries:
 
 - The app carries a copy, so they work offline from the first launch. The copy is written by
@@ -180,9 +208,25 @@ ordinary catalogue skills, the way Claude Code and Codex ship bundled skills ins
 - They show as **Default** and **Included**. They can be turned off but not deleted or uninstalled.
 - An app update brings their new wording. Editing one in the app marks it **Edited** and stops
   those updates; **Reset** brings back the shipped copy, and **Restore default skills** resets all
-  four and turns them on.
+  of them and turns them on.
 
 A change to a default lands here first, then ships in the next app build that bumps the pin.
+
+## The contract with the app
+
+The app's Kotlin decides what a skill may say; this catalogue repeats it in three places: the
+schema, `scripts/skills.mjs` and this page. `node scripts/skills.mjs contract <scribekey checkout>`
+compares them with the app and fails when:
+
+- the app reads a `scribekey-*` key `check` rejects, or `check` accepts one the app never reads;
+- the schema's icon list and the icons the app bundles differ;
+- the instruction or bundled-file limits differ;
+- the app ships a default this catalogue does not carry, a copy newer than the catalogue's, or a
+  different copy at the same version;
+- the app ships a default its own sync script does not list.
+
+A default that is only behind the catalogue prints a note, not a failure. Run it before a change
+to a key, an icon, a limit or a default skill, and in the app repository before bumping the pin.
 
 ## Updates
 
@@ -195,6 +239,7 @@ instead. Updating replaces the installed copy, including any edits made in the a
 ```sh
 node scripts/skills.mjs check   # names, versions, metadata values, a fresh index.json
 node scripts/skills.mjs build   # regenerate index.json after a change
+node scripts/skills.mjs contract <scribekey checkout>   # compare with what the app reads
 ```
 
 CI runs `check` on every pull request. The schemas in [`schema/`](../schema) give editors

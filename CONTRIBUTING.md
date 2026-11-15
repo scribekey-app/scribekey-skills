@@ -12,10 +12,11 @@ New skills and improvements are welcome. One skill per pull request.
    markdown headings as `#` signs. Use the package
    name from the app's Play Store link (`id=` in the URL). When the skill suits every app of a
    kind, add `metadata.scribekey-categories: email` or `messaging` as well.
-   Add `metadata.scribekey-discovery-categories` when a catalogue topic helps people find it: use
+   Set `metadata.scribekey-discovery-categories` to the topic people would browse for it under:
    `writing`, `search`, `productivity`, `developer-ai` or `languages`, space- or comma-separated.
+   A skill without one is listed under Other.
    `metadata.scribekey-suggested-fields: search` may be used for a search-field skill; it only
-   changes suggestion order and does not enable execution or permissions. Both fields are optional.
+   changes suggestion order and does not enable execution or permissions. It is optional.
 4. Set `metadata.scribekey-actions` to `rewrite` (changes the text in place), `make` (adds a
    Studio result), or `rewrite,make`. Set `metadata.scribekey-presentation` when Make should show
    as something other than text. Set `metadata.scribekey-icon` to the bundled
@@ -44,7 +45,7 @@ choose Update.
 - `metadata.version` is not `MAJOR.MINOR.PATCH`, or a changed skill kept its old version;
 - an entry in `scribekey-apps` is not an Android package name, or one in `scribekey-categories` is
   not `email` or `messaging`;
-- an entry in `scribekey-discovery-categories` is not `writing`, `search`, `productivity`,
+- `scribekey-discovery-categories` is missing, or an entry in it is not `writing`, `search`, `productivity`,
   `developer-ai` or `languages`, or an entry in `scribekey-suggested-fields` is not `search`;
 - `scribekey-actions` is missing, or is not `rewrite` / `make`;
 - `scribekey-presentation` is set to a value other than text, diagram, page, slides, image or audio;
@@ -85,6 +86,9 @@ here follow them.
    return only the finished text, to write down a dictated question rather than answer it, to
    drop hesitation sounds and corrected false starts, and to write numbers as numerals. Repeating
    those spends tokens on every run and can argue with the app's own rules.
+   After your skill, ScribeKey forbids em dashes and stock phrases, and on a Make run asks for a
+   `Title:` line it shows as the document's name. So a skill asks for neither an em dash nor a
+   title line of its own. The format reference lists all of it.
    The same goes for `{{dictionary}}`, `{{app}}` and `{{language}}`: ScribeKey already adds the
    dictionary, the fidelity sentence keeps the text's language, and a skill should read the same
    in every app it is applied in. A variable with no value renders empty, so "Write in
@@ -128,6 +132,12 @@ It runs build, run, `evals/render.mjs`, grade and judge, skipping run and judge 
 Without `OPENAI_API_KEY` it scores `evals/fixtures/diagrams.json` instead: a good output for every
 case and deliberately bad ones (fenced, `%%{init}`, `click`, unquoted punctuation, 60 nodes), each
 marked with how it must score, so a broken check fails the script. PNGs land in `out/diagrams/png`.
+
+`node scripts/skills.mjs contract <scribekey checkout>` compares the keys, icons, limits and
+default skills here with what the app reads. Run it when a change touches any of them.
+
+Agents working in this repository get the same guidance from
+`.claude/skills/scribekey-skill/SKILL.md`.
 
 Small models follow the first rules they read over a skill's later ones, so a skill that changes
 the length or shape of the text has to say so plainly: name what to cut ("filler words, even

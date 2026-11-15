@@ -4,8 +4,9 @@ description: >-
   Punctuation, fillers and false starts. Fixes dictated text without changing what was said; use when the words are right and only the transcription is rough.
 license: Apache-2.0
 metadata:
-  version: "1.3.2"
+  version: "1.3.3"
   author: scribekey
+  scribekey-discovery-categories: writing
   scribekey-actions: rewrite
   scribekey-presentation: text
   scribekey-icon: cleaning_services

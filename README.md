@@ -5,8 +5,8 @@ voice-to-text app. Each one turns dictation into something ready to send: an ema
 a prompt for an agent. Apache 2.0 licensed.
 
 ScribeKey lists this repository as its default skill marketplace. Open **Settings → Skills →
-Explore skills** to install one; it shows **Update** when a new version lands here. Four of them,
-Polish, Summary, Flowchart and Email, ship inside the app as its default skills.
+Explore skills** to install one; it shows **Update** when a new version lands here. Five of them,
+Polish, Clean podcast, Summary, Flowchart and Email, ship inside the app as its default skills.
 
 The skills are ordinary `SKILL.md` files, so any client that reads Agent Skills can use them.
 
@@ -15,24 +15,27 @@ The skills are ordinary `SKILL.md` files, so any client that reads Agent Skills 
 | Skill | What it does | Suggested apps |
 | --- | --- | --- |
 | [Prompt for an agent](skills/agent-prompt/SKILL.md) | Goal, context, constraints, done when | com.openai.chatgpt, com.anthropic.claude, com.google.android.apps.bard, ai.mistral.chat, com.deepseek.chat, ai.x.grok |
+| [Clean podcast](skills/clean-podcast/SKILL.md) | Ads out, laid out by speaker and topic | – |
 | [Clean up](skills/clean-up/SKILL.md) | Punctuation, fillers and false starts | – |
 | [Concise](skills/concise/SKILL.md) | Same message, fewer words | – |
 | [Email](skills/email/SKILL.md) | Greeting, clear paragraphs, sign-off | com.google.android.gm, com.microsoft.office.outlook, com.samsung.android.email.provider, ch.protonmail.android, com.fastmail.app, com.readdle.spark |
+| [Flashcards](skills/flashcards/SKILL.md) | Question and answer cards to revise from | – |
 | [Flowchart](skills/flowchart/SKILL.md) | Steps and decisions as a flowchart | – |
 | [Friendly message](skills/friendly-message/SKILL.md) | Warm and conversational | com.whatsapp, com.google.android.apps.messaging, com.samsung.android.messaging, org.thoughtcrime.securesms, org.telegram.messenger, com.facebook.orca, com.whatsapp.w4b, com.viber.voip, jp.naver.line.android, com.discord |
 | [Interview Q&A](skills/interview-qa/SKILL.md) | Each question paired with its answer | – |
 | [Lecture notes](skills/lecture-notes/SKILL.md) | Study notes by topic, with questions from the room | – |
-| [Meeting notes](skills/meeting-notes/SKILL.md) | Summary, decisions and actions | – |
+| [Meeting notes](skills/meeting-notes/SKILL.md) | Decisions, each person's actions and open questions | – |
 | [Mind map](skills/mind-map/SKILL.md) | Ideas and how they branch, as a mind map | – |
 | [Notes](skills/notes/SKILL.md) | Bullet points by topic | com.google.android.keep, com.samsung.android.app.notes, md.obsidian, notion.id, com.microsoft.office.onenote, com.automattic.simplenote |
 | [1:1 notes](skills/one-on-one/SKILL.md) | Updates, blockers and actions for each person | – |
 | [Polish](skills/polish/SKILL.md) | Clearer wording | – |
 | [Professional](skills/professional/SKILL.md) | Polished and businesslike | – |
-| [Search query](skills/search-query/SKILL.md) | One concise query for an ordinary web or search field | – |
+| [Search query](skills/search-query/SKILL.md) | One concise search query | – |
 | [Social post](skills/social-post/SKILL.md) | One clear post in your voice | com.twitter.android, com.linkedin.android, xyz.blueskyweb.app, com.instagram.barcelona, org.joinmastodon.android |
 | [Summary](skills/summary/SKILL.md) | The key points, shorter | – |
 | [Taobao search](skills/taobao-search/SKILL.md) | One Simplified Chinese product query | com.taobao.taobao |
 | [Timeline](skills/timeline/SKILL.md) | Events in order, as a timeline | – |
+| [Key takeaways](skills/takeaways/SKILL.md) | The claims and advice worth keeping, each with its reason | – |
 | [To-do list](skills/todo-list/SKILL.md) | One task per line, for a to-do app | com.todoist, com.ticktick.task, com.google.android.apps.tasks, com.microsoft.todos, com.anydo |
 | [Work chat](skills/work-chat/SKILL.md) | Short, clear and friendly for a team channel | com.Slack, com.microsoft.teams, com.google.android.apps.dynamite, com.mattermost.rn, im.vector.app |
 
@@ -65,7 +68,7 @@ metadata:
     com.google.android.gm
     com.microsoft.office.outlook
   scribekey-categories: email   # optional. email, messaging, or both.
-  scribekey-discovery-categories: writing  # optional. writing, search, productivity, developer-ai, languages.
+  scribekey-discovery-categories: writing  # required here. writing, search, productivity, developer-ai, languages.
   scribekey-suggested-fields: search  # optional. Suggestion order for matching field kinds; never runs a skill.
   scribekey-actions: rewrite,make  # rewrite (in place), make (Studio result), or both.
   scribekey-presentation: text     # how Studio shows a Make result: text, diagram, page, slides, image or audio.
@@ -84,7 +87,7 @@ Rewrite the text as the body of an email…
 | `metadata.scribekey-title` | The title shown in lists |
 | `metadata.scribekey-apps` | Apps where the bubble suggests the skill first |
 | `metadata.scribekey-categories` | Kinds of app it also offers itself in: `email` (apps that open `mailto:` links) or `messaging` (apps that open `smsto:` links). Each app still has its own switch |
-| `metadata.scribekey-discovery-categories` | Optional catalogue topics, space- or comma-separated: `writing`, `search`, `productivity`, `developer-ai`, `languages`. This is separate from app kinds in `scribekey-categories` |
+| `metadata.scribekey-discovery-categories` | Catalogue topics, required here, space- or comma-separated: `writing`, `search`, `productivity`, `developer-ai`, `languages`. This is separate from app kinds in `scribekey-categories` |
 | `metadata.scribekey-suggested-fields` | Optional field kinds for suggestion ordering, currently `search`. This only influences recommendations; it never runs a Skill or grants a permission |
 | `metadata.scribekey-actions` | `rewrite` (changes text in place: bubble, Improve), `make` (adds a Studio result), or `rewrite,make`. The marketplace groups on this; omitting it means both |
 | `metadata.scribekey-presentation` | How Studio shows a Make result: `text`, `diagram`, `page`, `slides`, `image` or `audio`. Default `text` |
@@ -115,8 +118,7 @@ a changed skill bumped `metadata.version`, or that `index.json` is fresh.
 A `# yaml-language-server: $schema=…` comment in the frontmatter is allowed; existing skills
 leave it out so installing them does not offer a no-op Update.
 
-In `index.json`, these optional values appear as `discoveryCategories` and `suggestedFields`
-arrays. Missing values stay omitted, so existing entries remain uncategorised and neutral.
+In `index.json`, these values appear as `discoveryCategories` and `suggestedFields` arrays.
 
 ## Credits
 

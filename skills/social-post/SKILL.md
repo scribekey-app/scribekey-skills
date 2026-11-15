@@ -4,8 +4,9 @@ description: >-
   One clear post in your voice. Turns dictation into a social media post; use in X, LinkedIn, Bluesky, Threads or Mastodon.
 license: Apache-2.0
 metadata:
-  version: "1.3.2"
+  version: "1.3.3"
   author: scribekey
+  scribekey-discovery-categories: writing
   scribekey-apps: >-
     com.twitter.android
     com.linkedin.android

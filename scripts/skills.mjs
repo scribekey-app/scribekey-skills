@@ -3,6 +3,7 @@
 //
 //   node scripts/skills.mjs check [--base <git ref>]   validate; fail if index.json is stale
 //   node scripts/skills.mjs build                       rewrite index.json
+//   node scripts/skills.mjs contract <app checkout>     compare with what the ScribeKey app reads
 //
 // No dependencies: the frontmatter accepted here is a deliberate subset of YAML (plain, quoted and
 // folded `>-` scalars, one nested `metadata` map) that every Agent Skills client reads the same way.
@@ -45,9 +46,13 @@ const CATEGORIES = new Set(["email", "messaging"]);
 const DISCOVERY_CATEGORIES = new Set(["writing", "search", "productivity", "developer-ai", "languages"]);
 const SUGGESTED_FIELDS = new Set(["search"]);
 const ACTIONS = new Set(["rewrite", "make"]);
-const PRESENTATIONS = new Set(["text", "diagram", "page", "slides", "image", "audio"]);
-const WRITING_RULES = new Set(["on", "off"]);
-const ICONS = new Set(["auto_awesome", "article", "checklist", "mail", "chat", "code", "account_tree", "hub", "timeline", "groups", "group", "forum", "school", "notes", "summarize", "compress", "work", "search", "shopping_bag", "campaign", "cleaning_services"]);
+// The schema editors read is the one list of these values; `contract` compares it with the app.
+const SCHEMA = JSON.parse(readFileSync(join(ROOT, "schema/skill-frontmatter.schema.json"), "utf8")).definitions.metadata.properties;
+const PRESENTATIONS = new Set(SCHEMA["scribekey-presentation"].enum);
+const WRITING_RULES = new Set(SCHEMA["scribekey-writing-rules"].enum);
+const ICONS = new Set(SCHEMA["scribekey-icon"].enum);
+// Keys only index.json carries: the app reads them from the listing, not from an installed SKILL.md.
+const INDEX_ONLY_KEYS = new Set(["scribekey-discovery-categories"]);
 const KEPT_FOLDERS = ["references/", "assets/"];
 
 /** Splits a SKILL.md into its frontmatter lines and body; throws on a missing fence. */
@@ -193,6 +198,10 @@ function validate(folder, base) {
       problems.push(`"${category}" in metadata.scribekey-categories is not one of: ${[...CATEGORIES].join(", ")}`);
     }
   }
+  // Without a topic the marketplace files the skill under Other, where nobody browses.
+  if (packages(meta["scribekey-discovery-categories"]).length === 0) {
+    problems.push(`metadata.scribekey-discovery-categories is missing (${[...DISCOVERY_CATEGORIES].join(", ")})`);
+  }
   for (const category of packages(meta["scribekey-discovery-categories"])) {
     if (!DISCOVERY_CATEGORIES.has(category)) {
       problems.push(`"${category}" in metadata.scribekey-discovery-categories is not one of: ${[...DISCOVERY_CATEGORIES].join(", ")}`);
@@ -305,12 +314,59 @@ function humanise(name) {
   return words.charAt(0).toUpperCase() + words.slice(1);
 }
 
+/**
+ * Every place this catalogue and an app checkout disagree about what a skill may say. The app's
+ * Kotlin is the reader, so its constants win: fix the catalogue, or change the app first.
+ */
+function contract(app) {
+  const problems = [];
+  const read = (path) => readFileSync(join(app, path), "utf8");
+  const presets = "app/src/main/java/app/scribekey/enhancement/presets";
+  const source = readdirSync(join(app, presets)).filter((f) => f.endsWith(".kt")).map((f) => read(`${presets}/${f}`)).join("\n");
+
+  const appKeys = new Set([...source.matchAll(/const val SCRIBEKEY_[A-Z_]+ = "(scribekey-[a-z-]+)"/g)].map((m) => m[1]));
+  for (const key of appKeys) if (!SCRIBEKEY_KEYS.has(key)) problems.push(`the app reads metadata.${key}, which check rejects`);
+  for (const key of SCRIBEKEY_KEYS) {
+    if (!appKeys.has(key) && !INDEX_ONLY_KEYS.has(key)) problems.push(`check accepts metadata.${key}, which the app never reads`);
+  }
+
+  const icons = /SKILL_ICON_NAMES = setOf\(([^)]*)\)/.exec(source);
+  const appIcons = new Set([...(icons?.[1] ?? "").matchAll(/"([a-z_]+)"/g)].map((m) => m[1]));
+  for (const icon of appIcons) if (!ICONS.has(icon)) problems.push(`the app bundles the icon ${icon}, missing from the schema`);
+  for (const icon of ICONS) if (!appIcons.has(icon)) problems.push(`the schema lists the icon ${icon}, which the app does not bundle`);
+
+  const limit = (name) => Number((new RegExp(`${name} = ([0-9_]+)`).exec(source)?.[1] ?? "").replace(/_/g, ""));
+  if (limit("MAX_IMPORTED_INSTRUCTIONS") !== MAX_BODY) problems.push(`the app's instruction limit is not ${MAX_BODY}`);
+  if (limit("MAX_SKILL_FILES_CHARS") !== MAX_FILES_CHARS) problems.push(`the app's bundled-file limit is not ${MAX_FILES_CHARS}`);
+
+  // A default skill's wording lives here; the app only carries a copy.
+  const shipped = "app/src/main/assets/skills";
+  for (const { name, files: paths } of JSON.parse(read(`${shipped}/defaults.json`)).skills) {
+    const mine = join(SKILLS_DIR, name, "SKILL.md");
+    if (!existsSync(mine)) { problems.push(`the app ships the default ${name}, which this catalogue does not carry`); continue; }
+    const version = (text) => parseSkill(text).fields.metadata?.version ?? "0.0.0";
+    const [ours, theirs] = [version(readFileSync(mine, "utf8")), version(read(`${shipped}/${name}/SKILL.md`))];
+    const same = paths.every((p) => existsSync(join(SKILLS_DIR, name, p)) && readFileSync(join(SKILLS_DIR, name, p), "utf8") === read(`${shipped}/${name}/${p}`));
+    if (semverGreater(theirs, ours)) problems.push(`default ${name}: the app ships ${theirs}, newer than the catalogue's ${ours}`);
+    else if (!same && ours === theirs) problems.push(`default ${name}: the app's copy differs from the catalogue at the same version ${ours}`);
+    else if (!same) console.log(`default ${name}: the app ships ${theirs}; the catalogue has ${ours}. Run sync_default_skills.py in the app to pick it up`);
+  }
+  const listed = /^DEFAULTS = \[(.*)\]/m.exec(read("scripts/skills/sync_default_skills.py"))?.[1] ?? "";
+  for (const { name } of JSON.parse(read(`${shipped}/defaults.json`)).skills) {
+    if (!listed.includes(`"${name}"`)) problems.push(`the app ships the default ${name}, but its sync_default_skills.py does not list it, so the next sync deletes it`);
+  }
+  for (const problem of problems) console.error(problem);
+  if (problems.length) process.exit(1);
+  console.log("The catalogue and the app agree");
+}
+
 function main() {
   const [command, ...args] = process.argv.slice(2);
+  if (command === "contract" && args[0]) return contract(args[0]);
   const baseAt = args.indexOf("--base");
   const base = baseAt >= 0 ? args[baseAt + 1] : null;
   if (command !== "check" && command !== "build") {
-    console.error("usage: node scripts/skills.mjs check [--base <ref>] | build");
+    console.error("usage: node scripts/skills.mjs check [--base <ref>] | build | contract <app checkout>");
     process.exit(2);
   }
   const results = folders().map((folder) => ({ folder, ...validate(folder, command === "check" ? base : null) }));
