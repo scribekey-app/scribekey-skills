@@ -1,0 +1,27 @@
+**Q:** What is osmosis?
+
+**A:** The movement of water across a partially permeable membrane from a dilute solution to a more concentrated one.
+
+**Q:** What happens to a plant cell in pure water?
+
+**A:** It swells and becomes turgid.
+
+**Q:** What keeps a plant's stem upright?
+
+**A:** Its cells being turgid.
+
+**Q:** What is plasmolysis?
+
+**A:** A plant cell losing water in salty water.
+
+**Q:** How does the concentration gradient affect the rate of osmosis?
+
+**A:** A steeper gradient speeds osmosis up.
+
+**Q:** How does temperature affect the rate of osmosis?
+
+**A:** A higher temperature speeds osmosis up.
+
+**Q:** How does surface area affect the rate of osmosis?
+
+**A:** A larger surface area speeds osmosis up.

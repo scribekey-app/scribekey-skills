@@ -22,6 +22,28 @@ skills/email/
 - A file under `references/` or `assets/` reaches the model only when the instructions name it by
   path.
 
+## Examples
+
+Every skill has at least one example: something a person dictated and what the skill returned. The
+docs site shows it on the skill's page.
+
+```text
+examples/email/
+└── typical/
+    ├── input.txt   the dictation, as the transcript reached the skill
+    └── output.txt  what the skill returned, with its default inputs
+```
+
+- An example lives under `examples/<name>/<slug>/`, outside the skill folder. ScribeKey never
+  downloads it or sends it to a model. Adding or editing one does not offer **Update**, so it needs
+  no version bump.
+- `node scripts/skills.mjs build` copies each example into `index.json` as
+  `examples: [{ "input": …, "output": … }]`, in slug order. Add a second example as a second slug.
+- `output.txt` holds the result text without the `Title:` line that ScribeKey strips on a Make run.
+- An example in the instructions (`Example. "…" becomes …`) teaches the model the format and costs
+  tokens on every run. An example under `examples/` is for people. `check` fails when the two have
+  the same input, so neither is a copy of the other.
+
 ## SKILL.md
 
 YAML frontmatter, then the instructions in Markdown.
@@ -240,10 +262,17 @@ instead. Updating replaces the installed copy, including any edits made in the a
 ## Checking a skill
 
 ```sh
-node scripts/skills.mjs check   # names, versions, metadata values, a fresh index.json
+node scripts/skills.mjs check   # names, versions, metadata values, examples, a fresh index.json
 node scripts/skills.mjs build   # regenerate index.json after a change
 node scripts/skills.mjs contract <scribekey checkout>   # compare with what the app reads
 ```
+
+`check` fails when a skill has no example, or when an example's output breaks a rule its
+instructions state and a string test can see: one line for a search query, no full stop at the end
+of a to-do line, no markdown in a plain-text skill, a diagram's first line, shorter than the input
+for Summary and Concise, and no em dash or `Title:` line in any skill. It also fails when an
+example repeats the input of the example in the instructions, and when `index.json` would pass
+512 KiB. The app refuses a whole listing over 1 MiB.
 
 CI runs `check` on every pull request. The schemas in [`schema/`](../schema) give editors
 autocomplete; they cannot see that `name` matches the folder or that a changed skill bumped its

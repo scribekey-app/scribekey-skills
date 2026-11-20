@@ -25,7 +25,9 @@ New skills and improvements are welcome. One skill per pull request.
    `index.json` with your skill. Editors with the YAML extension pick up
    `schema/skill-frontmatter.schema.json` for `skills/**/SKILL.md` (see the README Schema
    section). Keep `scribekey-actions` and `scribekey-apps` as strings, not YAML lists.
-6. Open a pull request with one real dictated example and what the skill returned.
+6. Add one real dictated example and what the skill returned, as
+   `examples/<name>/<slug>/input.txt` and `output.txt`. The docs site shows it on the skill's page.
+   See [Examples](docs/skill-format.md#examples).
 
 ## Change a skill
 
@@ -50,6 +52,8 @@ choose Update.
 - `scribekey-actions` is missing, or is not `rewrite` / `make`;
 - `scribekey-presentation` is set to a value other than text, diagram, page, slides, image or audio;
 - the folder has `scripts/` or anything other than text under `references/` and `assets/`;
+- the skill has no example under `examples/<name>/`, or an example's output breaks a rule its
+  instructions state, as listed in [Checking a skill](docs/skill-format.md#checking-a-skill);
 - `index.json` is out of date.
 
 Run it yourself before pushing: `node scripts/skills.mjs check --base origin/main`.

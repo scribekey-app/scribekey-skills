@@ -101,6 +101,10 @@ Rewrite the text as the body of an email…
 A skill may add text files under `references/` or `assets/`; the instructions name them by path
 and ScribeKey sends the ones named. `scripts/` is not allowed: ScribeKey never runs code.
 
+Each skill also has an example under `examples/<name>/`: a dictation and what the skill returned.
+It is for the docs site and never reaches the app; see
+[Examples](docs/skill-format.md#examples).
+
 `index.json` is generated from the skills by `node scripts/skills.mjs build`. Don't edit it by
 hand.
 

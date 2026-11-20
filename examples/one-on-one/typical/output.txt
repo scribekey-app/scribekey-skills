@@ -1,0 +1,10 @@
+### Dan
+**Updates**
+- Moved the billing tables over on Monday
+**Blockers**
+- Needs a new API key from finance for the invoices job
+### Feedback
+- Priya to Dan: the runbook was great, and the on-call team has used it twice already
+### Actions
+- [ ] Priya: get Dan the API key by Wednesday
+- [ ] Dan: move the invoices job by the end of next week

@@ -1,0 +1,8 @@
+flowchart TD
+    n1{"Has a receipt?"}
+    n1 -->|"No"| n2["Offer store credit only"]
+    n1 -->|"Yes"| n3{"Within 30 days?"}
+    n3 -->|"Yes"| n4["Refund to the card"]
+    n3 -->|"No"| n2
+    n2 --> n5(["Log it in the returns sheet"])
+    n4 --> n5

@@ -1,0 +1,3 @@
+@maya can you take a look at the logs in checkout_service.log and let me know if the spike in the checkout service around 3 pm is related to the new retry logic?
+
+Error rates from yesterday's deploy look mostly fine apart from that spike.

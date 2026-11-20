@@ -1,0 +1,1 @@
+hey team so I've been looking at the error rates from yesterday's deploy and they look mostly fine but there's a spike in the checkout service around 3 pm can at maya take a look at the logs in checkout underscore service dot log and let me know if it's related to the new retry logic
