@@ -20,7 +20,7 @@
     "skill": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["name", "title", "description", "version", "url"],
+      "required": ["name", "title", "description", "version", "url", "examples"],
       "properties": {
         "name": {
           "type": "string",
@@ -60,6 +60,19 @@
         "icon": {
           "type": "string",
           "enum": ["auto_awesome", "article", "checklist", "mail", "chat", "code", "account_tree", "hub", "timeline", "groups", "group", "forum", "school", "notes", "summarize", "compress", "work", "search", "shopping_bag", "campaign", "cleaning_services"]
+        },
+        "examples": {
+          "type": "array",
+          "description": "From examples/<name>/<slug>/: a dictation and what the skill returned, for the docs site. The app ignores it.",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["input", "output"],
+            "properties": {
+              "input": { "type": "string" },
+              "output": { "type": "string" }
+            }
+          }
         }
       }
     }

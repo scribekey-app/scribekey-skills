@@ -54,6 +54,23 @@ const ICONS = new Set(SCHEMA["scribekey-icon"].enum);
 // Keys only index.json carries: the app reads them from the listing, not from an installed SKILL.md.
 const INDEX_ONLY_KEYS = new Set(["scribekey-discovery-categories"]);
 const KEPT_FOLDERS = ["references/", "assets/"];
+// Examples sit outside skills/, so the app never downloads them, sends them to a model, or sees a
+// skill folder change and offers Update. Only index.json carries them, for the docs site.
+const EXAMPLES_DIR = join(ROOT, "examples");
+// The app drops the whole listing past 1 MiB (MAX_INDEX_BYTES in JsonIndexMarketplace.kt); stay well under.
+const MAX_INDEX_BYTES = 512 * 1024;
+const words = (text) => text.split(/\s+/).filter(Boolean).length;
+// Rules a skill's instructions state, tested on its example outputs: [wording that states it, test, what broke].
+const OUTPUT_RULES = [
+  [/^/, (out) => !out.includes("—"), "has an em dash, which ScribeKey's writing rules forbid"],
+  [/^/, (out) => !/^Title:/.test(out), "starts with a Title: line, which ScribeKey strips into the document name"],
+  [/Write plain text: sentences and line breaks only/, (out) => !/^\s*(#+ |> |[-*+] |\d+\. )|\*\*/m.test(out), "uses markdown in a plain-text skill"],
+  [/sentences, line breaks and - items only/, (out) => !/^\s*#+ |\*\*/m.test(out), "uses markdown other than - items"],
+  [/end it without a full stop/, (out) => !/\.$/m.test(out), "ends a line with a full stop"],
+  [/the output is one line|one short query only/, (out) => !out.includes("\n"), "is more than one line"],
+  [/much shorter than the text|as few words as reads naturally/, (out, input) => words(out) < words(input), "is not shorter than its input"],
+  [/The first line is `/, (out, _, body) => out.split("\n")[0] === /The first line is `([^`]+)`/.exec(body)[1] && !out.includes("```"), "does not start with the first line the instructions name, or has a code fence"],
+];
 
 /** Splits a SKILL.md into its frontmatter lines and body; throws on a missing fence. */
 function split(text) {
@@ -247,6 +264,17 @@ function validate(folder, base) {
   }
   if (textChars > MAX_FILES_CHARS) problems.push(`bundled files are over ${MAX_FILES_CHARS} characters`);
 
+  const examples = readExamples(folder, problems);
+  if (examples.length === 0) problems.push(`has no example: add examples/${folder}/<slug>/input.txt and output.txt`);
+  // The instructions' own `"…" becomes` example teaches the model; a docs example that repeats it is a copy that drifts.
+  const taught = [...body.matchAll(/"([^"]+)" becomes/g)].map((m) => m[1]);
+  for (const { slug, input, output } of examples) {
+    if (taught.includes(input)) problems.push(`examples/${folder}/${slug}/input.txt repeats the example in the instructions; use another dictation`);
+    for (const [states, holds, broke] of OUTPUT_RULES) {
+      if (states.test(body) && !holds(output, input, body)) problems.push(`examples/${folder}/${slug}/output.txt ${broke}`);
+    }
+  }
+
   // A changed skill needs a higher version, or nobody is offered the update.
   if (base && SEMVER.test(meta.version ?? "")) {
     const changed = [ "SKILL.md", ...extra ].some((p) => {
@@ -262,7 +290,23 @@ function validate(folder, base) {
       }
     }
   }
-  return { problems, fields, meta, extra };
+  return { problems, fields, meta, extra, examples };
+}
+
+/** Each examples/<folder>/<slug>/ with its input and output, in slug order; a gap is a problem. */
+function readExamples(folder, problems) {
+  const dir = join(EXAMPLES_DIR, folder);
+  if (!existsSync(dir)) return [];
+  return readdirSync(dir).filter((slug) => statSync(join(dir, slug)).isDirectory()).sort().flatMap((slug) => {
+    const read = (file) => {
+      const path = join(dir, slug, file);
+      const text = existsSync(path) ? readFileSync(path, "utf8").replace(/\r\n/g, "\n").trim() : "";
+      if (!text) problems.push(`examples/${folder}/${slug}/${file} is missing or empty`);
+      return text;
+    };
+    const [input, output] = [read("input.txt"), read("output.txt")];
+    return input && output ? [{ slug, input, output }] : [];
+  });
 }
 
 function gitFiles(base, folder) {
@@ -279,7 +323,7 @@ function folders() {
 }
 
 function buildIndex(results) {
-  const skills = results.map(({ folder, fields, meta, extra }) => {
+  const skills = results.map(({ folder, fields, meta, extra, examples }) => {
     const entry = {
       name: fields.name,
       title: meta["scribekey-title"] ?? humanise(fields.name),
@@ -304,6 +348,7 @@ function buildIndex(results) {
     if (presentation) entry.presentation = presentation;
     const icon = meta["scribekey-icon"];
     if (icon) entry.icon = icon;
+    entry.examples = examples.map(({ input, output }) => ({ input, output }));
     return entry;
   });
   return JSON.stringify({ name: "ScribeKey skills", skills }, null, 2) + "\n";
@@ -371,6 +416,12 @@ function main() {
   }
   const results = folders().map((folder) => ({ folder, ...validate(folder, command === "check" ? base : null) }));
   let failed = false;
+  for (const folder of existsSync(EXAMPLES_DIR) ? readdirSync(EXAMPLES_DIR) : []) {
+    if (statSync(join(EXAMPLES_DIR, folder)).isDirectory() && !results.some((r) => r.folder === folder)) {
+      console.error(`examples/${folder}: no skill is named ${folder}`);
+      failed = true;
+    }
+  }
   for (const { folder, problems } of results) {
     for (const problem of problems) {
       console.error(`skills/${folder}: ${problem}`);
@@ -379,6 +430,10 @@ function main() {
   }
   if (failed) process.exit(1);
   const index = buildIndex(results);
+  if (Buffer.byteLength(index) > MAX_INDEX_BYTES) {
+    console.error(`index.json would be ${Buffer.byteLength(index)} bytes, over ${MAX_INDEX_BYTES}; the app refuses a listing over 1 MiB`);
+    process.exit(1);
+  }
   if (command === "build") {
     writeFileSync(INDEX, index);
     console.log(`Wrote index.json with ${results.length} skills`);

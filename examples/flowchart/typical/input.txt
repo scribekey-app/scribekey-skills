@@ -1,0 +1,1 @@
+so when a return comes in first we check the receipt if there's no receipt we offer store credit only if there is a receipt we check whether it's within thirty days if it is we refund to the card otherwise it's store credit too and then either way we log it in the returns sheet

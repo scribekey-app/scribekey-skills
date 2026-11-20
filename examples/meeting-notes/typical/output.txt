@@ -1,0 +1,16 @@
+### Summary
+The group chose the Riverside Hall for the conference and capped tickets at 250. Whether to livestream is still open.
+### Decisions
+- Use the Riverside Hall over the hotel
+- Cap tickets at 250
+### Actions
+#### Tom
+- [ ] Send the deposit by next Tuesday
+
+#### Sam
+- [ ] Call the caterer about vegetarian options
+
+#### Unassigned
+- [ ] Ask about parking
+### Open questions
+- Whether to do a livestream

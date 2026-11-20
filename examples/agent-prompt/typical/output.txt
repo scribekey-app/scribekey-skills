@@ -1,0 +1,10 @@
+Goal: Add a dark mode toggle to the settings page of my React app.
+Context:
+- The settings page is in src/settings.tsx.
+- The app uses Tailwind.
+- I think the theme context is in src/theme, but I'm not sure.
+Constraints:
+- Don't add any new dependencies.
+- Keep the existing theme context.
+Done when:
+- The toggle persists after a reload.

@@ -1,0 +1,6 @@
+timeline
+    title Our house
+    March 2021 : Bought the house
+    That summer : Had the roof redone
+    2022 : Had the baby : Finished the kitchen
+    Last year : Put in solar panels

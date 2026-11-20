@@ -58,7 +58,10 @@ What follows from that:
    the skill's own example) and a check for each in `evals/grade.py`. Run
    `cd evals && python3 -m unittest test_grade`. With `OPENAI_API_KEY` set, run the model evals
    in CONTRIBUTING and read the outputs, not only the score.
-7. If the change touches a metadata key, an icon, a limit or a default skill, run
+7. Give a new skill one example under `examples/<name>/<slug>/` (`input.txt`, `output.txt`), and
+   update it when the output changes shape. It is for the docs site, never the model. `check`
+   fails without one, or when it repeats the example in the instructions.
+8. If the change touches a metadata key, an icon, a limit or a default skill, run
    `node scripts/skills.mjs contract <scribekey app checkout>` and fix what it prints.
 
 ## Metadata

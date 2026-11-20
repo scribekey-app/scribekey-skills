@@ -1,0 +1,7 @@
+**Priya:** so how's the migration going
+
+**Dan:** pretty good I moved the billing tables over on Monday um but I'm stuck on the invoices job it needs a new API key from finance
+
+**Priya:** okay I'll get you that key by Wednesday. and honestly the runbook you wrote was great the on-call team has used it twice already
+
+**Dan:** oh thanks. I'll have the invoices job moved by the end of next week then

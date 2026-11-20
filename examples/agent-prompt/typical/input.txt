@@ -1,0 +1,1 @@
+okay so I want you to add a dark mode toggle to the settings page of my react app um the settings are in src slash settings dot tsx we use tailwind don't add any new dependencies and keep the existing theme context and it's done when the toggle persists after a reload I think the theme context is in src slash theme but I'm not sure

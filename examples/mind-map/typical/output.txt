@@ -1,0 +1,13 @@
+mindmap
+  root(("Wedding"))
+    ["Venue"]
+      ["Barn at Hollins Farm"]
+      ["Town hall"]
+    ["Food"]
+      ["Food truck"]
+      ["Caterer"]
+    ["Music"]
+      ["My cousin's band"]
+      ["DJ"]
+    ["Budget"]
+      ["Around 12,000"]
